@@ -1,0 +1,13 @@
+[package]
+name = "osyn-serum"
+description = "Read and write Serum 2 .SerumPreset files"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+indexmap.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+zstd.workspace = true
+md-5.workspace = true

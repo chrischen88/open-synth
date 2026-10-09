@@ -1,0 +1,8224 @@
+{
+ "generatedFrom": {
+  "serumVersion": "2.1.5",
+  "presetsScanned": 1394
+ },
+ "modules": {
+  "Arp": {
+   "paths": [
+    "Arp{0}"
+   ],
+   "params": [
+    {
+     "name": "kParamEnabled",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 51,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 1,
+     "automatable": true
+    },
+    {
+     "name": "kParamTransposeShift",
+     "id": 2,
+     "automatable": true
+    },
+    {
+     "name": "kParamTransposeRange",
+     "id": 3,
+     "automatable": true
+    },
+    {
+     "name": "kParamOffset",
+     "id": 4,
+     "automatable": true
+    },
+    {
+     "name": "kParamRepeats",
+     "id": 5,
+     "automatable": true
+    },
+    {
+     "name": "kParamGate",
+     "id": 6,
+     "automatable": true
+    },
+    {
+     "name": "kParamChance",
+     "id": 7,
+     "automatable": true
+    },
+    {
+     "name": "kParamRetrigRate",
+     "id": 8,
+     "automatable": true
+    },
+    {
+     "name": "kParamVeloDecay",
+     "id": 9,
+     "automatable": true
+    },
+    {
+     "name": "kParamVeloTarget",
+     "id": 10,
+     "automatable": true
+    },
+    {
+     "name": "kParamTranspose",
+     "id": 11,
+     "automatable": true
+    },
+    {
+     "name": "kParamWrapTranspose",
+     "id": 12,
+     "automatable": true
+    },
+    {
+     "name": "kParamWrapRange",
+     "id": 13,
+     "automatable": true
+    },
+    {
+     "name": "kParamWrapPhantomNote",
+     "id": 14,
+     "automatable": true
+    },
+    {
+     "name": "kParamActiveClipID",
+     "id": 15,
+     "automatable": false,
+     "observed": {
+      "count": 28,
+      "min": 1.0,
+      "max": 11.0
+     }
+    },
+    {
+     "name": "kParamLaunchQuantize",
+     "id": 16,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 7.0,
+      "max": 14.0
+     }
+    },
+    {
+     "name": "kParamMidiSelectOctave",
+     "id": 17,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": -3.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamKeyZoneMin",
+     "id": 18,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": 12.0,
+      "max": 84.0
+     }
+    },
+    {
+     "name": "kParamKeyZoneMax",
+     "id": 19,
+     "automatable": false,
+     "observed": {
+      "count": 203,
+      "min": 0.0,
+      "max": 126.0
+     }
+    },
+    {
+     "name": "kParamKeyZoneFold",
+     "id": 20,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVelocityZoneMin",
+     "id": 21,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVelocityZoneMax",
+     "id": 22,
+     "automatable": false
+    },
+    {
+     "name": "kParamPolyCount",
+     "id": 23,
+     "automatable": false
+    },
+    {
+     "name": "kParamVoicePriority",
+     "id": 24,
+     "automatable": false,
+     "enum": "VoicePriority"
+    }
+   ]
+  },
+  "ArpClip": {
+   "paths": [
+    "ArpClip{0..11}"
+   ],
+   "params": [
+    {
+     "name": "kParamShape",
+     "id": 0,
+     "automatable": false,
+     "enum": "ArpShape",
+     "observed": {
+      "count": 176,
+      "strings": [
+       "Chord",
+       "ConvAndDiv",
+       "Converge",
+       "Down",
+       "DownAndUp",
+       "DownUp",
+       "Pattern",
+       "Played",
+       "Rand",
+       "RandDrift",
+       "RandNoDup",
+       "RandOnce",
+       "ThumbUD",
+       "UpAndDown",
+       "UpDown"
+      ]
+     }
+    },
+    {
+     "name": "kParamOffset",
+     "id": 1,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRepeats",
+     "id": 2,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 1.0,
+      "max": 8.0
+     }
+    },
+    {
+     "name": "kParamGate",
+     "id": 3,
+     "automatable": false,
+     "observed": {
+      "count": 105,
+      "min": 0.0,
+      "max": 200.0
+     }
+    },
+    {
+     "name": "kParamLaunchRetrig",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 65,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamNoteRetrig",
+     "id": 5,
+     "automatable": false,
+     "observed": {
+      "count": 34,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamFirstNoteRetrig",
+     "id": 6,
+     "automatable": false,
+     "observed": {
+      "count": 14,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBeatRetrig",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 74,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRetrigRate",
+     "id": 8,
+     "automatable": false,
+     "observed": {
+      "count": 74,
+      "min": 4.0,
+      "max": 6.0
+     }
+    },
+    {
+     "name": "kParamLatch",
+     "id": 9,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTransposeShift",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 27,
+      "min": 1.0,
+      "max": 12.0
+     }
+    },
+    {
+     "name": "kParamTransposeRange",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 23,
+      "min": 1.0,
+      "max": 8.0
+     }
+    },
+    {
+     "name": "kParamTransposeShape",
+     "id": 12,
+     "automatable": false,
+     "enum": "ArpShape",
+     "observed": {
+      "count": 7,
+      "strings": [
+       "Converge",
+       "Diverge",
+       "Down",
+       "UpDown"
+      ]
+     }
+    },
+    {
+     "name": "kParamVeloEnabled",
+     "id": 13,
+     "automatable": false,
+     "observed": {
+      "count": 27,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVeloRetrig",
+     "id": 14,
+     "automatable": false,
+     "observed": {
+      "count": 27,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVeloDecay",
+     "id": 15,
+     "automatable": false,
+     "observed": {
+      "count": 37,
+      "min": 0.45638604468373395,
+      "max": 5.3721735362655805
+     }
+    },
+    {
+     "name": "kParamVeloTarget",
+     "id": 16,
+     "automatable": false,
+     "observed": {
+      "count": 37,
+      "min": 3.0,
+      "max": 114.0
+     }
+    },
+    {
+     "name": "kParamPlaybackMode",
+     "id": 17,
+     "automatable": false,
+     "enum": "ClipPlaybackMode",
+     "observed": {
+      "count": 1,
+      "strings": [
+       "RandomNoDup"
+      ]
+     }
+    },
+    {
+     "name": "kParamPlaybackModeTime",
+     "id": 18,
+     "automatable": false
+    },
+    {
+     "name": "kParamStepAction",
+     "id": 19,
+     "automatable": false,
+     "enum": "ArpStepAction",
+     "observed": {
+      "count": 6,
+      "strings": [
+       "Chord"
+      ]
+     }
+    },
+    {
+     "name": "kParamRangeWrapMode",
+     "id": 20,
+     "automatable": false,
+     "enum": "RangeWrapMode",
+     "observed": {
+      "count": 15,
+      "strings": [
+       "Phantom"
+      ]
+     }
+    },
+    {
+     "name": "kParamWrapTranspose",
+     "id": 21,
+     "automatable": false,
+     "observed": {
+      "count": 17,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWrapRange",
+     "id": 22,
+     "automatable": false,
+     "observed": {
+      "count": 30,
+      "min": 1.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamWrapPhantomNote",
+     "id": 23,
+     "automatable": false,
+     "observed": {
+      "count": 9,
+      "min": 47.0,
+      "max": 82.0
+     }
+    },
+    {
+     "name": "kParamTranspose",
+     "id": 24,
+     "automatable": false,
+     "observed": {
+      "count": 5,
+      "min": 1.0,
+      "max": 12.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 25,
+     "automatable": false,
+     "observed": {
+      "count": 149,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 26,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamDotted",
+     "id": 27,
+     "automatable": false,
+     "observed": {
+      "count": 26,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTriplets",
+     "id": 28,
+     "automatable": false,
+     "observed": {
+      "count": 8,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamThru",
+     "id": 29,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamChance",
+     "id": 30,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 0.0,
+      "max": 89.64077234268188
+     }
+    },
+    {
+     "name": "kParamChancePre",
+     "id": 31,
+     "automatable": false
+    },
+    {
+     "name": "kParamModWheelBipolar",
+     "id": 32,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro1Bipolar",
+     "id": 33,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro2Bipolar",
+     "id": 34,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro3Bipolar",
+     "id": 35,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro4Bipolar",
+     "id": 36,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro5Bipolar",
+     "id": 37,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro6Bipolar",
+     "id": 38,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro7Bipolar",
+     "id": 39,
+     "automatable": false
+    },
+    {
+     "name": "kParamMacro8Bipolar",
+     "id": 40,
+     "automatable": false
+    }
+   ]
+  },
+  "ClipPlayer": {
+   "paths": [
+    "ClipPlayer{0}"
+   ],
+   "params": [
+    {
+     "name": "kParamEnabled",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 192,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTranspose",
+     "id": 1,
+     "automatable": true
+    },
+    {
+     "name": "kParamRate",
+     "id": 2,
+     "automatable": true
+    },
+    {
+     "name": "kParamRegionOffset",
+     "id": 3,
+     "automatable": true
+    },
+    {
+     "name": "kParamMonoClipTrigger",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 22,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamMidiSelectOctave",
+     "id": 5,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": -3.0,
+      "max": -3.0
+     }
+    },
+    {
+     "name": "kParamSpanKeyboardClip",
+     "id": 6,
+     "automatable": false,
+     "observed": {
+      "count": 67,
+      "min": 0.0,
+      "max": 5.0
+     }
+    },
+    {
+     "name": "kParamMetronomeEnabled",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 84,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamRecordMode",
+     "id": 8,
+     "automatable": false,
+     "enum": "ClipRecordMode",
+     "observed": {
+      "count": 24,
+      "strings": [
+       "Extend"
+      ]
+     }
+    },
+    {
+     "name": "kParamRegionOffsetQuantize",
+     "id": 9,
+     "automatable": false
+    }
+   ]
+  },
+  "Env": {
+   "paths": [
+    "Env{0..3}"
+   ],
+   "params": [
+    {
+     "name": "kParamAttack",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 2197,
+      "min": 0.0,
+      "max": 9.460776062685134
+     }
+    },
+    {
+     "name": "kParamHold",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 164,
+      "min": 8.440650814966269e-12,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamDecay",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 1643,
+      "min": 0.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamSustain",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 1574,
+      "min": 0.0,
+      "max": 0.9976643919944763
+     }
+    },
+    {
+     "name": "kParamRelease",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 2430,
+      "min": 0.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamCurve1",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 5558,
+      "min": 0.0,
+      "max": 93.84421110153198
+     }
+    },
+    {
+     "name": "kParamCurve2",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 5560,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamCurve3",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 5560,
+      "min": 1.999955756559757e-10,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamStart",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 16,
+      "min": 0.08088237047195435,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamEnd",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.007352948188781738,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTimingScale",
+     "id": 10,
+     "automatable": false
+    },
+    {
+     "name": "kParamLegatoInverted",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 5,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 82,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVoiceStealRestart",
+     "id": 13,
+     "automatable": false,
+     "observed": {
+      "count": 332,
+      "min": 0.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "FXBode": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXBode"
+   ],
+   "fxTypeId": 10,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 2,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 180,
+      "min": 0.0,
+      "max": 96.49122953414917
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 52,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamShift",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 189,
+      "min": -100.0,
+      "max": 93.56725215911865
+     }
+    },
+    {
+     "name": "kParamRange",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 159,
+      "min": 0.1,
+      "max": 4999.999999999998
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 31,
+      "min": 0.0,
+      "max": 0.743199348449707
+     }
+    },
+    {
+     "name": "kParamDelayTime",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 85,
+      "min": 0.0005260420256713086,
+      "max": 1.7535988968822402
+     }
+    },
+    {
+     "name": "kParamFeedback",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 88,
+      "min": 0.8771929889917374,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDelayBalance",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 59,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamSwapAB",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamOutputMix",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 59,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamOutputWidth",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 58,
+      "min": 0.0,
+      "max": 99.41520690917969
+     }
+    },
+    {
+     "name": "kParamBlur",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 162,
+      "min": 1.1718226596713066,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRetrig",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 13,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamMonoInput",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 20,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "FXChorus": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXChorus"
+   ],
+   "fxTypeId": 3,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 7,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 455,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 12,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 198,
+      "min": 0.0,
+      "max": 4.530309265293168
+     }
+    },
+    {
+     "name": "kParamDelay",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 170,
+      "min": 0.0,
+      "max": 18.000000888934053
+     }
+    },
+    {
+     "name": "kParamDelay2",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 138,
+      "min": 0.04941691534257303,
+      "max": 19.17534566587875
+     }
+    },
+    {
+     "name": "kParamDepth",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 271,
+      "min": 0.0,
+      "max": 25.245323150890364
+     }
+    },
+    {
+     "name": "kParamFeedback",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 246,
+      "min": 0.0,
+      "max": 76.39811038970947
+     }
+    },
+    {
+     "name": "kParamFilt",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 378,
+      "min": 50.0,
+      "max": 20000.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 48,
+      "min": 0.37014803290367126,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamFiltMode",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 37,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamSwing",
+     "id": 11,
+     "automatable": false
+    }
+   ]
+  },
+  "FXComp": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXComp"
+   ],
+   "fxTypeId": 5,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 9,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 268,
+      "min": 0.0,
+      "max": 98.61955046653748
+     }
+    },
+    {
+     "name": "kParamThresh",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 1060,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRatio",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 769,
+      "min": 1.0,
+      "max": 1000000.0
+     }
+    },
+    {
+     "name": "kParamAttack",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 942,
+      "min": 0.10000000149011612,
+      "max": 1000.0
+     }
+    },
+    {
+     "name": "kParamRelease",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 930,
+      "min": 0.10000000149011612,
+      "max": 1000.0
+     }
+    },
+    {
+     "name": "kParamMakeup",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 1005,
+      "min": 1.0000317010875774,
+      "max": 31.0
+     }
+    },
+    {
+     "name": "kParamMultiband",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 728,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamThreshUD0",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 155,
+      "min": 0.0,
+      "max": 200.0
+     }
+    },
+    {
+     "name": "kParamThreshUD1",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 161,
+      "min": 0.0,
+      "max": 200.0
+     }
+    },
+    {
+     "name": "kParamThreshUD2",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 196,
+      "min": 0.0,
+      "max": 200.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 225,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamXoverLow",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 213,
+      "min": 20.0,
+      "max": 5000.0
+     }
+    },
+    {
+     "name": "kParamXoverHi",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 132,
+      "min": 300.0,
+      "max": 13757.735910780777
+     }
+    },
+    {
+     "name": "kParamGain0",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 461,
+      "min": -24.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamGain1",
+     "id": 15,
+     "automatable": true,
+     "observed": {
+      "count": 199,
+      "min": -24.0,
+      "max": 17.25
+     }
+    },
+    {
+     "name": "kParamGain2",
+     "id": 16,
+     "automatable": true,
+     "observed": {
+      "count": 469,
+      "min": -24.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamRatioBelow",
+     "id": 17,
+     "automatable": true,
+     "observed": {
+      "count": 408,
+      "min": 0.00390625,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRatio0",
+     "id": 18,
+     "automatable": true,
+     "observed": {
+      "count": 28,
+      "min": 0.0,
+      "max": 0.9667791128158569
+     }
+    },
+    {
+     "name": "kParamRatio1",
+     "id": 19,
+     "automatable": true,
+     "observed": {
+      "count": 35,
+      "min": 0.0,
+      "max": 0.9818181991577148
+     }
+    },
+    {
+     "name": "kParamRatio2",
+     "id": 20,
+     "automatable": true,
+     "observed": {
+      "count": 49,
+      "min": 0.0,
+      "max": 0.9858750104904175
+     }
+    },
+    {
+     "name": "kParamRatioBelow0",
+     "id": 21,
+     "automatable": true,
+     "observed": {
+      "count": 77,
+      "min": 0.0,
+      "max": 0.9772727489471436
+     }
+    },
+    {
+     "name": "kParamRatioBelow1",
+     "id": 22,
+     "automatable": true,
+     "observed": {
+      "count": 57,
+      "min": 0.0,
+      "max": 0.9745051860809326
+     }
+    },
+    {
+     "name": "kParamRatioBelow2",
+     "id": 23,
+     "automatable": true,
+     "observed": {
+      "count": 101,
+      "min": 0.0,
+      "max": 0.999161958694458
+     }
+    },
+    {
+     "name": "kParamDeadband0",
+     "id": 24,
+     "automatable": true,
+     "observed": {
+      "count": 19,
+      "min": 7.000000074505806,
+      "max": 7.000000074505806
+     }
+    },
+    {
+     "name": "kParamDeadband1",
+     "id": 25,
+     "automatable": true,
+     "observed": {
+      "count": 19,
+      "min": 11.600000113248825,
+      "max": 11.600000113248825
+     }
+    },
+    {
+     "name": "kParamDeadband2",
+     "id": 26,
+     "automatable": true,
+     "observed": {
+      "count": 19,
+      "min": 5.3000000193715096,
+      "max": 5.3000000193715096
+     }
+    },
+    {
+     "name": "kParamBypassDown1",
+     "id": 27,
+     "automatable": false
+    },
+    {
+     "name": "kParamBypassDown2",
+     "id": 28,
+     "automatable": false
+    },
+    {
+     "name": "kParamBypassDown3",
+     "id": 29,
+     "automatable": false
+    },
+    {
+     "name": "kParamBypassUp1",
+     "id": 30,
+     "automatable": false
+    },
+    {
+     "name": "kParamBypassUp2",
+     "id": 31,
+     "automatable": false
+    },
+    {
+     "name": "kParamBypassUp3",
+     "id": 32,
+     "automatable": false
+    },
+    {
+     "name": "kParamLimiterLatencyComp",
+     "id": 33,
+     "automatable": false
+    },
+    {
+     "name": "kParamCompensatedWetDry",
+     "id": 34,
+     "automatable": false,
+     "observed": {
+      "count": 202,
+      "min": 0.0,
+      "max": 0.0
+     }
+    }
+   ]
+  },
+  "FXConv": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXConv"
+   ],
+   "fxTypeId": 11,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 394,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamMinPhase",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 28,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 94,
+      "min": 0.02383432909846306,
+      "max": 0.8138518929481506
+     }
+    },
+    {
+     "name": "kParamSize",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 210,
+      "min": 10.0,
+      "max": 1000.0
+     }
+    },
+    {
+     "name": "kParamAttack",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 34,
+      "min": 2.8751432033024185e-07,
+      "max": 1.414168025531029
+     }
+    },
+    {
+     "name": "kParamDecay",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 148,
+      "min": 0.0,
+      "max": 40.0
+     }
+    },
+    {
+     "name": "kParamIpTrim",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 232,
+      "min": -34.0,
+      "max": 6.0
+     }
+    },
+    {
+     "name": "kParamTone",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 195,
+      "min": -100.0,
+      "max": 84.21052694320679
+     }
+    },
+    {
+     "name": "kParamPredelay",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 50,
+      "min": 5.737323274335093e-09,
+      "max": 0.38458826209436475
+     }
+    },
+    {
+     "name": "kParamPredelayBeatSync",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 8,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamDamping",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 65,
+      "min": 10.167214274406433,
+      "max": 100.0
+     }
+    }
+   ]
+  },
+  "FXDelay": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXDelay"
+   ],
+   "fxTypeId": 4,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 9,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 882,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 670,
+      "min": 40.0,
+      "max": 18000.0
+     }
+    },
+    {
+     "name": "kParamBW",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 696,
+      "min": 0.75,
+      "max": 8.25
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 57,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamLink",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 108,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTimeL",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 564,
+      "min": 0.001,
+      "max": 0.49360002644031276
+     }
+    },
+    {
+     "name": "kParamTimeR",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 560,
+      "min": 0.001,
+      "max": 0.501
+     }
+    },
+    {
+     "name": "kParamMode",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 517,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamFeedback",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 565,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamOffsetL",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 205,
+      "min": 0.5,
+      "max": 1.5
+     }
+    },
+    {
+     "name": "kParamOffsetR",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 231,
+      "min": 0.5,
+      "max": 1.5
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 54,
+      "min": 0.0,
+      "max": 0.8824561238288879
+     }
+    },
+    {
+     "name": "kParamHQ",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 1,
+      "min": 0.0,
+      "max": 0.0
+     }
+    }
+   ]
+  },
+  "FXDimE": {
+   "paths": [],
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true
+    },
+    {
+     "name": "kParamDimESize",
+     "id": 1,
+     "automatable": true
+    },
+    {
+     "name": "kParamDimEWet",
+     "id": 2,
+     "automatable": true
+    },
+    {
+     "name": "kParamDimELevelOut",
+     "id": 3,
+     "automatable": true
+    }
+   ]
+  },
+  "FXDistortion": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXDistortion"
+   ],
+   "fxTypeId": 0,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 810,
+      "min": 0.0,
+      "max": 99.56140518188477
+     }
+    },
+    {
+     "name": "kParamDrive",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 1469,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamLPHP",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 231,
+      "min": 0.12959367595613003,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamMode",
+     "id": 4,
+     "automatable": true,
+     "enum": "DistortionMode",
+     "observed": {
+      "count": 1150,
+      "strings": [
+       "kAsym",
+       "kDiode1",
+       "kDiode2",
+       "kDownsample",
+       "kHardClip",
+       "kLinFold",
+       "kOverdrive",
+       "kRectify",
+       "kSinFold",
+       "kSineShaper",
+       "kSoftClip",
+       "kSoftSat",
+       "kStompBox",
+       "kTapeSat",
+       "kXShaper",
+       "kXShaperAsym",
+       "kZeroSquare"
+      ]
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 630,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBW",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 555,
+      "min": 0.075,
+      "max": 7.575
+     }
+    },
+    {
+     "name": "kParamPrePost",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 480,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 241,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamNumStages",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 146,
+      "min": 2.0,
+      "max": 16.0
+     }
+    },
+    {
+     "name": "kParamKeyTrack",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 34,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "FXEQ": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXEQ"
+   ],
+   "fxTypeId": 7,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamFreq1",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 1170,
+      "min": 21.53320125,
+      "max": 20000.0
+     }
+    },
+    {
+     "name": "kParamFreq2",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 1125,
+      "min": 21.53320125,
+      "max": 20000.0
+     }
+    },
+    {
+     "name": "kParamReso1",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 1080,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamReso2",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 1007,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamGain1",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 861,
+      "min": -24.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamGain2",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 1039,
+      "min": -24.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamType1",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 999,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamType2",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 689,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 152,
+      "min": 0.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "FXFilter": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXFilter"
+   ],
+   "fxTypeId": 8,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 338,
+      "min": 0.0,
+      "max": 99.80126023292542
+     }
+    },
+    {
+     "name": "kParamType",
+     "id": 2,
+     "automatable": true,
+     "enum": "FilterType",
+     "observed": {
+      "count": 778,
+      "strings": [
+       "ADD_BASS",
+       "Allpasses",
+       "B12",
+       "B24",
+       "BEQ12",
+       "BN12",
+       "BP12",
+       "BandReject",
+       "Comb2",
+       "CombHL6N",
+       "CombHL6P",
+       "CombL6N",
+       "CombL6P",
+       "CombN",
+       "CombP",
+       "Combs",
+       "DJMixer",
+       "Diffuser",
+       "DirtyMg",
+       "DistComb1BP",
+       "DistComb1LP",
+       "Exp",
+       "ExpBPF",
+       "FlangeH6P",
+       "FlangeHL6N",
+       "FlangeHL6P",
+       "FlangeL6N",
+       "FlangeL6P",
+       "FlangeN",
+       "FlangeP",
+       "FormantONE",
+       "FormantTWB",
+       "FormantTWO",
+       "H12",
+       "H18",
+       "H24",
+       "H6",
+       "HEQ12",
+       "HEQ6",
+       "HN12",
+       "HP12",
+       "K35",
+       "L12",
+       "L18",
+       "L24",
+       "L6",
+       "LB12",
+       "LBH24",
+       "LEQ6",
+       "LH12",
+       "LN12",
+       "LNH24",
+       "LPH12",
+       "LPH24",
+       "LadderAcid",
+       "LadderEMS",
+       "LadderMg",
+       "MgL12",
+       "MgL18",
+       "MgL24",
+       "N12",
+       "N24",
+       "NN12",
+       "P12",
+       "PN12",
+       "PP12",
+       "PZ_SVF",
+       "Phase12N",
+       "Phase12P",
+       "Phase24P",
+       "Phase36N",
+       "Phase36P",
+       "Phase48H6P",
+       "Phase48HL6N",
+       "Phase48HL6P",
+       "Phase48N",
+       "Phase48P",
+       "RM",
+       "RMT",
+       "Reverb1",
+       "SNH1",
+       "Scream",
+       "Scream3BP",
+       "Scream3LP",
+       "Wsp",
+       "ZDF_A"
+      ]
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 896,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamReso",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 421,
+      "min": 0.7605719845741987,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDrive",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 379,
+      "min": 0.16173245385289192,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamVar",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 341,
+      "min": 2.9999999329447746,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamStereo",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 57,
+      "min": 0.0,
+      "max": 75.43859481811523
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 113,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamX",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.0066006602719426155,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamY",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 4,
+      "min": 0.03030303120613098,
+      "max": 0.4121212065219879
+     }
+    },
+    {
+     "name": "kParamKeyTrack",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 40,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPad",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "FXFlanger": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXFlanger"
+   ],
+   "fxTypeId": 1,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 3,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 131,
+      "min": 0.0,
+      "max": 91.92982316017151
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 15,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 88,
+      "min": 0.0,
+      "max": 20.0
+     }
+    },
+    {
+     "name": "kParamDepth",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 61,
+      "min": 0.0,
+      "max": 99.96541142463684
+     }
+    },
+    {
+     "name": "kParamFeedback",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 93,
+      "min": 0.0,
+      "max": 91.51761531829834
+     }
+    },
+    {
+     "name": "kParamWidth",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 45,
+      "min": 0.0,
+      "max": 360.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 9,
+      "min": 0.3976608216762543,
+      "max": 0.9824561476707458
+     }
+    },
+    {
+     "name": "kParamSwing",
+     "id": 8,
+     "automatable": false
+    }
+   ]
+  },
+  "FXHyperD": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXHyperD"
+   ],
+   "fxTypeId": 9,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 444,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 305,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDetune",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 235,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamUnison",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 264,
+      "min": 0.0,
+      "max": 7.0
+     }
+    },
+    {
+     "name": "kParamRetrig",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 27,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 36,
+      "min": 0.16228070855140686,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamDimESize",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 341,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDimEWet",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 159,
+      "min": 1.862645149230957e-07,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDimELevelOut",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 4,
+      "min": 0.29618969559669495,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "FXPhaser": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXPhaser"
+   ],
+   "fxTypeId": 2,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 169,
+      "min": 0.0,
+      "max": 82.61488080024719
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 41,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 136,
+      "min": 0.0,
+      "max": 20.0
+     }
+    },
+    {
+     "name": "kParamDepth",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 112,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDepth2",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 87,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 120,
+      "min": 20.0,
+      "max": 18000.0
+     }
+    },
+    {
+     "name": "kParamFeedback",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 134,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamWidth",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 39,
+      "min": 0.0,
+      "max": 360.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 15,
+      "min": 0.3033854067325592,
+      "max": 0.7623224854469299
+     }
+    },
+    {
+     "name": "kParamNumPoles",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 68,
+      "min": 1.0,
+      "max": 18.0
+     }
+    }
+   ]
+  },
+  "FXRack": {
+   "paths": [
+    "FXRack{0..2}"
+   ],
+   "params": [
+    {
+     "name": "kParamDummyParameter",
+     "id": 0,
+     "automatable": true
+    }
+   ]
+  },
+  "FXReverb": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXReverb"
+   ],
+   "fxTypeId": 6,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 1042,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamSize",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 863,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDelay",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 723,
+      "min": 0.0,
+      "max": 250.0
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 569,
+      "min": 4.476125165820122,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamFeedback",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 311,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamFreqB",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 681,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamWidth",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 559,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamFreqC",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 195,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamMode",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 174,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 146,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVintageScale",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 128,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamVintageScaleB",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 105,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamPreDelay",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 200,
+      "min": 5.343299215100872e-13,
+      "max": 2.5
+     }
+    },
+    {
+     "name": "kParamPreDelayBeatSync",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 61,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamType",
+     "id": 15,
+     "automatable": false,
+     "enum": "ReverbType",
+     "observed": {
+      "count": 874,
+      "strings": [
+       "kAbyss",
+       "kHall",
+       "kSpace",
+       "kVintage"
+      ]
+     }
+    }
+   ]
+  },
+  "FXSplit": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXSplit"
+   ],
+   "fxTypeId": 13,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true
+    },
+    {
+     "name": "kParamFreq",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 105,
+      "min": 29.34257254550225,
+      "max": 3999.9999193110716
+     }
+    },
+    {
+     "name": "kParamBand1Bypass",
+     "id": 2,
+     "automatable": true
+    },
+    {
+     "name": "kParamBand2Bypass",
+     "id": 3,
+     "automatable": true
+    },
+    {
+     "name": "kParamSolo",
+     "id": 4,
+     "automatable": true
+    },
+    {
+     "name": "kParamModuleCount1",
+     "id": 5,
+     "automatable": false,
+     "observed": {
+      "count": 90,
+      "min": 1.0,
+      "max": 3.0
+     }
+    },
+    {
+     "name": "kParamModuleCount2",
+     "id": 6,
+     "automatable": false,
+     "observed": {
+      "count": 151,
+      "min": 1.0,
+      "max": 8.0
+     }
+    }
+   ]
+  },
+  "FXSplit3": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXSplit3"
+   ],
+   "fxTypeId": 14,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true
+    },
+    {
+     "name": "kParamFreq",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 23,
+      "min": 79.99999733101906,
+      "max": 4512.193770958318
+     }
+    },
+    {
+     "name": "kParamFreq2",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 28,
+      "min": 309.4924073112388,
+      "max": 20000.0
+     }
+    },
+    {
+     "name": "kParamBand1Bypass",
+     "id": 3,
+     "automatable": true
+    },
+    {
+     "name": "kParamBand2Bypass",
+     "id": 4,
+     "automatable": true
+    },
+    {
+     "name": "kParamBand3Bypass",
+     "id": 5,
+     "automatable": true
+    },
+    {
+     "name": "kParamSolo",
+     "id": 6,
+     "automatable": true
+    },
+    {
+     "name": "kParamModuleCount1",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 24,
+      "min": 1.0,
+      "max": 3.0
+     }
+    },
+    {
+     "name": "kParamModuleCount2",
+     "id": 8,
+     "automatable": false,
+     "observed": {
+      "count": 31,
+      "min": 1.0,
+      "max": 4.0
+     }
+    },
+    {
+     "name": "kParamModuleCount3",
+     "id": 9,
+     "automatable": false,
+     "observed": {
+      "count": 30,
+      "min": 1.0,
+      "max": 5.0
+     }
+    }
+   ]
+  },
+  "FXSplitMS": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXSplitMS"
+   ],
+   "fxTypeId": 15,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true
+    },
+    {
+     "name": "kParamBand1Bypass",
+     "id": 1,
+     "automatable": true
+    },
+    {
+     "name": "kParamBand2Bypass",
+     "id": 2,
+     "automatable": true
+    },
+    {
+     "name": "kParamSolo",
+     "id": 3,
+     "automatable": true
+    },
+    {
+     "name": "kParamModuleCount1",
+     "id": null,
+     "automatable": null,
+     "observed": {
+      "count": 10,
+      "min": 1.0,
+      "max": 3.0
+     }
+    },
+    {
+     "name": "kParamModuleCount2",
+     "id": null,
+     "automatable": null,
+     "observed": {
+      "count": 19,
+      "min": 1.0,
+      "max": 3.0
+     }
+    }
+   ]
+  },
+  "FXUtils": {
+   "paths": [
+    "FXRack{0..2}/FX[]/FXUtils"
+   ],
+   "fxTypeId": 12,
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 11,
+      "min": 0.0,
+      "max": 89.8245632648468
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 104,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWidth",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 291,
+      "min": 0.0,
+      "max": 800.0
+     }
+    },
+    {
+     "name": "kParamBalance",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 22,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamLFMono",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 153,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLFXover",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 161,
+      "min": 20.25,
+      "max": 400.0
+     }
+    },
+    {
+     "name": "kParamHPF",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 76,
+      "min": 1.3351743724075973,
+      "max": 400.0
+     }
+    },
+    {
+     "name": "kParamLPF",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 37,
+      "min": 50.0,
+      "max": 19924.255979922462
+     }
+    },
+    {
+     "name": "kParamPolarityL",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 8,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPolarityR",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "Global": {
+   "paths": [
+    "Global{0}"
+   ],
+   "params": [
+    {
+     "name": "kParamMasterVolume",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 1172,
+      "min": 0.04997252023561405,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamMasterTuning",
+     "id": 1,
+     "automatable": true
+    },
+    {
+     "name": "kParamVoiceAmp",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 1,
+      "min": 0.4301052689552307,
+      "max": 0.4301052689552307
+     }
+    },
+    {
+     "name": "kParamPortamentoTime",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 391,
+      "min": 1.2984217092695132e-11,
+      "max": 8.0
+     }
+    },
+    {
+     "name": "kParamPortamentoCurve",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 13,
+      "min": -6.6064417362213135,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamBendRangeUp",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 132,
+      "min": 0.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamBendRangeDn",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 138,
+      "min": -24.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamPitchBendAuto",
+     "id": 7,
+     "automatable": true
+    },
+    {
+     "name": "kParamModWheel",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 186,
+      "min": 2.2351741790771484e-06,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamProgram",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 35,
+      "min": 1.0,
+      "max": 127.0
+     }
+    },
+    {
+     "name": "kParamMonoToggle",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 615,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLegato",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 278,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPortaAlways",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 159,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPortaScaled",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 28,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamSwing",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 31,
+      "min": 12.5,
+      "max": 66.24291688203812
+     }
+    },
+    {
+     "name": "kParamSwingDiv",
+     "id": 15,
+     "automatable": true,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamTranspose",
+     "id": 16,
+     "automatable": true,
+     "observed": {
+      "count": 14,
+      "min": -24.0,
+      "max": 24.0
+     }
+    },
+    {
+     "name": "kParamBypass",
+     "id": 17,
+     "automatable": true
+    },
+    {
+     "name": "kParamDirectVol",
+     "id": 18,
+     "automatable": true,
+     "observed": {
+      "count": 39,
+      "min": 0.10403200460236128,
+      "max": 1.7128733620712637
+     }
+    },
+    {
+     "name": "kParamFXBus1Vol",
+     "id": 19,
+     "automatable": true,
+     "observed": {
+      "count": 73,
+      "min": 0.008656510314452692,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamFXBus2Vol",
+     "id": 20,
+     "automatable": true,
+     "observed": {
+      "count": 53,
+      "min": 0.0,
+      "max": 1.601108190425549
+     }
+    },
+    {
+     "name": "kParamPolyCount",
+     "id": 21,
+     "automatable": false,
+     "observed": {
+      "count": 266,
+      "min": 1.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamOversampling",
+     "id": 22,
+     "automatable": false,
+     "observed": {
+      "count": 51,
+      "min": 0.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamGlobalTuning",
+     "id": 23,
+     "automatable": false,
+     "observed": {
+      "count": 5,
+      "min": 432.0000000298023,
+      "max": 450.0
+     }
+    },
+    {
+     "name": "kParamNoteLatch",
+     "id": 24,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamMidiOut",
+     "id": 25,
+     "automatable": false,
+     "enum": "MidiOutMode",
+     "observed": {
+      "count": 13,
+      "strings": [
+       "ClipPlayer",
+       "Synth"
+      ]
+     }
+    },
+    {
+     "name": "kParamS1Compatibility",
+     "id": 26,
+     "automatable": false,
+     "observed": {
+      "count": 233,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamFXBus1Dest",
+     "id": 27,
+     "automatable": false,
+     "observed": {
+      "count": 54,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamFXBus2Dest",
+     "id": 28,
+     "automatable": false,
+     "observed": {
+      "count": 20,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamSmoothingDisable",
+     "id": 29,
+     "automatable": false
+    },
+    {
+     "name": "kParamEnableMTSESP",
+     "id": 30,
+     "automatable": false
+    },
+    {
+     "name": "kParamMTSESPNoteOnOnly",
+     "id": 31,
+     "automatable": false
+    },
+    {
+     "name": "kParamLimitSameNotePolyphony",
+     "id": 32,
+     "automatable": false,
+     "enum": "LimitSameNotePolyphony",
+     "observed": {
+      "count": 442,
+      "min": 1.0,
+      "max": 1.0,
+      "strings": [
+       "Sustain"
+      ]
+     }
+    },
+    {
+     "name": "kParamVoicePriority",
+     "id": 33,
+     "automatable": false,
+     "enum": "VoicePriority",
+     "observed": {
+      "count": 1,
+      "strings": [
+       "Low"
+      ]
+     }
+    },
+    {
+     "name": "kParamVelocityLegato",
+     "id": 34,
+     "automatable": false,
+     "observed": {
+      "count": 8,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamNoteCurveApplyTuning",
+     "id": 35,
+     "automatable": false,
+     "observed": {
+      "count": 44,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamPitchExpressionApplyTuning",
+     "id": 36,
+     "automatable": false,
+     "observed": {
+      "count": 34,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamUseUltraOnRender",
+     "id": null,
+     "automatable": null,
+     "observed": {
+      "count": 7,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "GranularOsc": {
+   "paths": [
+    "Oscillator{0..2}/GranularOsc{0..2}"
+   ],
+   "params": [
+    {
+     "name": "kParamWarp",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 30,
+      "min": 0.03324275091290474,
+      "max": 0.8239789009094238
+     }
+    },
+    {
+     "name": "kParamWarpVar",
+     "id": 1,
+     "automatable": true
+    },
+    {
+     "name": "kParamWarpMenu",
+     "id": 2,
+     "automatable": true,
+     "enum": "GranularWarp",
+     "observed": {
+      "count": 43,
+      "strings": [
+       "kDistAsym",
+       "kDistDiode2",
+       "kDistHardClip",
+       "kDistRectify",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kFM_FILT1",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPD_SUB",
+       "kSelfPD"
+      ]
+     }
+    },
+    {
+     "name": "kParamWarp2",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 19,
+      "min": 0.006956823635846376,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar2",
+     "id": 4,
+     "automatable": true
+    },
+    {
+     "name": "kParamWarpMenu2",
+     "id": 5,
+     "automatable": true,
+     "enum": "GranularWarp",
+     "observed": {
+      "count": 27,
+      "strings": [
+       "kAM_OSC",
+       "kAM_SUB",
+       "kDistDiode1",
+       "kDistLinFold",
+       "kDistRectify",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kPD_OSC"
+      ]
+     }
+    },
+    {
+     "name": "kParamDensity",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 127,
+      "min": 0.0,
+      "max": 800.0370580017809
+     }
+    },
+    {
+     "name": "kParamGrainLength",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 118,
+      "min": 0.0,
+      "max": 10.0
+     }
+    },
+    {
+     "name": "kParamGrainReverse",
+     "id": 8,
+     "automatable": true
+    },
+    {
+     "name": "kParamWindowParam",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 19,
+      "min": 0.0,
+      "max": 99.12280440330505
+     }
+    },
+    {
+     "name": "kParamWindowSkew",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 28,
+      "min": -100.0,
+      "max": 53.94737720489502
+     }
+    },
+    {
+     "name": "kParamWindowShape",
+     "id": 11,
+     "automatable": true,
+     "enum": "GranularWindowShape",
+     "observed": {
+      "count": 18,
+      "strings": [
+       "kWindowBlackmanHarris",
+       "kWindowExpDec",
+       "kWindowGaussian",
+       "kWindowSinc",
+       "kWindowTrapezoid",
+       "kWindowTriangle",
+       "kWindowTukey",
+       "kWindowWelch"
+      ]
+     }
+    },
+    {
+     "name": "kParamRandomOffset",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 42,
+      "min": 5.146824941039085,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRandomDir",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 56,
+      "min": 0.5037011578679085,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRandomPitch",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 35,
+      "min": 2.3942184620362205e-08,
+      "max": 12.0
+     }
+    },
+    {
+     "name": "kParamRandomGrainLength",
+     "id": 15,
+     "automatable": true,
+     "observed": {
+      "count": 71,
+      "min": 1.000546384602785,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRandomPan",
+     "id": 16,
+     "automatable": true,
+     "observed": {
+      "count": 66,
+      "min": 3.6321260035037994,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRandomGain",
+     "id": 17,
+     "automatable": true,
+     "observed": {
+      "count": 28,
+      "min": 6.4470261335372925,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRandomWindowAmount",
+     "id": 18,
+     "automatable": true,
+     "observed": {
+      "count": 4,
+      "min": 22.4456787109375,
+      "max": 56.85906410217285
+     }
+    },
+    {
+     "name": "kParamRandomWindowSkew",
+     "id": 19,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 0.390625,
+      "max": 69.15788054466248
+     }
+    },
+    {
+     "name": "kParamRandomWarp",
+     "id": 20,
+     "automatable": true,
+     "observed": {
+      "count": 8,
+      "min": 0.11478892993181944,
+      "max": 58.22533369064331
+     }
+    },
+    {
+     "name": "kParamRandomWarp2",
+     "id": 21,
+     "automatable": true,
+     "observed": {
+      "count": 2,
+      "min": 5.780564248561859,
+      "max": 73.4078049659729
+     }
+    },
+    {
+     "name": "kParamLengthMode",
+     "id": 22,
+     "automatable": false,
+     "enum": "GranularLengthMode",
+     "observed": {
+      "count": 11,
+      "strings": [
+       "kLengthBPM"
+      ]
+     }
+    },
+    {
+     "name": "kParamDensityMode",
+     "id": 23,
+     "automatable": false,
+     "enum": "GranularDensityMode",
+     "observed": {
+      "count": 13,
+      "strings": [
+       "kDensityBPM",
+       "kDensityFree"
+      ]
+     }
+    },
+    {
+     "name": "kParamMaxNumGrains",
+     "id": 24,
+     "automatable": false,
+     "observed": {
+      "count": 5,
+      "min": 0.0,
+      "max": 11.0
+     }
+    },
+    {
+     "name": "kParamYAxisAssignment",
+     "id": 25,
+     "automatable": false,
+     "enum": "GranularYAxis",
+     "observed": {
+      "count": 1,
+      "strings": [
+       "kYAxisOscVolume"
+      ]
+     }
+    },
+    {
+     "name": "kParamUnisonTrigPattern",
+     "id": 26,
+     "automatable": false,
+     "enum": "GranularUnisonTrigPattern",
+     "observed": {
+      "count": 8,
+      "strings": [
+       "kEven",
+       "kExponential",
+       "kRandom"
+      ]
+     }
+    },
+    {
+     "name": "kParamJumpStartGrains",
+     "id": 27,
+     "automatable": false,
+     "observed": {
+      "count": 5,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamDensityDotted",
+     "id": 28,
+     "automatable": false
+    },
+    {
+     "name": "kParamDensityTriplet",
+     "id": 29,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLengthDotted",
+     "id": 30,
+     "automatable": false
+    },
+    {
+     "name": "kParamLengthTriplet",
+     "id": 31,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLoopGrains",
+     "id": 32,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLengthKeyTrack",
+     "id": 33,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "LFO": {
+   "paths": [
+    "LFO{0..9}"
+   ],
+   "params": [
+    {
+     "name": "kParamRate",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 3526,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamSmooth",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 286,
+      "min": 0.15076762065291405,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRise",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 103,
+      "min": 0.017543859779834747,
+      "max": 4.0
+     }
+    },
+    {
+     "name": "kParamDelay",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 61,
+      "min": 0.017543882131576538,
+      "max": 3.5986156463623047
+     }
+    },
+    {
+     "name": "kParamPhase",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 33,
+      "min": 0.7200000341981649,
+      "max": 359.16106939315796
+     }
+    },
+    {
+     "name": "kParamMode",
+     "id": 5,
+     "automatable": false,
+     "enum": "LFOMode",
+     "observed": {
+      "count": 4069,
+      "strings": [
+       "Envelope",
+       "Free"
+      ]
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 6,
+     "automatable": false,
+     "observed": {
+      "count": 1793,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamAnchored",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 28,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamDotted",
+     "id": 8,
+     "automatable": false,
+     "observed": {
+      "count": 839,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTriplets",
+     "id": 9,
+     "automatable": false,
+     "observed": {
+      "count": 865,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamGridX",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 81,
+      "min": 0.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamGridY",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 32,
+      "min": 4.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamMono",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 123,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamType",
+     "id": 13,
+     "automatable": false,
+     "enum": "LFOType",
+     "observed": {
+      "count": 1063,
+      "strings": [
+       "Lorenz",
+       "Path",
+       "RandomSH",
+       "Rossler"
+      ]
+     }
+    },
+    {
+     "name": "kParamDirection",
+     "id": 14,
+     "automatable": false,
+     "observed": {
+      "count": 30,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamTimingScale",
+     "id": 15,
+     "automatable": false
+    },
+    {
+     "name": "kParamTimingScaleSnap",
+     "id": 16,
+     "automatable": false
+    },
+    {
+     "name": "kParamRate10x",
+     "id": 17,
+     "automatable": false,
+     "observed": {
+      "count": 767,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamSwing",
+     "id": 18,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamDefaultMode",
+     "id": 19,
+     "automatable": false,
+     "observed": {
+      "count": 4837,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamPhaseSnap",
+     "id": 20,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLoopbackCompat",
+     "id": 21,
+     "automatable": false
+    }
+   ]
+  },
+  "LFOPointModBus": {
+   "paths": [
+    "LFOPointModBus{0..15}"
+   ],
+   "params": [
+    {
+     "name": "kParamValue",
+     "id": 0,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 0.004385948181152344,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "Macro": {
+   "paths": [
+    "Macro{0..7}"
+   ],
+   "params": [
+    {
+     "name": "kParamValue",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 5620,
+      "min": 0.04968476132489741,
+      "max": 100.0
+     }
+    }
+   ]
+  },
+  "MidiClip": {
+   "paths": [
+    "MidiClip{0..11}"
+   ],
+   "params": [
+    {
+     "name": "kParamPlaybackMode",
+     "id": 0,
+     "automatable": false,
+     "enum": "ClipPlaybackMode",
+     "observed": {
+      "count": 110,
+      "strings": [
+       "OneShot",
+       "Pendulum",
+       "Random",
+       "Static"
+      ]
+     }
+    },
+    {
+     "name": "kParamPlaybackModeTime",
+     "id": 1,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 2.0,
+      "max": 5.0
+     }
+    },
+    {
+     "name": "kParamLaunchQuantize",
+     "id": 2,
+     "automatable": false,
+     "observed": {
+      "count": 77,
+      "min": 0.0,
+      "max": 14.0
+     }
+    },
+    {
+     "name": "kParamLaunchRetrig",
+     "id": 3,
+     "automatable": false,
+     "observed": {
+      "count": 403,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVelocityTrigger",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 9,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamNoteGate",
+     "id": 5,
+     "automatable": false,
+     "observed": {
+      "count": 110,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamSpanKeyboardMode",
+     "id": 6,
+     "automatable": false,
+     "enum": "SpanKeyboardMode",
+     "observed": {
+      "count": 144,
+      "strings": [
+       "Mono",
+       "Offset",
+       "Poly"
+      ]
+     }
+    },
+    {
+     "name": "kParamTranspose",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 22,
+      "min": -12.0,
+      "max": 12.0
+     }
+    },
+    {
+     "name": "kParamRate",
+     "id": 8,
+     "automatable": false,
+     "observed": {
+      "count": 68,
+      "min": 0.07198984920978546,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBeatSync",
+     "id": 9,
+     "automatable": false,
+     "observed": {
+      "count": 38,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamDotted",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTriplets",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamRegionOffset",
+     "id": 12,
+     "automatable": false
+    }
+   ]
+  },
+  "ModSlot": {
+   "paths": [
+    "ModSlot{0..63}"
+   ],
+   "params": [
+    {
+     "name": "kParamAmount",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 22618,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamOut",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 341,
+      "min": 0.0,
+      "max": 99.36327934265137
+     }
+    },
+    {
+     "name": "kParamCurveIn",
+     "id": 2,
+     "automatable": false,
+     "observed": {
+      "count": 408,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamAuxCurve",
+     "id": 3,
+     "automatable": false,
+     "observed": {
+      "count": 19,
+      "min": -59.999990463256836,
+      "max": 48.674559593200684
+     }
+    },
+    {
+     "name": "kParamBipolar",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 2522,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamAuxInverted",
+     "id": 5,
+     "automatable": false,
+     "observed": {
+      "count": 83,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBypass",
+     "id": 6,
+     "automatable": false,
+     "observed": {
+      "count": 56,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamMainCurveData",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 506,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamAuxCurveData",
+     "id": 8,
+     "automatable": false,
+     "observed": {
+      "count": 106,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamDelayOffset",
+     "id": 9,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": 0.20013119280338287,
+      "max": 0.859649121761322
+     }
+    },
+    {
+     "name": "kParamDelayBeatSync",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamSmoothRise",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 50,
+      "min": 0.1949317753314972,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamSmoothFall",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 49,
+      "min": 0.1949317753314972,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamSmoothLink",
+     "id": 13,
+     "automatable": false,
+     "observed": {
+      "count": 16,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamCurveOut",
+     "id": null,
+     "automatable": null,
+     "observed": {
+      "count": 53,
+      "min": -94.53125,
+      "max": 100.0
+     }
+    }
+   ]
+  },
+  "MultiSampleOsc": {
+   "paths": [
+    "Oscillator{0..2}/MultiSampleOsc{0..2}"
+   ],
+   "params": [
+    {
+     "name": "kParamWarp",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 46,
+      "min": 0.0020000000949949026,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 2,
+      "min": 0.5949999690055847,
+      "max": 0.6810785531997681
+     }
+    },
+    {
+     "name": "kParamWarpMenu",
+     "id": 2,
+     "automatable": true,
+     "enum": "SampleWarp",
+     "observed": {
+      "count": 95,
+      "strings": [
+       "kAM_OSC",
+       "kDistAsym",
+       "kDistDiode1",
+       "kDistDiode2",
+       "kDistHardClip",
+       "kDistRectify",
+       "kDistSinFold",
+       "kDistSineShaper",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistStompBox",
+       "kDistTapeSat",
+       "kDistTube",
+       "kFM_FILT1",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPD_SUB",
+       "kRM_OSC",
+       "kRM_SUB",
+       "kSelfPD"
+      ]
+     }
+    },
+    {
+     "name": "kParamWarp2",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 22,
+      "min": 0.019999999552965164,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar2",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 3,
+      "min": 0.3203125,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpMenu2",
+     "id": 5,
+     "automatable": true,
+     "enum": "SampleWarp",
+     "observed": {
+      "count": 56,
+      "strings": [
+       "kAM_FILT1",
+       "kAM_OSC",
+       "kAM_OSC2",
+       "kAM_SUB",
+       "kDistSineShaper",
+       "kDistSoftClip",
+       "kDistStompBox",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kFMX_OSC",
+       "kFM_FILT2",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kPD_FILT1",
+       "kPD_NOISE",
+       "kPD_OSC",
+       "kPD_SUB",
+       "kRM_NOISE",
+       "kRM_OSC",
+       "kSelfPD"
+      ]
+     }
+    },
+    {
+     "name": "kParamTimbreShift",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 61,
+      "min": -17.96491241455078,
+      "max": 64.0
+     }
+    },
+    {
+     "name": "kParamRandomPhase",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 32,
+      "min": 0.14404297107830644,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamEnvOverride",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 69,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamEnvDelay",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 3.8169698702290136e-09,
+      "max": 0.012443094933487456
+     }
+    },
+    {
+     "name": "kParamEnvAttack",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 330,
+      "min": 0.0,
+      "max": 0.39635000391855996
+     }
+    },
+    {
+     "name": "kParamEnvHold",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 0.00024419937574347524,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamEnvDecay",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 327,
+      "min": 0.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamEnvSustain",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 12,
+      "min": 0.0,
+      "max": 0.956558108329773
+     }
+    },
+    {
+     "name": "kParamEnvRelease",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 333,
+      "min": 0.0,
+      "max": 32.0
+     }
+    },
+    {
+     "name": "kParamVelTrackOverride",
+     "id": 15,
+     "automatable": true,
+     "observed": {
+      "count": 27,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVelTrack",
+     "id": 16,
+     "automatable": true,
+     "observed": {
+      "count": 39,
+      "min": 0.0,
+      "max": 95.703125
+     }
+    },
+    {
+     "name": "kParamEnvDelayBeatSync",
+     "id": 17,
+     "automatable": false
+    }
+   ]
+  },
+  "NoiseOsc": {
+   "paths": [
+    "Oscillator{3}/NoiseOsc{3}"
+   ],
+   "params": [
+    {
+     "name": "kParamColor",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 511,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamFine",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 47,
+      "min": -1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamInitialPhase",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 208,
+      "min": 0.4385964944958687,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRandomPhase",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 73,
+      "min": 1.171875,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamOneShot",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 128,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamNoiseType",
+     "id": 5,
+     "automatable": false,
+     "enum": "NoiseType",
+     "observed": {
+      "count": 285,
+      "strings": [
+       "Brown",
+       "Geiger",
+       "Pink",
+       "White"
+      ]
+     }
+    }
+   ]
+  },
+  "Oscillator": {
+   "paths": [
+    "Oscillator{0..4}"
+   ],
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 3235,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVolume",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 4464,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPan",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 354,
+      "min": -50.0,
+      "max": 50.0
+     }
+    },
+    {
+     "name": "kParamOctave",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 2337,
+      "min": -4.0,
+      "max": 4.0
+     }
+    },
+    {
+     "name": "kParamPitch",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 364,
+      "min": -12.0,
+      "max": 12.0
+     }
+    },
+    {
+     "name": "kParamFine",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 495,
+      "min": -94.9999999254942,
+      "max": 76.19049549102783
+     }
+    },
+    {
+     "name": "kParamCoarsePit",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 79,
+      "min": -64.0,
+      "max": 64.0
+     }
+    },
+    {
+     "name": "kParamPitchRatio",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 57,
+      "min": -1.0,
+      "max": 24.000000447034836
+     }
+    },
+    {
+     "name": "kParamHzOffset",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 15,
+      "min": -1000.0,
+      "max": 500.0
+     }
+    },
+    {
+     "name": "kParamPitchTrack",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 156,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamStart",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 136,
+      "min": 0.09291821043007076,
+      "max": 80.02713918685913
+     }
+    },
+    {
+     "name": "kParamEnd",
+     "id": 11,
+     "automatable": true,
+     "observed": {
+      "count": 64,
+      "min": 3.6419812589883804,
+      "max": 99.99663141583697
+     }
+    },
+    {
+     "name": "kParamReverse",
+     "id": 12,
+     "automatable": true,
+     "observed": {
+      "count": 8,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamScanRate",
+     "id": 13,
+     "automatable": true,
+     "observed": {
+      "count": 214,
+      "min": -200.0,
+      "max": 200.0
+     }
+    },
+    {
+     "name": "kParamScanBPMRate",
+     "id": 14,
+     "automatable": true,
+     "observed": {
+      "count": 12,
+      "min": 0.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamScanKeyTrack",
+     "id": 15,
+     "automatable": true,
+     "observed": {
+      "count": 2,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPosition",
+     "id": 16,
+     "automatable": true,
+     "observed": {
+      "count": 18,
+      "min": 3.037623316049576,
+      "max": 91.45800471305847
+     }
+    },
+    {
+     "name": "kParamLoopStart",
+     "id": 17,
+     "automatable": true,
+     "observed": {
+      "count": 348,
+      "min": 0.001026927657129922,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamLoopEnd",
+     "id": 18,
+     "automatable": true,
+     "observed": {
+      "count": 315,
+      "min": 0.0,
+      "max": 99.9999941862373
+     }
+    },
+    {
+     "name": "kParamLoopCrossfade",
+     "id": 19,
+     "automatable": true,
+     "observed": {
+      "count": 92,
+      "min": 0.08683396744773825,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamLoopMode",
+     "id": 20,
+     "automatable": true,
+     "enum": "LoopMode",
+     "observed": {
+      "count": 257,
+      "strings": [
+       "kForward",
+       "kPingPong",
+       "kReverse",
+       "kTailed"
+      ]
+     }
+    },
+    {
+     "name": "kParamLoopStartLink",
+     "id": 21,
+     "automatable": true,
+     "observed": {
+      "count": 9,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamSlicingSingleSlice",
+     "id": 22,
+     "automatable": true
+    },
+    {
+     "name": "kParamSlicingPlayToEnd",
+     "id": 23,
+     "automatable": true,
+     "observed": {
+      "count": 4,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamUnison",
+     "id": 24,
+     "automatable": true,
+     "observed": {
+      "count": 1308,
+      "min": 2.0,
+      "max": 16.0
+     }
+    },
+    {
+     "name": "kParamUnisonStack",
+     "id": 25,
+     "automatable": true,
+     "enum": "UnisonStack",
+     "observed": {
+      "count": 62,
+      "strings": [
+       "kCenter12",
+       "kOctave1",
+       "kOctave2",
+       "kOctave3",
+       "kOctaveFifth1",
+       "kOctaveFifth2",
+       "kOctaveFifth3"
+      ]
+     }
+    },
+    {
+     "name": "kParamDetune",
+     "id": 26,
+     "automatable": true,
+     "observed": {
+      "count": 1603,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamDetuneWid",
+     "id": 27,
+     "automatable": true,
+     "observed": {
+      "count": 611,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamUnisonStereo",
+     "id": 28,
+     "automatable": true,
+     "observed": {
+      "count": 222,
+      "min": -100.0,
+      "max": 82.03125
+     }
+    },
+    {
+     "name": "kParamUnisonSpan",
+     "id": 29,
+     "automatable": true,
+     "observed": {
+      "count": 12,
+      "min": 6.0089111328125,
+      "max": 59.43775177001953
+     }
+    },
+    {
+     "name": "kParamRandomStart",
+     "id": 30,
+     "automatable": true,
+     "observed": {
+      "count": 16,
+      "min": 5.859375,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamUnisonWarp",
+     "id": 31,
+     "automatable": true,
+     "observed": {
+      "count": 24,
+      "min": -12.6950204372406,
+      "max": 79.6356201171875
+     }
+    },
+    {
+     "name": "kParamUnisonWarp2",
+     "id": 32,
+     "automatable": true,
+     "observed": {
+      "count": 8,
+      "min": -55.46875,
+      "max": 34.130859375
+     }
+    },
+    {
+     "name": "kParamType",
+     "id": 33,
+     "automatable": false,
+     "enum": "OscType",
+     "observed": {
+      "count": 733,
+      "strings": [
+       "kOsc_Granular",
+       "kOsc_MultiSample",
+       "kOsc_Sample",
+       "kOsc_Spectral"
+      ]
+     }
+    },
+    {
+     "name": "kParamPitchMode",
+     "id": 34,
+     "automatable": false,
+     "enum": "PitchMode",
+     "observed": {
+      "count": 78,
+      "strings": [
+       "Freq",
+       "Harmonics",
+       "Ratio"
+      ]
+     }
+    },
+    {
+     "name": "kParamPitchSource",
+     "id": 35,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": 0.0,
+      "max": 4.0
+     }
+    },
+    {
+     "name": "kParamPitchRatioModMode",
+     "id": 36,
+     "automatable": false,
+     "enum": "PitchRatioModMode",
+     "observed": {
+      "count": 2,
+      "strings": [
+       "Coarse",
+       "Fine"
+      ]
+     }
+    },
+    {
+     "name": "kParamKeyZoneMin",
+     "id": 37,
+     "automatable": false,
+     "observed": {
+      "count": 133,
+      "min": 1.0,
+      "max": 127.0
+     }
+    },
+    {
+     "name": "kParamKeyZoneMax",
+     "id": 38,
+     "automatable": false,
+     "observed": {
+      "count": 282,
+      "min": 10.0,
+      "max": 126.0
+     }
+    },
+    {
+     "name": "kParamKeyZoneFold",
+     "id": 39,
+     "automatable": false,
+     "observed": {
+      "count": 5,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamKeyZoneWarp",
+     "id": 40,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamVelocityZoneMin",
+     "id": 41,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": 1.0,
+      "max": 126.0
+     }
+    },
+    {
+     "name": "kParamVelocityZoneMax",
+     "id": 42,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 1.0,
+      "max": 125.0
+     }
+    },
+    {
+     "name": "kParamDetuneMode",
+     "id": 43,
+     "automatable": false,
+     "enum": "DetuneMode",
+     "observed": {
+      "count": 68,
+      "strings": [
+       "kDetuneExp",
+       "kDetuneInv",
+       "kDetuneRandom",
+       "kDetuneSuper"
+      ]
+     }
+    },
+    {
+     "name": "kParamUnisonRange",
+     "id": 44,
+     "automatable": false,
+     "observed": {
+      "count": 78,
+      "min": 0.0,
+      "max": 48.0
+     }
+    },
+    {
+     "name": "kParamUnisonRotate",
+     "id": 45,
+     "automatable": false
+    },
+    {
+     "name": "kParamUnisonSpanBipolar",
+     "id": 46,
+     "automatable": false
+    },
+    {
+     "name": "kParamSlicingEnabled",
+     "id": 47,
+     "automatable": false,
+     "enum": "SlicingMode",
+     "observed": {
+      "count": 13,
+      "strings": [
+       "Auto",
+       "Manual"
+      ]
+     }
+    },
+    {
+     "name": "kParamAutoSliceThreshold",
+     "id": 48,
+     "automatable": false,
+     "observed": {
+      "count": 15,
+      "min": 0.0,
+      "max": 0.39658302068710327
+     }
+    },
+    {
+     "name": "kParamSlicingRootNote",
+     "id": 49,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": 2.0,
+      "max": 6.0
+     }
+    },
+    {
+     "name": "kParamSlicingPlaySingleSlice",
+     "id": 50,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPitchBendTrack",
+     "id": 51,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamLinkLoopLength",
+     "id": 52,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLoopEndsAtRelease",
+     "id": 53,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamManualPositionMode",
+     "id": 54,
+     "automatable": false,
+     "observed": {
+      "count": 26,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWrapPosition",
+     "id": 55,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamScanBPMDivide",
+     "id": 56,
+     "automatable": false,
+     "observed": {
+      "count": 12,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamScanRange",
+     "id": 57,
+     "automatable": false,
+     "observed": {
+      "count": 17,
+      "min": 1.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamScanTempoLock",
+     "id": 58,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamBaseTempo",
+     "id": 59,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": 104.0,
+      "max": 181.0
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 60,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 414.99995818091287,
+      "max": 414.99995818091287
+     }
+    }
+   ]
+  },
+  "PitchQuantizer": {
+   "paths": [
+    "PitchQuantizer{0}"
+   ],
+   "params": [
+    {
+     "name": "kParamKey",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 1.0,
+      "max": 12.0
+     }
+    },
+    {
+     "name": "kParamScale",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 14,
+      "min": 1.0,
+      "max": 51.0
+     }
+    }
+   ]
+  },
+  "RetriggerState": {
+   "paths": [
+    "RetriggerState{0}"
+   ],
+   "params": [
+    {
+     "name": "kParamNote",
+     "id": 0,
+     "automatable": false
+    },
+    {
+     "name": "kParamOscA",
+     "id": 1,
+     "automatable": false
+    },
+    {
+     "name": "kParamOscB",
+     "id": 2,
+     "automatable": false
+    },
+    {
+     "name": "kParamOscC",
+     "id": 3,
+     "automatable": false
+    },
+    {
+     "name": "kParamSub",
+     "id": 4,
+     "automatable": false
+    },
+    {
+     "name": "kParamNoise",
+     "id": 5,
+     "automatable": false
+    },
+    {
+     "name": "kParamEnv1",
+     "id": 6,
+     "automatable": false
+    },
+    {
+     "name": "kParamEnv2",
+     "id": 7,
+     "automatable": false
+    },
+    {
+     "name": "kParamEnv3",
+     "id": 8,
+     "automatable": false
+    },
+    {
+     "name": "kParamEnv4",
+     "id": 9,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO1",
+     "id": 10,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO2",
+     "id": 11,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO3",
+     "id": 12,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO4",
+     "id": 13,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO5",
+     "id": 14,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO6",
+     "id": 15,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO7",
+     "id": 16,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO8",
+     "id": 17,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO9",
+     "id": 18,
+     "automatable": false
+    },
+    {
+     "name": "kParamLFO10",
+     "id": 19,
+     "automatable": false
+    }
+   ]
+  },
+  "RoutingSlot": {
+   "paths": [
+    "RoutingSlot{0..6}"
+   ],
+   "params": [
+    {
+     "name": "kParamFilterBalance",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 584,
+      "min": -98.59649268910289,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamFXBus1Level",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 306,
+      "min": 2.3923445492982864,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamFXBus2Level",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 186,
+      "min": 0.10964912362396717,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamRoutingDest",
+     "id": 3,
+     "automatable": false,
+     "enum": "RoutingDest",
+     "observed": {
+      "count": 2818,
+      "strings": [
+       "kRoutingDestDirect",
+       "kRoutingDestFilter",
+       "kRoutingDestMaster",
+       "kRoutingDestNone"
+      ]
+     }
+    },
+    {
+     "name": "kParamViaEnv1",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 49,
+      "min": 0.0,
+      "max": 0.0
+     }
+    }
+   ]
+  },
+  "SampleOsc": {
+   "paths": [
+    "Oscillator{0..2}/SampleOsc{0..2}"
+   ],
+   "params": [
+    {
+     "name": "kParamWarp",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 72,
+      "min": 0.0010793585097417235,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 4,
+      "min": 0.16070556640625,
+      "max": 0.2890625
+     }
+    },
+    {
+     "name": "kParamWarpMenu",
+     "id": 2,
+     "automatable": true,
+     "enum": "SampleWarp",
+     "observed": {
+      "count": 122,
+      "strings": [
+       "kAM_OSC",
+       "kAM_SUB",
+       "kDistAsym",
+       "kDistDiode1",
+       "kDistDiode2",
+       "kDistHardClip",
+       "kDistRectify",
+       "kDistSinFold",
+       "kDistSineShaper",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistStompBox",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kFMP_NOISE",
+       "kFMP_OSC",
+       "kFMX_OSC",
+       "kFM_FILT1",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPD_SUB",
+       "kRM_OSC",
+       "kRM_SUB",
+       "kSelfPD"
+      ]
+     }
+    },
+    {
+     "name": "kParamWarp2",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 46,
+      "min": 0.017543859779834747,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar2",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 10,
+      "min": 0.18847967684268951,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpMenu2",
+     "id": 5,
+     "automatable": true,
+     "enum": "SampleWarp",
+     "observed": {
+      "count": 71,
+      "strings": [
+       "kAM_FILT1",
+       "kAM_NOISE",
+       "kDistHardClip",
+       "kDistLinFold",
+       "kDistRectify",
+       "kDistSoftClip",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kFM_FILT2",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kPD_FILT1",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPD_SUB",
+       "kRM_OSC",
+       "kSelfPD"
+      ]
+     }
+    }
+   ]
+  },
+  "SpectralOsc": {
+   "paths": [
+    "Oscillator{0..2}/SpectralOsc{0..2}"
+   ],
+   "params": [
+    {
+     "name": "kParamWarp",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 76,
+      "min": 0.031644050031900406,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 9,
+      "min": 0.01171875,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpMenu",
+     "id": 2,
+     "automatable": true,
+     "enum": "SpectralWarp",
+     "observed": {
+      "count": 114,
+      "strings": [
+       "kAM_OSC",
+       "kAddharmonics",
+       "kAddsubharmonics",
+       "kDetune",
+       "kDistDiode1",
+       "kDistDiode2",
+       "kDistRectify",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistTube",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kGate",
+       "kMask_NOISE",
+       "kMask_OSC",
+       "kMirror",
+       "kPD_OSC",
+       "kPeakFollow",
+       "kPeakOctaveDown",
+       "kPeakOctaveUp",
+       "kSelfPD",
+       "kShepardFilter",
+       "kShepardNarrow",
+       "kSmear",
+       "kSpectralComb",
+       "kSpectralPitchShift",
+       "kSpectralShift",
+       "kSpread",
+       "kVocode_NOISE",
+       "kVocode_OSC"
+      ]
+     }
+    },
+    {
+     "name": "kParamWarp2",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 46,
+      "min": 0.05263157933950424,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar2",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.0064849853515625,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpMenu2",
+     "id": 5,
+     "automatable": true,
+     "enum": "SpectralWarp",
+     "observed": {
+      "count": 83,
+      "strings": [
+       "kAddharmonics",
+       "kAddsubharmonics",
+       "kDetune",
+       "kDistAsym",
+       "kDistDiode1",
+       "kDistDiode2",
+       "kDistRectify",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kGate",
+       "kMask_FILT1",
+       "kMirror",
+       "kPD_FILT1",
+       "kPD_FILT2",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPeakFollow",
+       "kPeakHarmDown",
+       "kPeakHarmUp",
+       "kPeakOctaveUp",
+       "kRobotize",
+       "kSelfPD",
+       "kSpectralComb",
+       "kSpectralPhaseTwist",
+       "kSpectralPitchShift",
+       "kSpectralShift",
+       "kSpread",
+       "kVocode_OSC"
+      ]
+     }
+    },
+    {
+     "name": "kParamSpecFltShift",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 71,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamSpecFltWetDry",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 26,
+      "min": 0.0,
+      "max": 98.68420958518982
+     }
+    },
+    {
+     "name": "kParamFreqLo",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 27,
+      "min": 15.945181234369928,
+      "max": 4307.266915011721
+     }
+    },
+    {
+     "name": "kParamFreqHi",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 15,
+      "min": 371.07791444070557,
+      "max": 17461.96362512999
+     }
+    },
+    {
+     "name": "kParamPhaseLock",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 9,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamTransients",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 15,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLoHiIsPost",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamLoHiIsSmooth",
+     "id": 13,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamYAxisAssignment",
+     "id": 14,
+     "automatable": false,
+     "enum": "SpectralYAxis"
+    }
+   ]
+  },
+  "SubOsc": {
+   "paths": [
+    "Oscillator{4}/SubOsc{4}"
+   ],
+   "params": [
+    {
+     "name": "kParamShape",
+     "id": 0,
+     "automatable": true,
+     "enum": "SubOscShape",
+     "observed": {
+      "count": 293,
+      "strings": [
+       "kPulse",
+       "kRoundRect",
+       "kSaw",
+       "kSquare",
+       "kTriangle"
+      ]
+     }
+    },
+    {
+     "name": "kParamInitialPhase",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 45.0,
+      "max": 180.0
+     }
+    },
+    {
+     "name": "kParamContiguousPhase",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWrapPhase",
+     "id": 3,
+     "automatable": false
+    }
+   ]
+  },
+  "VoiceFilter": {
+   "paths": [
+    "VoiceFilter{0..1}"
+   ],
+   "params": [
+    {
+     "name": "kParamEnable",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 1723,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWet",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 323,
+      "min": 0.0,
+      "max": 99.70703125
+     }
+    },
+    {
+     "name": "kParamType",
+     "id": 2,
+     "automatable": true,
+     "enum": "FilterType",
+     "observed": {
+      "count": 1333,
+      "strings": [
+       "ADD_BASS",
+       "Allpasses",
+       "B12",
+       "B24",
+       "BN12",
+       "BP12",
+       "BPN12",
+       "BPN24",
+       "BandReject",
+       "Comb2",
+       "CombH6N",
+       "CombH6P",
+       "CombHL6N",
+       "CombHL6P",
+       "CombL6N",
+       "CombL6P",
+       "CombN",
+       "CombP",
+       "Combs",
+       "DJMixer",
+       "Diffuser",
+       "DirtyMg",
+       "DistComb1BP",
+       "DistComb1LP",
+       "DistComb2BP",
+       "DistComb2LP",
+       "Exp",
+       "ExpBPF",
+       "FlangeH6N",
+       "FlangeH6P",
+       "FlangeHL6N",
+       "FlangeHL6P",
+       "FlangeL6N",
+       "FlangeL6P",
+       "FlangeN",
+       "FlangeP",
+       "FlangePhase12HL6P",
+       "FormantONE",
+       "FormantTWB",
+       "FormantTWO",
+       "H12",
+       "H18",
+       "H24",
+       "H6",
+       "HB12",
+       "HEQ12",
+       "HN12",
+       "HP12",
+       "L12",
+       "L18",
+       "L24",
+       "L6",
+       "LB12",
+       "LBH12",
+       "LBH24",
+       "LEQ12",
+       "LH12",
+       "LH6",
+       "LN12",
+       "LNH12",
+       "LNH24",
+       "LP12",
+       "LPH24",
+       "LadderAcid",
+       "LadderEMS",
+       "LadderMg",
+       "MgL12",
+       "MgL18",
+       "MgL24",
+       "MgL6",
+       "N12",
+       "N24",
+       "NN12",
+       "P24",
+       "PN12",
+       "PP12",
+       "PZ_SVF",
+       "Phase12P",
+       "Phase24N",
+       "Phase24P",
+       "Phase36N",
+       "Phase36P",
+       "Phase48H6N",
+       "Phase48H6P",
+       "Phase48HL6N",
+       "Phase48HL6P",
+       "Phase48N",
+       "Phase48P",
+       "RM",
+       "RMT",
+       "Reverb1",
+       "SNH1",
+       "SNH2",
+       "Scream",
+       "Scream3BP",
+       "Scream3LP",
+       "Wsp",
+       "ZDF_A"
+      ]
+     }
+    },
+    {
+     "name": "kParamFreq",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 1764,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamReso",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 1601,
+      "min": 0.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamDrive",
+     "id": 5,
+     "automatable": true,
+     "observed": {
+      "count": 889,
+      "min": 0.3477933118119836,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamVar",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 756,
+      "min": 1.6060348600149155,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamStereo",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 79,
+      "min": 4.898231849074364,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamLevelOut",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 346,
+      "min": 0.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamX",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 7,
+      "min": 0.0441988967359066,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamY",
+     "id": 10,
+     "automatable": true,
+     "observed": {
+      "count": 6,
+      "min": 0.02500000037252903,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamKeyTrack",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 394,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPad",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 26,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "VoicePanel": {
+   "paths": [
+    "VoicePanel{0}"
+   ],
+   "params": [
+    {
+     "name": "kParamGlobalRandomOscDetune",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 34,
+      "min": 0.9999999776482582,
+      "max": 88.49999904632568
+     }
+    },
+    {
+     "name": "kParamGlobalRandomOscPan",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 23,
+      "min": 1.9999999552965164,
+      "max": 67.00000166893005
+     }
+    },
+    {
+     "name": "kParamGlobalRandomEnvTime",
+     "id": 2,
+     "automatable": true,
+     "observed": {
+      "count": 5,
+      "min": 2.9999999329447746,
+      "max": 36.000001430511475
+     }
+    },
+    {
+     "name": "kParamGlobalRandomFilterCutoff",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 7,
+      "min": 1.9999999552965164,
+      "max": 37.99999952316284
+     }
+    },
+    {
+     "name": "kParamOscA",
+     "id": 4,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamOscB",
+     "id": 5,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamOscC",
+     "id": 6,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamOscN",
+     "id": 7,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamOscS",
+     "id": 8,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    {
+     "name": "kParamVoiceCount",
+     "id": 9,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 2.0,
+      "max": 2.0
+     }
+    },
+    {
+     "name": "kParamVoice1Pan",
+     "id": 10,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -8.218827843666077,
+      "max": 12.631899118423462
+     }
+    },
+    {
+     "name": "kParamVoice2Pan",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -17.413249611854553,
+      "max": 12.68656849861145
+     }
+    },
+    {
+     "name": "kParamVoice3Pan",
+     "id": 12,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -29.104477167129517,
+      "max": 6.22209906578064
+     }
+    },
+    {
+     "name": "kParamVoice4Pan",
+     "id": 13,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -5.844154953956604,
+      "max": 29.870128631591797
+     }
+    },
+    {
+     "name": "kParamVoice5Pan",
+     "id": 14,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -29.4921875,
+      "max": 17.16417670249939
+     }
+    },
+    {
+     "name": "kParamVoice6Pan",
+     "id": 15,
+     "automatable": false,
+     "observed": {
+      "count": 10,
+      "min": -6.716418266296387,
+      "max": 27.97788381576538
+     }
+    },
+    {
+     "name": "kParamVoice7Pan",
+     "id": 16,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -17.10379421710968,
+      "max": 5.844157934188843
+     }
+    },
+    {
+     "name": "kParamVoice8Pan",
+     "id": 17,
+     "automatable": false,
+     "observed": {
+      "count": 11,
+      "min": -23.376622796058655,
+      "max": 34.97108221054077
+     }
+    },
+    {
+     "name": "kParamVoice1Detune",
+     "id": 18,
+     "automatable": false,
+     "observed": {
+      "count": 40,
+      "min": -23.376625776290894,
+      "max": 15.288567543029785
+     }
+    },
+    {
+     "name": "kParamVoice2Detune",
+     "id": 19,
+     "automatable": false,
+     "observed": {
+      "count": 43,
+      "min": -13.335585594177246,
+      "max": 19.480514526367188
+     }
+    },
+    {
+     "name": "kParamVoice3Detune",
+     "id": 20,
+     "automatable": false,
+     "observed": {
+      "count": 41,
+      "min": -14.478492736816406,
+      "max": 12.540745735168457
+     }
+    },
+    {
+     "name": "kParamVoice4Detune",
+     "id": 21,
+     "automatable": false,
+     "observed": {
+      "count": 41,
+      "min": -12.317371368408203,
+      "max": 10.775160789489746
+     }
+    },
+    {
+     "name": "kParamVoice5Detune",
+     "id": 22,
+     "automatable": false,
+     "observed": {
+      "count": 40,
+      "min": -14.28571343421936,
+      "max": 10.886764526367188
+     }
+    },
+    {
+     "name": "kParamVoice6Detune",
+     "id": 23,
+     "automatable": false,
+     "observed": {
+      "count": 42,
+      "min": -11.297684907913208,
+      "max": 14.20961618423462
+     }
+    },
+    {
+     "name": "kParamVoice7Detune",
+     "id": 24,
+     "automatable": false,
+     "observed": {
+      "count": 41,
+      "min": -10.397863388061523,
+      "max": 13.079619407653809
+     }
+    },
+    {
+     "name": "kParamVoice8Detune",
+     "id": 25,
+     "automatable": false,
+     "observed": {
+      "count": 40,
+      "min": -14.975649118423462,
+      "max": 12.31229305267334
+     }
+    },
+    {
+     "name": "kParamVoice1EnvTime",
+     "id": 26,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -14.28571343421936,
+      "max": 0.6544232368469238
+     }
+    },
+    {
+     "name": "kParamVoice2EnvTime",
+     "id": 27,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 11.688315868377686,
+      "max": 11.688315868377686
+     }
+    },
+    {
+     "name": "kParamVoice3EnvTime",
+     "id": 28,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -7.792210578918457,
+      "max": -7.792210578918457
+     }
+    },
+    {
+     "name": "kParamVoice4EnvTime",
+     "id": 29,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -12.987011671066284,
+      "max": -12.987011671066284
+     }
+    },
+    {
+     "name": "kParamVoice5EnvTime",
+     "id": 30,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 3.8961052894592285,
+      "max": 3.8961052894592285
+     }
+    },
+    {
+     "name": "kParamVoice6EnvTime",
+     "id": 31,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 10.38961410522461,
+      "max": 10.38961410522461
+     }
+    },
+    {
+     "name": "kParamVoice7EnvTime",
+     "id": 32,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -20.77922224998474,
+      "max": -20.77922224998474
+     }
+    },
+    {
+     "name": "kParamVoice8EnvTime",
+     "id": 33,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -20.77922224998474,
+      "max": -20.77922224998474
+     }
+    },
+    {
+     "name": "kParamVoice1FilterCutoff",
+     "id": 34,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": -19.480520486831665,
+      "max": 3.656458854675293
+     }
+    },
+    {
+     "name": "kParamVoice2FilterCutoff",
+     "id": 35,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": -5.194807052612305,
+      "max": 24.391233921051025
+     }
+    },
+    {
+     "name": "kParamVoice3FilterCutoff",
+     "id": 36,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": -19.480520486831665,
+      "max": 30.159294605255127
+     }
+    },
+    {
+     "name": "kParamVoice4FilterCutoff",
+     "id": 37,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": -9.090906381607056,
+      "max": 35.546875
+     }
+    },
+    {
+     "name": "kParamVoice5FilterCutoff",
+     "id": 38,
+     "automatable": false,
+     "observed": {
+      "count": 7,
+      "min": -25.97402334213257,
+      "max": 22.143876552581787
+     }
+    },
+    {
+     "name": "kParamVoice6FilterCutoff",
+     "id": 39,
+     "automatable": false,
+     "observed": {
+      "count": 6,
+      "min": -23.32589030265808,
+      "max": 1.2285709381103516
+     }
+    },
+    {
+     "name": "kParamVoice7FilterCutoff",
+     "id": 40,
+     "automatable": false,
+     "observed": {
+      "count": 9,
+      "min": -46.57061696052551,
+      "max": 18.63839626312256
+     }
+    },
+    {
+     "name": "kParamVoice8FilterCutoff",
+     "id": 41,
+     "automatable": false,
+     "observed": {
+      "count": 9,
+      "min": -17.136770486831665,
+      "max": 50.18770694732666
+     }
+    },
+    {
+     "name": "kParamVoice1Mod1",
+     "id": 42,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -25.97402334213257,
+      "max": -25.97402334213257
+     }
+    },
+    {
+     "name": "kParamVoice2Mod1",
+     "id": 43,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 3.8961052894592285,
+      "max": 3.8961052894592285
+     }
+    },
+    {
+     "name": "kParamVoice3Mod1",
+     "id": 44,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -3.8961052894592285,
+      "max": -3.8961052894592285
+     }
+    },
+    {
+     "name": "kParamVoice4Mod1",
+     "id": 45,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -46.75324559211731,
+      "max": -46.75324559211731
+     }
+    },
+    {
+     "name": "kParamVoice5Mod1",
+     "id": 46,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 20.779216289520264,
+      "max": 20.779216289520264
+     }
+    },
+    {
+     "name": "kParamVoice6Mod1",
+     "id": 47,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -37.662339210510254,
+      "max": -37.662339210510254
+     }
+    },
+    {
+     "name": "kParamVoice7Mod1",
+     "id": 48,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": -10.389608144760132,
+      "max": -10.389608144760132
+     }
+    },
+    {
+     "name": "kParamVoice8Mod1",
+     "id": 49,
+     "automatable": false
+    },
+    {
+     "name": "kParamVoice1Mod2",
+     "id": 50,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -27.272725105285645,
+      "max": 15.949678421020508
+     }
+    },
+    {
+     "name": "kParamVoice2Mod2",
+     "id": 51,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -12.987011671066284,
+      "max": 26.141440868377686
+     }
+    },
+    {
+     "name": "kParamVoice3Mod2",
+     "id": 52,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 9.090912342071533,
+      "max": 25.847196578979492
+     }
+    },
+    {
+     "name": "kParamVoice4Mod2",
+     "id": 53,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -27.993100881576538,
+      "max": 16.883111000061035
+     }
+    },
+    {
+     "name": "kParamVoice5Mod2",
+     "id": 54,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -19.013798236846924,
+      "max": -9.090906381607056
+     }
+    },
+    {
+     "name": "kParamVoice6Mod2",
+     "id": 55,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": 18.18181276321411,
+      "max": 40.12783765792847
+     }
+    },
+    {
+     "name": "kParamVoice7Mod2",
+     "id": 56,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -5.194807052612305,
+      "max": 40.609776973724365
+     }
+    },
+    {
+     "name": "kParamVoice8Mod2",
+     "id": 57,
+     "automatable": false,
+     "observed": {
+      "count": 2,
+      "min": -5.194807052612305,
+      "max": 27.079951763153076
+     }
+    },
+    {
+     "name": "kParamGlobalScalingEnvTime",
+     "id": 58,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 25.703957616024617,
+      "max": 104.71285020627673
+     }
+    },
+    {
+     "name": "kParamGlobalScalingLfoTime",
+     "id": 59,
+     "automatable": false,
+     "observed": {
+      "count": 1,
+      "min": 66.06934371263898,
+      "max": 66.06934371263898
+     }
+    },
+    {
+     "name": "kParamGlobalScalingLfoTimeSnap",
+     "id": 60,
+     "automatable": false,
+     "observed": {
+      "count": 4,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamGlobalRandomOscDetune10x",
+     "id": 61,
+     "automatable": false,
+     "observed": {
+      "count": 3,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   ]
+  },
+  "WTOsc": {
+   "paths": [
+    "Oscillator{0..2}/WTOsc{0..2}"
+   ],
+   "params": [
+    {
+     "name": "kParamWarp",
+     "id": 0,
+     "automatable": true,
+     "observed": {
+      "count": 769,
+      "min": 1.862645149230957e-09,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar",
+     "id": 1,
+     "automatable": true,
+     "observed": {
+      "count": 61,
+      "min": 0.0130615234375,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpMenu",
+     "id": 2,
+     "automatable": true,
+     "enum": "WTWarp",
+     "observed": {
+      "count": 1422,
+      "strings": [
+       "kAM_OSC",
+       "kAM_SUB",
+       "kASYMNeg",
+       "kASYMPos",
+       "kASYMPosNeg",
+       "kBendNeg",
+       "kBendPos",
+       "kBendPosNeg",
+       "kDLM",
+       "kDistAsym",
+       "kDistDiode1",
+       "kDistDiode2",
+       "kDistHardClip",
+       "kDistLinFold",
+       "kDistRectify",
+       "kDistSinFold",
+       "kDistSineShaper",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistStompBox",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kEvenOdd",
+       "kFMP_NOISE",
+       "kFMP_OSC",
+       "kFMX_NOISE",
+       "kFMX_OSC",
+       "kFMX_OSC2",
+       "kFM_FILT1",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kFlip",
+       "kPD_FILT1",
+       "kPD_FILT2",
+       "kPD_NOISE",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPD_SUB",
+       "kPWM",
+       "kQuantize",
+       "kRM_FILT1",
+       "kRM_FILT2",
+       "kRM_NOISE",
+       "kRM_OSC",
+       "kRM_OSC2",
+       "kRM_SUB",
+       "kRemap_1",
+       "kRemap_2",
+       "kRemap_3",
+       "kRemap_4",
+       "kSelfPD",
+       "kSync"
+      ]
+     }
+    },
+    {
+     "name": "kParamWarp2",
+     "id": 3,
+     "automatable": true,
+     "observed": {
+      "count": 303,
+      "min": 0.0005482456181198359,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpVar2",
+     "id": 4,
+     "automatable": true,
+     "observed": {
+      "count": 42,
+      "min": 0.0050000036135315895,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamWarpMenu2",
+     "id": 5,
+     "automatable": true,
+     "enum": "WTWarp",
+     "observed": {
+      "count": 573,
+      "strings": [
+       "kAM_FILT1",
+       "kAM_NOISE",
+       "kAM_OSC",
+       "kAM_OSC2",
+       "kASYMNeg",
+       "kASYMPos",
+       "kASYMPosNeg",
+       "kBendNeg",
+       "kBendPos",
+       "kBendPosNeg",
+       "kDLM",
+       "kDistAsym",
+       "kDistDiode1",
+       "kDistDiode2",
+       "kDistHardClip",
+       "kDistLinFold",
+       "kDistRectify",
+       "kDistSinFold",
+       "kDistSineShaper",
+       "kDistSoftClip",
+       "kDistSoftSat",
+       "kDistStompBox",
+       "kDistTapeSat",
+       "kDistTube",
+       "kDistZeroSquare",
+       "kEvenOdd",
+       "kFMP_FILT1",
+       "kFMP_NOISE",
+       "kFMP_OSC",
+       "kFMP_OSC2",
+       "kFM_FILT1",
+       "kFM_NOISE",
+       "kFM_OSC",
+       "kFM_OSC2",
+       "kFM_SUB",
+       "kFilterHPF",
+       "kFilterLPF",
+       "kFlip",
+       "kPD_FILT1",
+       "kPD_FILT2",
+       "kPD_NOISE",
+       "kPD_OSC",
+       "kPD_OSC2",
+       "kPD_SUB",
+       "kPWM",
+       "kQuantize",
+       "kRM_OSC",
+       "kRM_OSC2",
+       "kRM_SUB",
+       "kRemap_1",
+       "kRemap_2",
+       "kRemap_3",
+       "kRemap_4",
+       "kSelfPD",
+       "kSync"
+      ]
+     }
+    },
+    {
+     "name": "kParamTablePos",
+     "id": 6,
+     "automatable": true,
+     "observed": {
+      "count": 1466,
+      "min": 1.4412520647747442,
+      "max": 256.0
+     }
+    },
+    {
+     "name": "kParamUnisonWTPos",
+     "id": 7,
+     "automatable": true,
+     "observed": {
+      "count": 25,
+      "min": -100.0,
+      "max": 100.0
+     }
+    },
+    {
+     "name": "kParamInitialPhase",
+     "id": 8,
+     "automatable": true,
+     "observed": {
+      "count": 273,
+      "min": 0.0,
+      "max": 360.0
+     }
+    },
+    {
+     "name": "kParamRandomPhase",
+     "id": 9,
+     "automatable": true,
+     "observed": {
+      "count": 794,
+      "min": 0.0,
+      "max": 99.7999906539917
+     }
+    },
+    {
+     "name": "kParamPhaseMemory",
+     "id": 10,
+     "automatable": false,
+     "enum": "PhaseMemoryMode",
+     "observed": {
+      "count": 53,
+      "strings": [
+       "kContiguous",
+       "kPerVoice"
+      ]
+     }
+    },
+    {
+     "name": "kParamXfadeMode",
+     "id": 11,
+     "automatable": false,
+     "observed": {
+      "count": 57,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    {
+     "name": "kParamPhaseLegato",
+     "id": 12,
+     "automatable": false
+    },
+    {
+     "name": "kParamWrapPhase",
+     "id": 13,
+     "automatable": false
+    }
+   ]
+  }
+ },
+ "enums": {
+  "MidiOutMode": [
+   "Off",
+   "ClipPlayer",
+   "Synth",
+   "kCount"
+  ],
+  "VoicePriority": [
+   "Last",
+   "First",
+   "High",
+   "Low",
+   "Velocity",
+   "kCount"
+  ],
+  "LimitSameNotePolyphony": [
+   "Off",
+   "Sustain",
+   "On",
+   "kCount"
+  ],
+  "NoiseType": [
+   "Sample",
+   "White",
+   "Pink",
+   "Brown",
+   "Geiger",
+   "kCount"
+  ],
+  "RoutingDest": [
+   "kRoutingDestFilter",
+   "kRoutingDestMaster",
+   "kRoutingDestDirect",
+   "kRoutingDestNone",
+   "kNumRoutingDests"
+  ],
+  "StrumType": [
+   "None",
+   "Up",
+   "Down",
+   "kCount"
+  ],
+  "AutomationDest": [
+   "kAutoDest_CC0",
+   "kAutoDest_CC1",
+   "kAutoDest_CC2",
+   "kAutoDest_CC3",
+   "kAutoDest_CC4",
+   "kAutoDest_CC5",
+   "kAutoDest_CC6",
+   "kAutoDest_CC7",
+   "kAutoDest_CC8",
+   "kAutoDest_CC9",
+   "kAutoDest_CC10",
+   "kAutoDest_CC11",
+   "kAutoDest_CC12",
+   "kAutoDest_CC13",
+   "kAutoDest_CC14",
+   "kAutoDest_CC15",
+   "kAutoDest_CC16",
+   "kAutoDest_CC17",
+   "kAutoDest_CC18",
+   "kAutoDest_CC19",
+   "kAutoDest_CC20",
+   "kAutoDest_CC21",
+   "kAutoDest_CC22",
+   "kAutoDest_CC23",
+   "kAutoDest_CC24",
+   "kAutoDest_CC25",
+   "kAutoDest_CC26",
+   "kAutoDest_CC27",
+   "kAutoDest_CC28",
+   "kAutoDest_CC29",
+   "kAutoDest_CC30",
+   "kAutoDest_CC31",
+   "kAutoDest_CC32",
+   "kAutoDest_CC33",
+   "kAutoDest_CC34",
+   "kAutoDest_CC35",
+   "kAutoDest_CC36",
+   "kAutoDest_CC37",
+   "kAutoDest_CC38",
+   "kAutoDest_CC39",
+   "kAutoDest_CC40",
+   "kAutoDest_CC41",
+   "kAutoDest_CC42",
+   "kAutoDest_CC43",
+   "kAutoDest_CC44",
+   "kAutoDest_CC45",
+   "kAutoDest_CC46",
+   "kAutoDest_CC47",
+   "kAutoDest_CC48",
+   "kAutoDest_CC49",
+   "kAutoDest_CC50",
+   "kAutoDest_CC51",
+   "kAutoDest_CC52",
+   "kAutoDest_CC53",
+   "kAutoDest_CC54",
+   "kAutoDest_CC55",
+   "kAutoDest_CC56",
+   "kAutoDest_CC57",
+   "kAutoDest_CC58",
+   "kAutoDest_CC59",
+   "kAutoDest_CC60",
+   "kAutoDest_CC61",
+   "kAutoDest_CC62",
+   "kAutoDest_CC63",
+   "kAutoDest_CC64",
+   "kAutoDest_CC65",
+   "kAutoDest_CC66",
+   "kAutoDest_CC67",
+   "kAutoDest_CC68",
+   "kAutoDest_CC69",
+   "kAutoDest_CC70",
+   "kAutoDest_CC71",
+   "kAutoDest_CC72",
+   "kAutoDest_CC73",
+   "kAutoDest_CC74",
+   "kAutoDest_CC75",
+   "kAutoDest_CC76",
+   "kAutoDest_CC77",
+   "kAutoDest_CC78",
+   "kAutoDest_CC79",
+   "kAutoDest_CC80",
+   "kAutoDest_CC81",
+   "kAutoDest_CC82",
+   "kAutoDest_CC83",
+   "kAutoDest_CC84",
+   "kAutoDest_CC85",
+   "kAutoDest_CC86",
+   "kAutoDest_CC87",
+   "kAutoDest_CC88",
+   "kAutoDest_CC89",
+   "kAutoDest_CC90",
+   "kAutoDest_CC91",
+   "kAutoDest_CC92",
+   "kAutoDest_CC93",
+   "kAutoDest_CC94",
+   "kAutoDest_CC95",
+   "kAutoDest_CC96",
+   "kAutoDest_CC97",
+   "kAutoDest_CC98",
+   "kAutoDest_CC99",
+   "kAutoDest_CC100",
+   "kAutoDest_CC101",
+   "kAutoDest_CC102",
+   "kAutoDest_CC103",
+   "kAutoDest_CC104",
+   "kAutoDest_CC105",
+   "kAutoDest_CC106",
+   "kAutoDest_CC107",
+   "kAutoDest_CC108",
+   "kAutoDest_CC109",
+   "kAutoDest_CC110",
+   "kAutoDest_CC111",
+   "kAutoDest_CC112",
+   "kAutoDest_CC113",
+   "kAutoDest_CC114",
+   "kAutoDest_CC115",
+   "kAutoDest_CC116",
+   "kAutoDest_CC117",
+   "kAutoDest_CC118",
+   "kAutoDest_CC119",
+   "kAutoDest_CC120",
+   "kAutoDest_CC121",
+   "kAutoDest_CC122",
+   "kAutoDest_CC123",
+   "kAutoDest_CC124",
+   "kAutoDest_CC125",
+   "kAutoDest_CC126",
+   "kAutoDest_CC127",
+   "kAutoDest_ChanPressure",
+   "kAutoDest_PitchBend",
+   "kAutoDest_Macro0",
+   "kAutoDest_Macro1",
+   "kAutoDest_Macro2",
+   "kAutoDest_Macro3",
+   "kAutoDest_Macro4",
+   "kAutoDest_Macro5",
+   "kAutoDest_Macro6",
+   "kAutoDest_Macro7",
+   "kAutoDest_Transpose",
+   "kAutoDest_Key",
+   "kAutoDest_Scale",
+   "kNumAutomationDests",
+   "kNumMidiAutomationDests",
+   "kNumParamAutomationDests"
+  ],
+  "ClipPlaybackMode": [
+   "Normal",
+   "Reverse",
+   "Pendulum",
+   "Random",
+   "RandomNoDup",
+   "RandomStart",
+   "RandomEnd",
+   "OneShot",
+   "Static",
+   "kCount"
+  ],
+  "SpanKeyboardMode": [
+   "Off",
+   "Mono",
+   "Poly",
+   "Offset",
+   "kCount",
+   "All"
+  ],
+  "OscType": [
+   "kOsc_WT",
+   "kOsc_MultiSample",
+   "kOsc_Sample",
+   "kOsc_Granular",
+   "kOsc_Spectral",
+   "kOsc_Noise",
+   "kOsc_Sub",
+   "kNumOscTypes",
+   "kNumMainOscTypes",
+   "kNoOscType"
+  ],
+  "LoopMode": [
+   "kNone",
+   "kForward",
+   "kReverse",
+   "kPingPong",
+   "kTailed",
+   "kNumLoopModes"
+  ],
+  "PitchMode": [
+   "Semitones",
+   "Steps",
+   "Harmonics",
+   "Ratio",
+   "Freq",
+   "kCount"
+  ],
+  "PitchRatioModMode": [
+   "Continuous",
+   "Coarse",
+   "Fine",
+   "kCount"
+  ],
+  "SlicingMode": [
+   "Off",
+   "Auto",
+   "Manual",
+   "kCount"
+  ],
+  "DetuneMode": [
+   "kDetuneLinear",
+   "kDetuneSuper",
+   "kDetuneExp",
+   "kDetuneInv",
+   "kDetuneRandom",
+   "kNumUnisonDetuneModes"
+  ],
+  "UnisonStack": [
+   "kNoUnisonStack",
+   "kOctave1",
+   "kOctave2",
+   "kOctave3",
+   "kOctaveFifth1",
+   "kOctaveFifth2",
+   "kOctaveFifth3",
+   "kCenter12",
+   "kCenter24",
+   "kNumUnisonStackTypes"
+  ],
+  "ArpShape": [
+   "Pattern",
+   "Up",
+   "Down",
+   "UpDown",
+   "DownUp",
+   "UpAndDown",
+   "DownAndUp",
+   "ThumbUp",
+   "ThumbUD",
+   "PinkyUp",
+   "PinkyUD",
+   "Converge",
+   "Diverge",
+   "ConvAndDiv",
+   "Played",
+   "Chord",
+   "Rand",
+   "RandNoDup",
+   "RandDrift",
+   "RandOnce",
+   "kCount"
+  ],
+  "ArpStepAction": [
+   "Normal",
+   "NewOnly",
+   "Chord",
+   "ChordNewOnly",
+   "kCount"
+  ],
+  "RangeWrapMode": [
+   "Normal",
+   "Phantom",
+   "Muted",
+   "kCount"
+  ],
+  "SpectralWarp": [
+   "kNoWarp",
+   "kDetune",
+   "kSmear",
+   "kSpread",
+   "kAddharmonics",
+   "kAddsubharmonics",
+   "kGate",
+   "kRobotize",
+   "kSpectralShift",
+   "kMirror",
+   "kPeakFollow",
+   "kPeakOctaveUp",
+   "kPeakOctaveDown",
+   "kPeakHarmUp",
+   "kPeakHarmDown",
+   "kPeakHarmSweep",
+   "kShepardNarrow",
+   "kShepardFilter",
+   "kSpectralComb",
+   "kSpectralPitchShift",
+   "kSpectralPitchShiftNew",
+   "kSpectralPhaseTwist",
+   "kSpectralFormantShift",
+   "kMask_OSC",
+   "kMask_OSC2",
+   "kMask_NOISE",
+   "kMask_SUB",
+   "kMask_FILT1",
+   "kMask_FILT2",
+   "kVocode_OSC",
+   "kVocode_OSC2",
+   "kVocode_NOISE",
+   "kVocode_SUB",
+   "kVocode_FILT1",
+   "kVocode_FILT2",
+   "kFilterLPF",
+   "kFilterHPF",
+   "kDistTube",
+   "kDistSoftClip",
+   "kDistHardClip",
+   "kDistDiode1",
+   "kDistDiode2",
+   "kDistLinFold",
+   "kDistSinFold",
+   "kDistZeroSquare",
+   "kDistAsym",
+   "kDistRectify",
+   "kDistSineShaper",
+   "kDistStompBox",
+   "kDistTapeSat",
+   "kDistSoftSat",
+   "kFM_OSC",
+   "kFM_OSC2",
+   "kFM_NOISE",
+   "kFM_SUB",
+   "kFM_FILT1",
+   "kFM_FILT2",
+   "kFMX_OSC",
+   "kFMX_OSC2",
+   "kFMX_NOISE",
+   "kFMX_SUB",
+   "kFMX_FILT1",
+   "kFMX_FILT2",
+   "kFMP_OSC",
+   "kFMP_OSC2",
+   "kFMP_NOISE",
+   "kFMP_SUB",
+   "kFMP_FILT1",
+   "kFMP_FILT2",
+   "kPD_OSC",
+   "kPD_OSC2",
+   "kPD_NOISE",
+   "kPD_SUB",
+   "kPD_FILT1",
+   "kPD_FILT2",
+   "kSelfPD",
+   "kAM_OSC",
+   "kAM_OSC2",
+   "kAM_NOISE",
+   "kAM_SUB",
+   "kAM_FILT1",
+   "kAM_FILT2",
+   "kRM_OSC",
+   "kRM_OSC2",
+   "kRM_NOISE",
+   "kRM_SUB",
+   "kRM_FILT1",
+   "kRM_FILT2",
+   "kNumWarpModes"
+  ],
+  "SpectralYAxis": [
+   "kYAxisNone",
+   "kYAxisOscVolume",
+   "kYAxisSpectralWarp",
+   "kYAxisSpectralWarp2",
+   "kYAxisSpectralSpecFltShift",
+   "kYAxisSpectralSpecFltWetDry",
+   "kYAxisSpectralFreqLo",
+   "kYAxisSpectralFreqHi",
+   "kNumYAxisAssignments"
+  ],
+  "GranularWindowShape": [
+   "kWindowHann",
+   "kWindowWelch",
+   "kWindowGaussian",
+   "kWindowBlackmanHarris",
+   "kWindowSinc",
+   "kWindowTukey",
+   "kWindowTriangle",
+   "kWindowTrapezoid",
+   "kWindowExpDec",
+   "kWindowExpDecRev",
+   "kNumWindowShapes"
+  ],
+  "GranularWarp": [
+   "kNoWarp",
+   "kFilterLPF",
+   "kFilterHPF",
+   "kDistTube",
+   "kDistSoftClip",
+   "kDistHardClip",
+   "kDistDiode1",
+   "kDistDiode2",
+   "kDistLinFold",
+   "kDistSinFold",
+   "kDistZeroSquare",
+   "kDistAsym",
+   "kDistRectify",
+   "kDistSineShaper",
+   "kDistStompBox",
+   "kDistTapeSat",
+   "kDistSoftSat",
+   "kFM_OSC",
+   "kFM_OSC2",
+   "kFM_NOISE",
+   "kFM_SUB",
+   "kFM_FILT1",
+   "kFM_FILT2",
+   "kFMX_OSC",
+   "kFMX_OSC2",
+   "kFMX_NOISE",
+   "kFMX_SUB",
+   "kFMX_FILT1",
+   "kFMX_FILT2",
+   "kFMP_OSC",
+   "kFMP_OSC2",
+   "kFMP_NOISE",
+   "kFMP_SUB",
+   "kFMP_FILT1",
+   "kFMP_FILT2",
+   "kPD_OSC",
+   "kPD_OSC2",
+   "kPD_NOISE",
+   "kPD_SUB",
+   "kPD_FILT1",
+   "kPD_FILT2",
+   "kSelfPD",
+   "kAM_OSC",
+   "kAM_OSC2",
+   "kAM_NOISE",
+   "kAM_SUB",
+   "kAM_FILT1",
+   "kAM_FILT2",
+   "kRM_OSC",
+   "kRM_OSC2",
+   "kRM_NOISE",
+   "kRM_SUB",
+   "kRM_FILT1",
+   "kRM_FILT2",
+   "kNumWarpModes"
+  ],
+  "GranularDensityMode": [
+   "kDensityFree",
+   "kDensityBPM",
+   "kDensityGrains",
+   "kNumDensityModes"
+  ],
+  "GranularLengthMode": [
+   "kLengthFree",
+   "kLengthBPM",
+   "kLengthPercent",
+   "kNumLengthModes"
+  ],
+  "GranularYAxis": [
+   "kYAxisNone",
+   "kYAxisOscVolume",
+   "kYAxisGranularWarp",
+   "kYAxisGranularWarp2",
+   "kYAxisGranularDensity",
+   "kYAxisGranularGrainLength",
+   "kYAxisGranularWindowParam",
+   "kYAxisGranularWindowSkew",
+   "kYAxisGranularRandomOffset",
+   "kYAxisGranularRandomDir",
+   "kYAxisGranularRandomPitch",
+   "kYAxisGranularRandomGrainLength",
+   "kYAxisGranularRandomPan",
+   "kYAxisGranularRandomGain",
+   "kYAxisGranularRandomWindowAmount",
+   "kYAxisGranularRandomWindowSkew",
+   "kYAxisGranularRandomWarp",
+   "kYAxisGranularRandomWarp2",
+   "kNumYAxisAssignments"
+  ],
+  "GranularUnisonTrigPattern": [
+   "kTogether",
+   "kEven",
+   "kExponential",
+   "kRandom",
+   "kNumUnisonTrigPatterns"
+  ],
+  "SampleWarp": [
+   "kNoWarp",
+   "kFilterLPF",
+   "kFilterHPF",
+   "kDistTube",
+   "kDistSoftClip",
+   "kDistHardClip",
+   "kDistDiode1",
+   "kDistDiode2",
+   "kDistLinFold",
+   "kDistSinFold",
+   "kDistZeroSquare",
+   "kDistAsym",
+   "kDistRectify",
+   "kDistSineShaper",
+   "kDistStompBox",
+   "kDistTapeSat",
+   "kDistSoftSat",
+   "kFM_OSC",
+   "kFM_OSC2",
+   "kFM_NOISE",
+   "kFM_SUB",
+   "kFM_FILT1",
+   "kFM_FILT2",
+   "kFMX_OSC",
+   "kFMX_OSC2",
+   "kFMX_NOISE",
+   "kFMX_SUB",
+   "kFMX_FILT1",
+   "kFMX_FILT2",
+   "kFMP_OSC",
+   "kFMP_OSC2",
+   "kFMP_NOISE",
+   "kFMP_SUB",
+   "kFMP_FILT1",
+   "kFMP_FILT2",
+   "kPD_OSC",
+   "kPD_OSC2",
+   "kPD_NOISE",
+   "kPD_SUB",
+   "kPD_FILT1",
+   "kPD_FILT2",
+   "kSelfPD",
+   "kAM_OSC",
+   "kAM_OSC2",
+   "kAM_NOISE",
+   "kAM_SUB",
+   "kAM_FILT1",
+   "kAM_FILT2",
+   "kRM_OSC",
+   "kRM_OSC2",
+   "kRM_NOISE",
+   "kRM_SUB",
+   "kRM_FILT1",
+   "kRM_FILT2",
+   "kNumWarpModes"
+  ],
+  "ClipLaneType": [
+   "Attribute",
+   "Automation",
+   "Expression",
+   "kCount"
+  ],
+  "PianoRollNoteFold": [
+   "Off",
+   "NotesUsed",
+   "AllNotesInKey",
+   "kCount"
+  ],
+  "DistortionMode": [
+   "kTube",
+   "kSoftClip",
+   "kHardClip",
+   "kDiode1",
+   "kDiode2",
+   "kLinFold",
+   "kSinFold",
+   "kZeroSquare",
+   "kDownsample",
+   "kAsym",
+   "kRectify",
+   "kXShaper",
+   "kXShaperAsym",
+   "kSineShaper",
+   "kStompBox",
+   "kTapeSat",
+   "kOverdrive",
+   "kSoftSat",
+   "kNumDistortions"
+  ],
+  "FilterType": [
+   "Bypass",
+   "MgL6",
+   "MgL12",
+   "MgL18",
+   "MgL24",
+   "L6",
+   "L12",
+   "L18",
+   "L24",
+   "H6",
+   "H12",
+   "H18",
+   "H24",
+   "B12",
+   "B24",
+   "P12",
+   "P24",
+   "N12",
+   "N24",
+   "LH6",
+   "LH12",
+   "LB12",
+   "LP12",
+   "LN12",
+   "HB12",
+   "HP12",
+   "HN12",
+   "BP12",
+   "BN12",
+   "PP12",
+   "PN12",
+   "NN12",
+   "LBH12",
+   "LBH24",
+   "LPH12",
+   "LPH24",
+   "LNH12",
+   "LNH24",
+   "BPN12",
+   "BPN24",
+   "CombP",
+   "CombN",
+   "CombL6P",
+   "CombL6N",
+   "CombH6P",
+   "CombH6N",
+   "CombHL6P",
+   "CombHL6N",
+   "FlangeP",
+   "FlangeN",
+   "FlangeL6P",
+   "FlangeL6N",
+   "FlangeH6P",
+   "FlangeH6N",
+   "FlangeHL6P",
+   "FlangeHL6N",
+   "Phase12P",
+   "Phase12N",
+   "Phase24P",
+   "Phase24N",
+   "Phase36P",
+   "Phase36N",
+   "Phase48P",
+   "Phase48N",
+   "Phase48L6P",
+   "Phase48L6N",
+   "Phase48H6P",
+   "Phase48H6N",
+   "Phase48HL6P",
+   "Phase48HL6N",
+   "FlangePhase12HL6P",
+   "FlangePhase12HL6N",
+   "LEQ6",
+   "LEQ12",
+   "BEQ12",
+   "HEQ6",
+   "HEQ12",
+   "RM",
+   "RMT",
+   "SNH1",
+   "SNH2",
+   "Combs",
+   "Allpasses",
+   "Reverb1",
+   "Scream",
+   "ZDF_A",
+   "ADD_BASS",
+   "FormantONE",
+   "FormantTWO",
+   "FormantTWB",
+   "BandReject",
+   "DistComb1LP",
+   "DistComb1BP",
+   "DistComb2LP",
+   "DistComb2BP",
+   "Scream3LP",
+   "Scream3BP",
+   "Wsp",
+   "DJMixer",
+   "Diffuser",
+   "LadderMg",
+   "LadderAcid",
+   "LadderEMS",
+   "DirtyMg",
+   "PZ_SVF",
+   "Comb2",
+   "Exp",
+   "ExpBPF",
+   "K35",
+   "NumModes",
+   "NumModes1"
+  ],
+  "ReverbType": [
+   "kPlate",
+   "kHall",
+   "kVintage",
+   "kAbyss",
+   "kSpace",
+   "kNumReverbTypes"
+  ],
+  "ClipRecordMode": [
+   "Overdub",
+   "Extend",
+   "kCount"
+  ],
+  "LFOMode": [
+   "Free",
+   "Retrig",
+   "Envelope",
+   "kCount"
+  ],
+  "LFOType": [
+   "Curve",
+   "Path",
+   "Lorenz",
+   "Rossler",
+   "RandomSH",
+   "kCount"
+  ],
+  "WTWarp": [
+   "kNoWarp",
+   "kSync",
+   "kBendPos",
+   "kBendNeg",
+   "kBendPosNeg",
+   "kPWM",
+   "kASYMPos",
+   "kASYMNeg",
+   "kASYMPosNeg",
+   "kFlip",
+   "kDLM",
+   "kRemap_1",
+   "kRemap_2",
+   "kRemap_3",
+   "kRemap_4",
+   "kQuantize",
+   "kEvenOdd",
+   "kFilterLPF",
+   "kFilterHPF",
+   "kDistTube",
+   "kDistSoftClip",
+   "kDistHardClip",
+   "kDistDiode1",
+   "kDistDiode2",
+   "kDistLinFold",
+   "kDistSinFold",
+   "kDistZeroSquare",
+   "kDistAsym",
+   "kDistRectify",
+   "kDistSineShaper",
+   "kDistStompBox",
+   "kDistTapeSat",
+   "kDistSoftSat",
+   "kFM_OSC",
+   "kFM_OSC2",
+   "kFM_NOISE",
+   "kFM_SUB",
+   "kFM_FILT1",
+   "kFM_FILT2",
+   "kFMX_OSC",
+   "kFMX_OSC2",
+   "kFMX_NOISE",
+   "kFMX_SUB",
+   "kFMX_FILT1",
+   "kFMX_FILT2",
+   "kFMP_OSC",
+   "kFMP_OSC2",
+   "kFMP_NOISE",
+   "kFMP_SUB",
+   "kFMP_FILT1",
+   "kFMP_FILT2",
+   "kPD_OSC",
+   "kPD_OSC2",
+   "kPD_NOISE",
+   "kPD_SUB",
+   "kPD_FILT1",
+   "kPD_FILT2",
+   "kSelfPD",
+   "kAM_OSC",
+   "kAM_OSC2",
+   "kAM_NOISE",
+   "kAM_SUB",
+   "kAM_FILT1",
+   "kAM_FILT2",
+   "kRM_OSC",
+   "kRM_OSC2",
+   "kRM_NOISE",
+   "kRM_SUB",
+   "kRM_FILT1",
+   "kRM_FILT2",
+   "kNumWarpModes",
+   "kFirstDrawable",
+   "kLastDrawable"
+  ],
+  "PhaseMemoryMode": [
+   "kAll",
+   "kContiguous",
+   "kPerVoice",
+   "kNumPhaseMemoryModes"
+  ],
+  "SubOscShape": [
+   "kSine",
+   "kRoundRect",
+   "kTriangle",
+   "kSaw",
+   "kSquare",
+   "kPulse",
+   "kNumSubOscShapes"
+  ]
+ },
+ "uiEnums": {
+  "UI_L88395": [
+   "kUIParamClipLength",
+   "kUIParamShowArp",
+   "kUIParamGridDivision",
+   "kUIParamPianoRollScroll",
+   "kUIParamPianoRollScrollLeft",
+   "kUIParamPianoRollScrollRight",
+   "kUIParamPianoRollZoomToFit",
+   "kUIParamPianoRollNoteFold",
+   "kUIParamAutomationLaneMenu",
+   "kUIParamAutomationLaneHeight",
+   "kUIParamBeatRetrigFlash",
+   "kUIParamNoteRetrigFlash",
+   "kUIParamInspectorPage",
+   "kUIParamShowPianoRoll",
+   "kUIParamHidePianoRoll",
+   "kUIParamPitchExpressionEdit",
+   "kUIParamClipMenu",
+   "kUIParamClipRockerSwitch",
+   "kUIParamBankMenu",
+   "kUIParamBankRockerSwitch",
+   "kUIParamClipName",
+   "kUIParamEditAllClips",
+   "kUIParamArpShapeRockerSwitch",
+   "kUIParamTransposeShapeRockerSwitch"
+  ],
+  "UI_L88397": [
+   "kUIParamPlay"
+  ],
+  "UI_L88398": [
+   "kUIParamSelectedClip",
+   "kUIParamClipName",
+   "kUIParamClipLength",
+   "kUIParamShowClipPlayer",
+   "kUIParamCloseClipPlayer",
+   "kUIParamGridDivision",
+   "kUIParamPianoRollScroll",
+   "kUIParamPianoRollScrollLeft",
+   "kUIParamPianoRollScrollRight",
+   "kUIParamPianoRollZoomToFit",
+   "kUIParamPianoRollNoteFold",
+   "kUIParamPianoRollNotePreview",
+   "kUIParamPitchExpressionEdit",
+   "kUIParamAutomationLaneMenu",
+   "kUIParamAutomationLaneHeight",
+   "kUIParamRecord",
+   "kUIParamRecordStart",
+   "kUIParamRecordDone",
+   "kUIParamRecordCommit",
+   "kUIParamRecordUndo",
+   "kUIParamInspectorPage",
+   "kUIParamShowMacros",
+   "kUIParamPreviewClip",
+   "kUIParamClipMenu",
+   "kUIParamClipRockerSwitch",
+   "kUIParamBankMenu",
+   "kUIParamBankRockerSwitch",
+   "kUIParamEditAllClips",
+   "kUIParamShowMacroAutomation",
+   "kUIParamFocusMacro"
+  ],
+  "UI_L88399": [
+   "kUIParamClose",
+   "kUIParamGrid",
+   "kUIParamShapeMenu",
+   "kUIParamContextMenu"
+  ],
+  "UI_L88400": [
+   "kUIParamSelectedFilter",
+   "kUIParamRockerSwitch",
+   "kUIParamVarLabel",
+   "kUIParamEnable1",
+   "kUIParamEnable2",
+   "kUIParamOpenPZEditor",
+   "kUIParamMixOrGain",
+   "kUIParamFilterViewMode"
+  ],
+  "UI_L88401": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain"
+  ],
+  "UI_L88402": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain",
+   "kUIParamMeterMouseTag"
+  ],
+  "UI_L88403": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain",
+   "kUIParamImpulseMenu",
+   "kUIParamImpulseRockerSwitch"
+  ],
+  "UI_L88404": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain",
+   "kUIParamFilterGraph",
+   "kUIParamRockerSwitch",
+   "kUIParamShowFFT"
+  ],
+  "UI_L88405": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain",
+   "kUIParamFilterGraph",
+   "kUIParamRockerSwitch",
+   "kUIParamOpenCurveEditorA",
+   "kUIParamOpenCurveEditorB",
+   "kUIParamShowFFT"
+  ],
+  "UI_L88406": [
+   "kUIParamFXPresetMenu",
+   "kUIParamShowFFT"
+  ],
+  "UI_L88407": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain",
+   "kUIParamRockerSwitch",
+   "kUIParamVarLabel",
+   "kUIParamOpenPZEditor",
+   "kUIParamFilterViewMode"
+  ],
+  "UI_L88408": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGainHyper",
+   "kUIParamMixOrGainDimE"
+  ],
+  "UI_L88409": [
+   "kUIParamSelectedBus",
+   "kUIParamAddModule",
+   "kUIParamSaveButton",
+   "kUIParamPresetMenu",
+   "kUIParamExpanded"
+  ],
+  "UI_L88410": [
+   "kUIParamFXPresetMenu",
+   "kUIParamMixOrGain",
+   "kUIParamRockerSwitch"
+  ],
+  "UI_L88411": [
+   "kUIParamFXPresetMenu",
+   "kUIParamSelectedBand"
+  ],
+  "UI_L88412": [
+   "kUIParamOscADetuneModeRockerSwitchDown",
+   "kUIParamOscADetuneModeRockerSwitchUp",
+   "kUIParamOscBDetuneModeRockerSwitchDown",
+   "kUIParamOscBDetuneModeRockerSwitchUp",
+   "kUIParamLoadTuning",
+   "kUIParamTuningFileName",
+   "kUIParamTuningMenu",
+   "kUIParamLockTuning",
+   "kUIParamLockOversampling",
+   "kUIParamPrefsButtons",
+   "kUIParamUnisonDualDrag1",
+   "kUIParamUnisonDualDrag2",
+   "kUIParamUnisonDualDrag3",
+   "kUIParamUnisonDualDrag4",
+   "kUIParamUnisonDualDrag5",
+   "kUIParamBuildString",
+   "kUIParamDateString",
+   "kUIParamLockPoly"
+  ],
+  "UI_L88413": [
+   "kUIParamTableMenu",
+   "kUIParamTableRockerSwitch",
+   "kUIParamWarpMenuRockerSwitchA",
+   "kUIParamWarpMenuRockerSwitchB",
+   "kUIParamWarp2MenuRockerSwitchA",
+   "kUIParamWarp2MenuRockerSwitchB",
+   "kUIParamShowWarps",
+   "kUIParamDisplayXYInput",
+   "kUIParamWindowShapeRocker",
+   "kUIParamShowWindowSettings"
+  ],
+  "UI_L88414": [
+   "kUIParamScaleMenuMouseWheel"
+  ],
+  "UI_L88415": [
+   "kUIParamPresetMenu",
+   "kUIParamPresetRockerSwitch",
+   "kUIParamPresetOptionsMenu",
+   "kUIParamSavePresetButton",
+   "kUIParamWindowZoomSizeMenu",
+   "kUIParamDragExport",
+   "kUIParamPatchAuthor",
+   "kUIParamPatchDescription",
+   "kUIParamShowPresetBrowser",
+   "kUIParamsVULeft",
+   "kUIParamsVURight",
+   "kUIParamsVULeft2",
+   "kUIParamsVURight2",
+   "kUIParamsVUOscALeft",
+   "kUIParamsVUOscARight",
+   "kUIParamsVUOscBLeft",
+   "kUIParamsVUOscBRight",
+   "kUIParamsVUOscCLeft",
+   "kUIParamsVUOscCRight",
+   "kUIParamsVUNoiseLeft",
+   "kUIParamsVUNoiseRight",
+   "kUIParamsVUSubOscLeft",
+   "kUIParamsVUSubOscRight",
+   "kUIParamsVUFilter1Left",
+   "kUIParamsVUFilter1Right",
+   "kUIParamsVUFilter2Left",
+   "kUIParamsVUFilter2Right",
+   "kUIParamsVUFXBus1Left",
+   "kUIParamsVUFXBus1Right",
+   "kUIParamsVUFXBus2Left",
+   "kUIParamsVUFXBus2Right",
+   "kUIParamsVUDirectLeft",
+   "kUIParamsVUDirectRight",
+   "kUIParamMainArea",
+   "kUIParamExpandedTopPanel",
+   "kUIParamRoutingPopover",
+   "kUIParamProcessTimeout"
+  ],
+  "UI_L88416": [
+   "kUIParamMatrixOptionsMenu",
+   "kUIParamExpanded"
+  ],
+  "UI_L88417": [
+   "kUIParamMainSourceMenu",
+   "kUIParamAuxSourceMenu",
+   "kUIParamDestMenu",
+   "kUIParamOpenMainCurveEdit",
+   "kUIParamOpenAuxCurveEdit",
+   "kUIParamReset"
+  ],
+  "UI_L88418": [
+   "kUIParamSelectedEnv",
+   "kUIParamSelectedLFO",
+   "kUIParamSelectedScalarCurve",
+   "kUIParamSelectedModSource",
+   "kUIParamEnv1Drag",
+   "kUIParamEnv2Drag",
+   "kUIParamEnv3Drag",
+   "kUIParamEnv4Drag",
+   "kUIParamLFO1Drag",
+   "kUIParamLFO2Drag",
+   "kUIParamLFO3Drag",
+   "kUIParamLFO4Drag",
+   "kUIParamLFO5Drag",
+   "kUIParamLFO6Drag",
+   "kUIParamLFO7Drag",
+   "kUIParamLFO8Drag",
+   "kUIParamLFO9Drag",
+   "kUIParamLFO10Drag",
+   "kUIParamVeloCurveDrag",
+   "kUIParamNoteCurveDrag",
+   "kUIParamMacro1Drag",
+   "kUIParamMacro2Drag",
+   "kUIParamMacro3Drag",
+   "kUIParamMacro4Drag",
+   "kUIParamMacro5Drag",
+   "kUIParamMacro6Drag",
+   "kUIParamMacro7Drag",
+   "kUIParamMacro8Drag",
+   "kUIParamWheelDrag",
+   "kUIParamEnvZoom",
+   "kUIParamEnvZoomNormalizing",
+   "kUIParamLFOShapeMenu",
+   "kUIParamLFOContextMenu",
+   "kUIParamMacro1Name",
+   "kUIParamMacro2Name",
+   "kUIParamMacro3Name",
+   "kUIParamMacro4Name",
+   "kUIParamMacro5Name",
+   "kUIParamMacro6Name",
+   "kUIParamMacro7Name",
+   "kUIParamMacro8Name",
+   "kUIParamVoiceCountDisplay",
+   "kUIParamLFOLeftClickTool",
+   "kUIParamSelectedLFOType",
+   "kUIParamSNHZoom",
+   "kUIParamPathLFOIsOpen",
+   "kUIParamLFOShapeRockerSwitch",
+   "kUIParamEnvGridShowsBeats",
+   "kUIParamLFOEditorOpen",
+   "kUIParamLFOEditorClose"
+  ],
+  "UI_L88419": [
+   "kUIParamTableMenu",
+   "kUIParamTableRockerSwitch",
+   "kUIParamMultiSampleOverviewMouseTag",
+   "kUIParamOpenEnvEdit",
+   "kUIParamOpenRemapEdit",
+   "kUIParamOpenMultiSampleEditor",
+   "kUIParamWarpMenuRockerSwitchA",
+   "kUIParamWarpMenuRockerSwitchB",
+   "kUIParamWarp2MenuRockerSwitchA",
+   "kUIParamWarp2MenuRockerSwitchB"
+  ],
+  "UI_L88420": [
+   "kUIParamFilter1On",
+   "kUIParamFilter2On",
+   "kUIParamDirectOut",
+   "kUIParamOpenUnisonSettings",
+   "kUIParamShowMarkerAnimations",
+   "kUIParamZoomToStartEnd",
+   "kUIParamAutoSyncSlicing",
+   "kUIParamIndicatorSnap"
+  ],
+  "UI_L88421": [
+   "kUIParamNoiseMenu",
+   "kUIParamNoiseRockerSwitch",
+   "kUIParamNoiseFinePitch"
+  ],
+  "UI_L88422": [
+   "kUIParamSearchText",
+   "kUIParamClearSearchText",
+   "kUIParamClose",
+   "kUIParamPresetBrowserMenu",
+   "kUIParamContentFilter",
+   "kUIParamRatingFilterMenu",
+   "kUIParamRebuildText",
+   "kUIParamCategoryMenu",
+   "kUIParamCategoryText",
+   "kUIParamCommentText",
+   "kUIParamInspectorName",
+   "kUIParamInspectorAuthor",
+   "kUIParamInspectorCategory",
+   "kUIParamInspectorDescription",
+   "kUIParamInspectorUserComments",
+   "kUIParamInspectorDate"
+  ],
+  "UI_L88423": [
+   "kUIParamClose",
+   "kUIParamABCD",
+   "kUIParamGain",
+   "kUIParamPresetMenu"
+  ],
+  "UI_L88424": [
+   "kUIParamTableMenu",
+   "kUIParamTableRockerSwitch",
+   "kUIParamWarpMenuRockerSwitchA",
+   "kUIParamWarpMenuRockerSwitchB",
+   "kUIParamWarp2MenuRockerSwitchA",
+   "kUIParamWarp2MenuRockerSwitchB"
+  ],
+  "UI_L88425": [
+   "kUIParamPage",
+   "kUIParamResize",
+   "kUIParamDragResizeTag",
+   "kUIParamDialogNotifier",
+   "kUIParamContextMenu",
+   "kUIParamTextEntry",
+   "kUIParamIsFXVersion",
+   "kUIParamShowKeyboard",
+   "kUIParamShowSwingInPianoRoll",
+   "kUIParamShowMidiOut",
+   "kUIParamMidiOutputDisplayScrollSpeed",
+   "kUIParamShowMissingFileDialog",
+   "kUIParamShowAbout",
+   "kUIParamSampleEditorOscID",
+   "kUIParamSampleEditorOpen"
+  ],
+  "UI_L88426": [
+   "kUIParamTableMenu",
+   "kUIParamTableRockerSwitch",
+   "kUIParamWarpMenuRockerSwitchA",
+   "kUIParamWarpMenuRockerSwitchB",
+   "kUIParamWarp2MenuRockerSwitchA",
+   "kUIParamWarp2MenuRockerSwitchB",
+   "kUIParamShowWaveformDisplay",
+   "kUIParamOpenCurveEdit",
+   "kUIParamFilterTableMenu",
+   "kUIParamDisplayXYInput"
+  ],
+  "UI_L88427": [
+   "kUIParamSplashButton",
+   "kUIParamSplashButton2",
+   "kUIParamSplashKicker"
+  ],
+  "UI_L88428": [
+   "kUIParamSynthUIUpperPage",
+   "kUIParamSynthUILowerPage"
+  ],
+  "UI_L88429": [
+   "kUIParamStyleMenu",
+   "kUIParamSaveStyleButton",
+   "kUIParamSelectedModulator"
+  ],
+  "UI_L88430": [
+   "kUIParamWaveformEdit",
+   "kUIParamWaveformFFTEdit",
+   "kUIParamWaveformFFTPhasesEdit",
+   "kUIParamFFTZoomWidth",
+   "kUIParamTableSelect",
+   "kUIParamShapeDrawSel",
+   "kUIParamGridSizeX",
+   "kUIParamGridSizeY",
+   "kUIParamNudgeBothZooms",
+   "kUIParamNudgeTime",
+   "kUIParamNudgeAmp",
+   "kUIParamCloseWTEditor",
+   "kUIParamWTThumbs",
+   "kUIParamRecalcWTThumbs",
+   "kUIParamCaptureInput",
+   "kUIParamCaptureCurrentTable",
+   "kUIParamCopy",
+   "kUIParamPaste",
+   "kUIParamUndo",
+   "kUIParamRedo",
+   "kUIParamIncOrDecTables",
+   "kUIParamMirror",
+   "kUIParamWaveToFFT",
+   "kUIParamRepeatFFTMenuFunction",
+   "kUIParamTitleBar",
+   "kUIParamActionMenu",
+   "kUIParamActionMenuB",
+   "kUIParamActionMenuC",
+   "kUIParamActionMenuD",
+   "kUIParamActionMenuE",
+   "kUIParamActionMenuF",
+   "kUIParamActionMenuG",
+   "kUIParamActionMenuLast",
+   "kUIParamFormulaMenu",
+   "kUIParamFormulaParse",
+   "kUIParamFocusOsc",
+   "kUIParamFFTContextMenu",
+   "kUIParamFFTPhaseContextMenu",
+   "kUIParamTotalNumTables"
+  ],
+  "UI_L88431": [
+   "kUIParamTableMenu",
+   "kUIParamTableRockerSwitch",
+   "kUIParamSaveOscState",
+   "kUIParamWTOverviewMouseTag",
+   "kUIParamWarpMenuRockerSwitchA",
+   "kUIParamWarpMenuRockerSwitchB",
+   "kUIParamWarp2MenuRockerSwitchA",
+   "kUIParamWarp2MenuRockerSwitchB",
+   "kUIParamOpenRemapEdit",
+   "kUIParamOpenWTEditor",
+   "kUIParamTablePos",
+   "kUIParamOpenPhaseEdit"
+  ],
+  "UI_L88432": [
+   "kUIParamOpen",
+   "kUIParamClose",
+   "kUIParamSelectedZone"
+  ]
+ },
+ "unattributed": [
+  "lines [90928]: [kParamDetune, kParamEnable, kParamLevelOut, kParamRate, kParamRetrig, kParamUnison...] (7 params), hint=FXDimE",
+  "enum StrumType (line 88703) not linked to any module param",
+  "enum AutomationDest (line 88715) not linked to any module param",
+  "enum ClipLaneType (line 90763) not linked to any module param",
+  "enum PianoRollNoteFold (line 90765) not linked to any module param"
+ ],
+ "notes": [
+  "enum AutomationDest: declaration has explicit values ['kNumMidiAutomationDests=kAutoDest_Macro0', 'kNumParamAutomationDests=kNumAutomationDests - kAutoDest_Macro0']; other entries are sequential from the previous value. List order = declaration order, sentinels (kNum*/kCount) kept.",
+  "enum OscType: declaration has explicit values ['kNumMainOscTypes=kOsc_Spectral + 1', 'kNoOscType=kNumOscTypes']; other entries are sequential from the previous value. List order = declaration order, sentinels (kNum*/kCount) kept.",
+  "enum FilterType: declaration has explicit values ['Bypass=-1', 'MgL6=0', 'NumModes1=NumModes-1']; other entries are sequential from the previous value. List order = declaration order, sentinels (kNum*/kCount) kept. FilterType ordinal = list index - 1 (Bypass=-1, MgL6=0).",
+  "enum WTWarp: declaration has explicit values ['kFirstDrawable=kSync', 'kLastDrawable=kDistSoftSat']; other entries are sequential from the previous value. List order = declaration order, sentinels (kNum*/kCount) kept.",
+  "GranularWarp (line 89916, declared before the granular params) and SampleWarp (line 90415, declared after the multisample params) are identical lists; SampleWarp is used for SampleOsc and MultiSampleOsc by position only.",
+  "FXSplitMS: inferred: third of the consecutive 2/3/band splitter decls (91199 FXSplit, 91201 FXSplit3, 91203 FXSplitMS, fxTypeId 13,14,15); declaration has no private line so observed kParamModuleCount1/2 stay id=null",
+  "Declaration at lines [90939, 90940] is shared by ['FXFilter', 'VoiceFilter'] (same C++ class); ids are identical for each.",
+  "Macro (line 89164, automatable kParamValue) vs LFOPointModBus (line 91138, private kParamValue): both declare only kParamValue = id 0 and have identical observed names; the split is by the 'LFOPointModBus' name-string preceding the second one and by automatable-ness (Macros are host-automatable).",
+  "Unattributed group at lines [90928] ({Enable, Wet, Rate, Detune, Unison, Retrig, LevelOut}) is a strict subset of FXHyperD's declaration - probably the base 'Hyper' effect class; the nearby 'FXDimE' string belongs to the preceding DimE decl.",
+  "FXSplitMS.kParamModuleCount1 observed in presets but absent from every declaration (id=null).",
+  "FXSplitMS.kParamModuleCount2 observed in presets but absent from every declaration (id=null).",
+  "Global.kParamUseUltraOnRender observed in presets but absent from every declaration (id=null).",
+  "ModSlot.kParamCurveOut observed in presets but absent from every declaration (id=null).",
+  "FXDimE: declared but never instantiated in presets (paths empty).",
+  "GranularOsc.kParamRandomDir: ModSlot destModuleParamID 10 (schema id 13) seen only in preset version(s) {'2.0.11': 1} - legacy id layout, not the 2.1.5 declaration.",
+  "Oscillator.kParamDetune: ModSlot destModuleParamID 10 (schema id 26) seen only in preset version(s) {'2.0.11': 8} - legacy id layout, not the 2.1.5 declaration.",
+  "Oscillator.kParamDetuneWid: ModSlot destModuleParamID 11 (schema id 27) seen only in preset version(s) {'2.0.11': 1} - legacy id layout, not the 2.1.5 declaration.",
+  "SampleOsc.kParamWarp2: ModSlot destModuleParamID 2 (schema id 3) seen only in preset version(s) {'2.0.11': 1} - legacy id layout, not the 2.1.5 declaration.",
+  "SpectralOsc.kParamWarp2: ModSlot destModuleParamID 2 (schema id 3) seen only in preset version(s) {'2.0.11': 1} - legacy id layout, not the 2.1.5 declaration.",
+  "WTOsc.kParamInitialPhase: ModSlot destModuleParamID 3 (schema id 8) seen only in preset version(s) {'2.0.11': 3} - legacy id layout, not the 2.1.5 declaration.",
+  "WTOsc.kParamTablePos: ModSlot destModuleParamID 1 (schema id 6) seen only in preset version(s) {'2.0.11': 17} - legacy id layout, not the 2.1.5 declaration.",
+  "WTOsc.kParamWarp2: ModSlot destModuleParamID 6 (schema id 3) seen only in preset version(s) {'2.0.11': 22} - legacy id layout, not the 2.1.5 declaration."
+ ]
+}

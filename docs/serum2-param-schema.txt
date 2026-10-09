@@ -1,0 +1,646 @@
+presets parsed 1391
+/Arp#
+    kParamActiveClipID 
+    kParamEnabled 
+    kParamKeyZoneFold 
+    kParamKeyZoneMax 
+    kParamKeyZoneMin 
+    kParamLaunchQuantize 
+    kParamMidiSelectOctave 
+    kParamVelocityZoneMin 
+/ArpClip#
+    [clip] = <blob>
+    kParamBeatRetrig 
+    kParamBeatSync 
+    kParamChance 
+    kParamDotted 
+    kParamFirstNoteRetrig 
+    kParamGate 
+    kParamLatch 
+    kParamLaunchRetrig 
+    kParamNoteRetrig 
+    kParamOffset 
+    kParamPlaybackMode = RandomNoDup
+    kParamRangeWrapMode = Phantom
+    kParamRate 
+    kParamRepeats 
+    kParamRetrigRate 
+    kParamShape = Chord, ConvAndDiv, Converge, Down, DownAndUp, DownUp, Pattern, Played, Rand, RandDrift, RandNoDup, RandOnce, ThumbUD, UpAndDown, UpDown
+    kParamStepAction = Chord
+    kParamThru 
+    kParamTranspose 
+    kParamTransposeRange 
+    kParamTransposeShape = Converge, Diverge, Down, UpDown
+    kParamTransposeShift 
+    kParamTriplets 
+    kParamVeloDecay 
+    kParamVeloEnabled 
+    kParamVeloRetrig 
+    kParamVeloTarget 
+    kParamWrapPhantomNote 
+    kParamWrapRange 
+    kParamWrapTranspose 
+/ClipPlayer#
+    kParamEnabled 
+    kParamMetronomeEnabled 
+    kParamMidiSelectOctave 
+    kParamMonoClipTrigger 
+    kParamRecordMode = Extend
+    kParamSpanKeyboardClip 
+/Env#
+    kParamAttack 
+    kParamBeatSync 
+    kParamCurve1 
+    kParamCurve2 
+    kParamCurve3 
+    kParamDecay 
+    kParamEnd 
+    kParamHold 
+    kParamLegatoInverted 
+    kParamRelease 
+    kParamStart 
+    kParamSustain 
+    kParamVoiceStealRestart 
+/FXRack#/FX[]/FXBode
+    kParamBeatSync 
+    kParamBlur 
+    kParamDelayBalance 
+    kParamDelayTime 
+    kParamEnable 
+    kParamFeedback 
+    kParamLevelOut 
+    kParamMonoInput 
+    kParamOutputMix 
+    kParamOutputWidth 
+    kParamRange 
+    kParamRetrig 
+    kParamShift 
+    kParamSwapAB 
+    kParamWet 
+/FXRack#/FX[]/FXChorus
+    kParamBeatSync 
+    kParamDelay 
+    kParamDelay2 
+    kParamDepth 
+    kParamEnable 
+    kParamFeedback 
+    kParamFilt 
+    kParamFiltMode 
+    kParamLevelOut 
+    kParamRate 
+    kParamWet 
+/FXRack#/FX[]/FXComp
+    kParamAttack 
+    kParamCompensatedWetDry 
+    kParamDeadband0 
+    kParamDeadband1 
+    kParamDeadband2 
+    kParamEnable 
+    kParamGain0 
+    kParamGain1 
+    kParamGain2 
+    kParamLevelOut 
+    kParamMakeup 
+    kParamMultiband 
+    kParamRatio 
+    kParamRatio0 
+    kParamRatio1 
+    kParamRatio2 
+    kParamRatioBelow 
+    kParamRatioBelow0 
+    kParamRatioBelow1 
+    kParamRatioBelow2 
+    kParamRelease 
+    kParamThresh 
+    kParamThreshUD0 
+    kParamThreshUD1 
+    kParamThreshUD2 
+    kParamWet 
+    kParamXoverHi 
+    kParamXoverLow 
+/FXRack#/FX[]/FXConv
+    kParamAttack 
+    kParamDamping 
+    kParamDecay 
+    kParamEnable 
+    kParamIpTrim 
+    kParamLevelOut 
+    kParamMinPhase 
+    kParamPredelay 
+    kParamPredelayBeatSync 
+    kParamSize 
+    kParamTone 
+    kParamWet 
+/FXRack#/FX[]/FXDelay
+    kParamBW 
+    kParamBeatSync 
+    kParamEnable 
+    kParamFeedback 
+    kParamFreq 
+    kParamHQ 
+    kParamLevelOut 
+    kParamLink 
+    kParamMode 
+    kParamOffsetL 
+    kParamOffsetR 
+    kParamTimeL 
+    kParamTimeR 
+    kParamWet 
+/FXRack#/FX[]/FXDistortion
+    kParamBW 
+    kParamDrive 
+    kParamEnable 
+    kParamFreq 
+    kParamKeyTrack 
+    kParamLPHP 
+    kParamLevelOut 
+    kParamMode = kAsym, kDiode1, kDiode2, kDownsample, kHardClip, kLinFold, kOverdrive, kRectify, kSinFold, kSineShaper, kSoftClip, kSoftSat, kStompBox, kTapeSat, kXShaper, kXShaperAsym, kZeroSquare
+    kParamNumStages 
+    kParamPrePost 
+    kParamWet 
+/FXRack#/FX[]/FXEQ
+    kParamEnable 
+    kParamFreq1 
+    kParamFreq2 
+    kParamGain1 
+    kParamGain2 
+    kParamLevelOut 
+    kParamReso1 
+    kParamReso2 
+    kParamType1 
+    kParamType2 
+/FXRack#/FX[]/FXFilter
+    kParamDrive 
+    kParamEnable 
+    kParamFreq 
+    kParamKeyTrack 
+    kParamLevelOut 
+    kParamPad 
+    kParamReso 
+    kParamStereo 
+    kParamType = ADD_BASS, Allpasses, B12, B24, BEQ12, BN12, BP12, BandReject, Comb2, CombHL6N, CombHL6P, CombL6N, CombL6P, CombN, CombP, Combs, DJMixer, Diffuser, DirtyMg, DistComb1BP, DistComb1LP, Exp, ExpBPF, FlangeH6P, FlangeHL6N, FlangeHL6P, FlangeL6N, FlangeL6P, FlangeN, FlangeP, FormantONE, FormantTWB, FormantTWO, H12, H18, H24, H6, HEQ12, HEQ6, HN12, HP12, K35, L12, L18, L24, L6, LB12, LBH24, LEQ6, LH12, LN12, LNH24, LPH12, LPH24, LadderAcid, LadderEMS, LadderMg, MgL12, MgL18, MgL24
+    kParamVar 
+    kParamWet 
+    kParamX 
+    kParamY 
+/FXRack#/FX[]/FXFlanger
+    kParamBeatSync 
+    kParamDepth 
+    kParamEnable 
+    kParamFeedback 
+    kParamLevelOut 
+    kParamRate 
+    kParamWet 
+    kParamWidth 
+/FXRack#/FX[]/FXHyperD
+    [lfo] = <blob>
+    kParamDetune 
+    kParamDimELevelOut 
+    kParamDimESize 
+    kParamDimEWet 
+    kParamEnable 
+    kParamLevelOut 
+    kParamRate 
+    kParamRetrig 
+    kParamUnison 
+    kParamWet 
+/FXRack#/FX[]/FXPhaser
+    kParamBeatSync 
+    kParamDepth 
+    kParamDepth2 
+    kParamEnable 
+    kParamFeedback 
+    kParamFreq 
+    kParamLevelOut 
+    kParamNumPoles 
+    kParamRate 
+    kParamWet 
+    kParamWidth 
+/FXRack#/FX[]/FXReverb
+    kParamDelay 
+    kParamFeedback 
+    kParamFreq 
+    kParamFreqB 
+    kParamFreqC 
+    kParamLevelOut 
+    kParamMode 
+    kParamPreDelay 
+    kParamPreDelayBeatSync 
+    kParamSize 
+    kParamType = kAbyss, kHall, kSpace, kVintage
+    kParamVintageScale 
+    kParamVintageScaleB 
+    kParamWet 
+    kParamWidth 
+/FXRack#/FX[]/FXSplit
+    kParamFreq 
+    kParamModuleCount1 
+    kParamModuleCount2 
+/FXRack#/FX[]/FXSplit#
+    kParamFreq 
+    kParamFreq2 
+    kParamModuleCount1 
+    kParamModuleCount2 
+    kParamModuleCount3 
+/FXRack#/FX[]/FXSplitMS
+    kParamModuleCount1 
+    kParamModuleCount2 
+/FXRack#/FX[]/FXUtils
+    kParamBalance 
+    kParamHPF 
+    kParamLFMono 
+    kParamLFXover 
+    kParamLPF 
+    kParamLevelOut 
+    kParamPolarityL 
+    kParamPolarityR 
+    kParamWet 
+    kParamWidth 
+/FXRack#/FX[]/flex[]
+    [curveVals] = <blob>
+/Global#
+    kParamBendRangeDn 
+    kParamBendRangeUp 
+    kParamDirectVol 
+    kParamFXBus1Dest 
+    kParamFXBus1Vol 
+    kParamFXBus2Dest 
+    kParamFXBus2Vol 
+    kParamGlobalTuning 
+    kParamLegato 
+    kParamLimitSameNotePolyphony = Sustain
+    kParamMasterVolume 
+    kParamMidiOut = ClipPlayer, Synth
+    kParamModWheel 
+    kParamMonoToggle 
+    kParamNoteCurveApplyTuning 
+    kParamNoteLatch 
+    kParamOversampling 
+    kParamPitchExpressionApplyTuning 
+    kParamPolyCount 
+    kParamPortaAlways 
+    kParamPortaScaled 
+    kParamPortamentoCurve 
+    kParamPortamentoTime 
+    kParamProgram 
+    kParamS1Compatibility 
+    kParamSwing 
+    kParamSwingDiv 
+    kParamTranspose 
+    kParamUseUltraOnRender 
+    kParamVelocityLegato 
+    kParamVoiceAmp 
+    kParamVoicePriority = Low
+/LFO#
+    [curveData] = <blob>
+    kParamAnchored 
+    kParamBeatSync 
+    kParamDefaultMode 
+    kParamDelay 
+    kParamDirection 
+    kParamDotted 
+    kParamGridX 
+    kParamGridY 
+    kParamMode = Envelope, Free
+    kParamMono 
+    kParamPhase 
+    kParamPhaseSnap 
+    kParamRate 
+    kParamRate10x 
+    kParamRise 
+    kParamSmooth 
+    kParamSwing 
+    kParamTriplets 
+    kParamType = Lorenz, Path, RandomSH, Rossler
+/LFO#/pathData
+    [curveVals] = <blob>
+/LFOPointModBus#
+    kParamValue 
+/Macro#
+    kParamValue 
+/MidiClip#
+    [clip] = <blob>
+    kParamBeatSync 
+    kParamDotted 
+    kParamLaunchQuantize 
+    kParamLaunchRetrig 
+    kParamNoteGate 
+    kParamPlaybackMode = OneShot, Pendulum, Random, Static
+    kParamPlaybackModeTime 
+    kParamRate 
+    kParamSpanKeyboardMode = Mono, Offset, Poly
+    kParamTranspose 
+    kParamTriplets 
+    kParamVelocityTrigger 
+/ModSlot#
+    kParamAmount 
+    kParamAuxCurve 
+    kParamAuxCurveData 
+    kParamAuxInverted 
+    kParamBipolar 
+    kParamBypass 
+    kParamCurveIn 
+    kParamCurveOut 
+    kParamDelayBeatSync 
+    kParamDelayOffset 
+    kParamMainCurveData 
+    kParamOut 
+    kParamSmoothFall 
+    kParamSmoothLink 
+    kParamSmoothRise 
+/ModSlot#/flex[]
+    [curveVals] = <blob>
+/Oscillator#
+    kParamAutoSliceThreshold 
+    kParamBaseTempo 
+    kParamCoarsePit 
+    kParamDetune 
+    kParamDetuneMode = kDetuneExp, kDetuneInv, kDetuneRandom, kDetuneSuper
+    kParamDetuneWid 
+    kParamEnable 
+    kParamEnd 
+    kParamFine 
+    kParamFreq 
+    kParamHzOffset 
+    kParamKeyZoneFold 
+    kParamKeyZoneMax 
+    kParamKeyZoneMin 
+    kParamKeyZoneWarp 
+    kParamLinkLoopLength 
+    kParamLoopCrossfade 
+    kParamLoopEnd 
+    kParamLoopEndsAtRelease 
+    kParamLoopMode = kForward, kPingPong, kReverse, kTailed
+    kParamLoopStart 
+    kParamLoopStartLink 
+    kParamManualPositionMode 
+    kParamOctave 
+    kParamPan 
+    kParamPitch 
+    kParamPitchBendTrack 
+    kParamPitchMode = Freq, Harmonics, Ratio
+    kParamPitchRatio 
+    kParamPitchRatioModMode = Coarse, Fine
+    kParamPitchSource 
+    kParamPitchTrack 
+    kParamPosition 
+    kParamRandomStart 
+    kParamReverse 
+    kParamScanBPMDivide 
+    kParamScanBPMRate 
+    kParamScanKeyTrack 
+    kParamScanRange 
+    kParamScanRate 
+    kParamScanTempoLock 
+    kParamSlicingEnabled = Auto, Manual
+    kParamSlicingPlaySingleSlice 
+    kParamSlicingPlayToEnd 
+    kParamSlicingRootNote 
+    kParamStart 
+    kParamType = kOsc_Granular, kOsc_MultiSample, kOsc_Sample, kOsc_Spectral
+    kParamUnison 
+    kParamUnisonRange 
+    kParamUnisonSpan 
+    kParamUnisonStack = kCenter12, kOctave1, kOctave2, kOctave3, kOctaveFifth1, kOctaveFifth2, kOctaveFifth3
+    kParamUnisonStereo 
+    kParamUnisonWarp 
+    kParamUnisonWarp2 
+    kParamVelocityZoneMax 
+    kParamVelocityZoneMin 
+    kParamVolume 
+    kParamWrapPosition 
+/Oscillator#/GranularOsc#
+    kParamDensity 
+    kParamDensityMode = kDensityBPM, kDensityFree
+    kParamDensityTriplet 
+    kParamGrainLength 
+    kParamJumpStartGrains 
+    kParamLengthKeyTrack 
+    kParamLengthMode = kLengthBPM
+    kParamLengthTriplet 
+    kParamLoopGrains 
+    kParamMaxNumGrains 
+    kParamRandomDir 
+    kParamRandomGain 
+    kParamRandomGrainLength 
+    kParamRandomOffset 
+    kParamRandomPan 
+    kParamRandomPitch 
+    kParamRandomWarp 
+    kParamRandomWarp2 
+    kParamRandomWindowAmount 
+    kParamRandomWindowSkew 
+    kParamUnisonTrigPattern = kEven, kExponential, kRandom
+    kParamWarp 
+    kParamWarp2 
+    kParamWarpMenu = kDistAsym, kDistDiode2, kDistHardClip, kDistRectify, kDistSoftClip, kDistSoftSat, kDistTapeSat, kDistTube, kDistZeroSquare, kFM_FILT1, kFM_NOISE, kFM_OSC, kFM_OSC2, kFilterHPF, kFilterLPF, kPD_OSC, kPD_OSC2, kPD_SUB, kSelfPD
+    kParamWarpMenu2 = kAM_OSC, kAM_SUB, kDistDiode1, kDistLinFold, kDistRectify, kDistSoftClip, kDistSoftSat, kDistTube, kDistZeroSquare, kFM_NOISE, kFM_OSC, kFilterHPF, kFilterLPF, kPD_OSC
+    kParamWindowParam 
+    kParamWindowShape = kWindowBlackmanHarris, kWindowExpDec, kWindowGaussian, kWindowSinc, kWindowTrapezoid, kWindowTriangle, kWindowTukey, kWindowWelch
+    kParamWindowSkew 
+    kParamYAxisAssignment = kYAxisOscVolume
+/Oscillator#/GranularOsc#/embedded_audio
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#
+    kParamEnvAttack 
+    kParamEnvDecay 
+    kParamEnvDelay 
+    kParamEnvHold 
+    kParamEnvOverride 
+    kParamEnvRelease 
+    kParamEnvSustain 
+    kParamRandomPhase 
+    kParamTimbreShift 
+    kParamVelTrack 
+    kParamVelTrackOverride 
+    kParamWarp 
+    kParamWarp2 
+    kParamWarpMenu = kAM_OSC, kDistAsym, kDistDiode1, kDistDiode2, kDistHardClip, kDistRectify, kDistSinFold, kDistSineShaper, kDistSoftClip, kDistSoftSat, kDistStompBox, kDistTapeSat, kDistTube, kFM_FILT1, kFM_NOISE, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kPD_OSC, kPD_OSC2, kPD_SUB, kRM_OSC, kRM_SUB, kSelfPD
+    kParamWarpMenu2 = kAM_FILT1, kAM_OSC, kAM_OSC2, kAM_SUB, kDistSineShaper, kDistSoftClip, kDistStompBox, kDistTapeSat, kDistTube, kDistZeroSquare, kFMX_OSC, kFM_FILT2, kFM_NOISE, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kPD_FILT1, kPD_NOISE, kPD_OSC, kPD_SUB, kRM_NOISE, kRM_OSC, kSelfPD
+    kParamWarpVar 
+    kParamWarpVar2 
+/Oscillator#/MultiSampleOsc#/embedded_audio/8850strings36.wav
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/8850strings48.wav
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/8850strings60.wav
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/8850strings72.wav
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/8850strings84.wav
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP C1.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP C2.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP C3.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP C4.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP C5.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP G1.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP G2.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP G3.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/EP Samples/EP G4.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Stage 73 Samples/Stage 73 C1.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Stage 73 Samples/Stage 73 C2.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Stage 73 Samples/Stage 73 C3.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Stage 73 Samples/Stage 73 C4.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Stage 73 Samples/Stage 73 G3.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Trumpets C Samples/Trumpets C3.flac
+    [data] = <blob>
+/Oscillator#/MultiSampleOsc#/embedded_audio/Trumpets C Samples/Trumpets C4.flac
+    [data] = <blob>
+/Oscillator#/NoiseOsc#
+    kParamColor 
+    kParamFine 
+    kParamInitialPhase 
+    kParamNoiseType = Brown, Geiger, Pink, White
+    kParamOneShot 
+    kParamRandomPhase 
+/Oscillator#/SampleOsc#
+    kParamWarp 
+    kParamWarp2 
+    kParamWarpMenu = kAM_OSC, kAM_SUB, kDistAsym, kDistDiode1, kDistDiode2, kDistHardClip, kDistRectify, kDistSinFold, kDistSineShaper, kDistSoftClip, kDistSoftSat, kDistStompBox, kDistTapeSat, kDistTube, kDistZeroSquare, kFMP_NOISE, kFMP_OSC, kFMX_OSC, kFM_FILT1, kFM_NOISE, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kPD_OSC, kPD_OSC2, kPD_SUB, kRM_OSC, kRM_SUB, kSelfPD
+    kParamWarpMenu2 = kAM_FILT1, kAM_NOISE, kDistHardClip, kDistLinFold, kDistRectify, kDistSoftClip, kDistTapeSat, kDistTube, kDistZeroSquare, kFM_FILT2, kFM_NOISE, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kPD_FILT1, kPD_OSC, kPD_OSC2, kPD_SUB, kRM_OSC, kSelfPD
+    kParamWarpVar 
+    kParamWarpVar2 
+/Oscillator#/SampleOsc#/embedded_audio
+    [data] = <blob>
+/Oscillator#/SpectralOsc#
+    kParamFreqHi 
+    kParamFreqLo 
+    kParamLoHiIsPost 
+    kParamLoHiIsSmooth 
+    kParamPhaseLock 
+    kParamSpecFltShift 
+    kParamSpecFltWetDry 
+    kParamTransients 
+    kParamWarp 
+    kParamWarp2 
+    kParamWarpMenu = kAM_OSC, kAddharmonics, kAddsubharmonics, kDetune, kDistDiode1, kDistDiode2, kDistRectify, kDistSoftClip, kDistSoftSat, kDistTube, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kGate, kMask_NOISE, kMask_OSC, kMirror, kPD_OSC, kPeakFollow, kPeakOctaveDown, kPeakOctaveUp, kSelfPD, kShepardFilter, kShepardNarrow, kSmear, kSpectralComb, kSpectralPitchShift, kSpectralShift, kSpread, kVocode_NOISE, kVocode_OSC
+    kParamWarpMenu2 = kAddharmonics, kAddsubharmonics, kDetune, kDistAsym, kDistDiode1, kDistDiode2, kDistRectify, kDistSoftClip, kDistSoftSat, kDistTapeSat, kDistTube, kDistZeroSquare, kFM_SUB, kFilterHPF, kFilterLPF, kGate, kMask_FILT1, kMirror, kPD_FILT1, kPD_FILT2, kPD_OSC, kPD_OSC2, kPeakFollow, kPeakHarmDown, kPeakHarmUp, kPeakOctaveUp, kRobotize, kSelfPD, kSpectralComb, kSpectralPhaseTwist, kSpectralPitchShift, kSpectralShift, kSpread, kVocode_OSC
+    kParamWarpVar 
+    kParamWarpVar2 
+/Oscillator#/SpectralOsc#/embedded_audio
+    [data] = <blob>
+/Oscillator#/SpectralOsc#/flex
+    [curveVals] = <blob>
+/Oscillator#/SubOsc#
+    kParamContiguousPhase 
+    kParamInitialPhase 
+    kParamShape = kPulse, kRoundRect, kSaw, kSquare, kTriangle
+/Oscillator#/WTOsc#
+    kParamInitialPhase 
+    kParamPhaseMemory = kContiguous, kPerVoice
+    kParamRandomPhase 
+    kParamTablePos 
+    kParamUnisonWTPos 
+    kParamWarp 
+    kParamWarp2 
+    kParamWarpMenu = kAM_OSC, kAM_SUB, kASYMNeg, kASYMPos, kASYMPosNeg, kBendNeg, kBendPos, kBendPosNeg, kDLM, kDistAsym, kDistDiode1, kDistDiode2, kDistHardClip, kDistLinFold, kDistRectify, kDistSinFold, kDistSineShaper, kDistSoftClip, kDistSoftSat, kDistStompBox, kDistTapeSat, kDistTube, kDistZeroSquare, kEvenOdd, kFMP_NOISE, kFMP_OSC, kFMX_NOISE, kFMX_OSC, kFMX_OSC2, kFM_FILT1, kFM_NOISE, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kFlip, kPD_FILT1, kPD_FILT2, kPD_NOISE, kPD_OSC, kPD_OSC2, kPD_SUB, kPWM, kQuantize, kRM_FILT1, kRM_FILT2, kRM_NOISE, kRM_OSC, kRM_OSC2, kRM_SUB, kRemap_1, kRemap_2, kRemap_3, kRemap_4, kSelfPD, kSync
+    kParamWarpMenu2 = kAM_FILT1, kAM_NOISE, kAM_OSC, kAM_OSC2, kASYMNeg, kASYMPos, kASYMPosNeg, kBendNeg, kBendPos, kBendPosNeg, kDLM, kDistAsym, kDistDiode1, kDistDiode2, kDistHardClip, kDistLinFold, kDistRectify, kDistSinFold, kDistSineShaper, kDistSoftClip, kDistSoftSat, kDistStompBox, kDistTapeSat, kDistTube, kDistZeroSquare, kEvenOdd, kFMP_FILT1, kFMP_NOISE, kFMP_OSC, kFMP_OSC2, kFM_FILT1, kFM_NOISE, kFM_OSC, kFM_OSC2, kFM_SUB, kFilterHPF, kFilterLPF, kFlip, kPD_FILT1, kPD_FILT2, kPD_NOISE, kPD_OSC, kPD_OSC2, kPD_SUB, kPWM, kQuantize, kRM_OSC, kRM_OSC2, kRM_SUB, kRemap_1, kRemap_2, kRemap_3, kRemap_4, kSelfPD, kSync
+    kParamWarpVar 
+    kParamWarpVar2 
+    kParamXfadeMode 
+/Oscillator#/WTOsc#/flex
+    [curveVals] = <blob>
+/PitchQuantizer#
+    kParamKey 
+    kParamScale 
+/RoutingSlot#
+    kParamFXBus1Level 
+    kParamFXBus2Level 
+    kParamFilterBalance 
+    kParamRoutingDest = kRoutingDestDirect, kRoutingDestFilter, kRoutingDestMaster, kRoutingDestNone
+    kParamViaEnv1 
+/VoiceFilter#
+    kParamDrive 
+    kParamEnable 
+    kParamFreq 
+    kParamKeyTrack 
+    kParamLevelOut 
+    kParamPad 
+    kParamReso 
+    kParamStereo 
+    kParamType = ADD_BASS, Allpasses, B12, B24, BN12, BP12, BPN12, BPN24, BandReject, Comb2, CombH6N, CombH6P, CombHL6N, CombHL6P, CombL6N, CombL6P, CombN, CombP, Combs, DJMixer, Diffuser, DirtyMg, DistComb1BP, DistComb1LP, DistComb2BP, DistComb2LP, Exp, ExpBPF, FlangeH6N, FlangeH6P, FlangeHL6N, FlangeHL6P, FlangeL6N, FlangeL6P, FlangeN, FlangeP, FlangePhase12HL6P, FormantONE, FormantTWB, FormantTWO, H12, H18, H24, H6, HB12, HEQ12, HN12, HP12, L12, L18, L24, L6, LB12, LBH12, LBH24, LEQ12, LH12, LH6, LN12, LNH12
+    kParamVar 
+    kParamWet 
+    kParamX 
+    kParamY 
+/VoicePanel#
+    kParamGlobalRandomEnvTime 
+    kParamGlobalRandomFilterCutoff 
+    kParamGlobalRandomOscDetune 
+    kParamGlobalRandomOscDetune10x 
+    kParamGlobalRandomOscPan 
+    kParamGlobalScalingEnvTime 
+    kParamGlobalScalingLfoTime 
+    kParamGlobalScalingLfoTimeSnap 
+    kParamOscA 
+    kParamOscB 
+    kParamOscC 
+    kParamOscN 
+    kParamOscS 
+    kParamVoice1Detune 
+    kParamVoice1EnvTime 
+    kParamVoice1FilterCutoff 
+    kParamVoice1Mod1 
+    kParamVoice1Mod2 
+    kParamVoice1Pan 
+    kParamVoice2Detune 
+    kParamVoice2EnvTime 
+    kParamVoice2FilterCutoff 
+    kParamVoice2Mod1 
+    kParamVoice2Mod2 
+    kParamVoice2Pan 
+    kParamVoice3Detune 
+    kParamVoice3EnvTime 
+    kParamVoice3FilterCutoff 
+    kParamVoice3Mod1 
+    kParamVoice3Mod2 
+    kParamVoice3Pan 
+    kParamVoice4Detune 
+    kParamVoice4EnvTime 
+    kParamVoice4FilterCutoff 
+    kParamVoice4Mod1 
+    kParamVoice4Mod2 
+    kParamVoice4Pan 
+    kParamVoice5Detune 
+    kParamVoice5EnvTime 
+    kParamVoice5FilterCutoff 
+    kParamVoice5Mod1 
+    kParamVoice5Mod2 
+    kParamVoice5Pan 
+    kParamVoice6Detune 
+    kParamVoice6EnvTime 
+    kParamVoice6FilterCutoff 
+    kParamVoice6Mod1 
+    kParamVoice6Mod2 
+    kParamVoice6Pan 
+    kParamVoice7Detune 
+    kParamVoice7EnvTime 
+    kParamVoice7FilterCutoff 
+    kParamVoice7Mod1 
+    kParamVoice7Mod2 
+    kParamVoice7Pan 
+    kParamVoice8Detune 
+    kParamVoice8EnvTime 
+    kParamVoice8FilterCutoff 
+    kParamVoice8Mod2 
+    kParamVoice8Pan 
+    kParamVoiceCount 
+/scalars/note
+    [curveVals] = <blob>
+/scalars/velo
+    [curveVals] = <blob>

@@ -1,0 +1,11 @@
+[package]
+name = "osyn-patch"
+description = "Editable patch model over the Serum 2 module tree, with undo"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+osyn-serum = { path = "../osyn-serum" }
+serde_json.workspace = true
+thiserror.workspace = true
