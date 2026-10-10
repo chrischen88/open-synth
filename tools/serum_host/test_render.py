@@ -98,3 +98,17 @@ def test_compare_identical_and_octave_apart():
     assert abs(lower["pitchSemitones"] + 12) < 0.3
     assert lower["similarity"] < 60
     assert len(third_octave_levels(a)) == 29
+
+
+def test_onset_alignment_ignores_leading_silence():
+    import numpy as np
+    from serum_host.analyze import compare, trim_to_onset
+    from serum_host.render import SR, analyze
+
+    t = np.arange(SR) / SR
+    x = (0.3 * np.exp(-t * 4) * np.sin(2 * np.pi * 110 * t)).astype(np.float32)
+    a = np.vstack([x, x])
+    delayed = np.hstack([np.zeros((2, int(0.04 * SR)), np.float32), a])  # like MP3 encoder delay
+    b = trim_to_onset(delayed)[:, : a.shape[1]]
+    d, _, _ = compare(analyze(a), analyze(b), a, b)
+    assert d["similarity"] >= 95, d

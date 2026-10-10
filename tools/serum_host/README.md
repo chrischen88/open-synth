@@ -75,3 +75,7 @@ Single mode returns render.py's analysis plus a spectrogram. Compare mode return
 stereo width, attack and decay, envelope correlation, the largest 1/3-octave differences, `similarity` (0–100) and
 `hints`. It also writes `comparison.png`. Brightness uses a power-weighted spectral centroid, so 16-bit and noisy
 files read correctly.
+
+In compare mode both sounds are aligned at their first onset, which absorbs MP3 encoder delay and late-starting
+clips. Bands more than 50 dB below a sound's total are ignored in the similarity score. As a guide, the same sound
+scores 100 as WAV, 99 as AAC and about 80–85 as MP3 (the encoder drops some upper-mid detail).

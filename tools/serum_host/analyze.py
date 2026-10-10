@@ -47,6 +47,19 @@ def load_audio(path, start=0.0, end=None):
     return x[:, : int(MAX_SECONDS * SR)]
 
 
+def trim_to_onset(audio, rel_db=-40.0):
+    """Drop leading silence: start a few ms before the first sample within `rel_db` of the peak.
+
+    Makes comparisons robust to encoder delay (MP3 adds ~25-50 ms) and clips that start late."""
+    m = np.max(np.abs(audio), axis=0)
+    peak = float(m.max()) if m.size else 0.0
+    if peak <= 0:
+        return audio
+    idx = np.nonzero(m >= peak * 10 ** (rel_db / 20))[0]
+    start = max(0, int(idx[0]) - int(0.002 * SR)) if idx.size else 0
+    return audio[:, start:]
+
+
 # --------------------------------------------------------------------------- comparison
 def third_octave_levels(audio, sr=SR):
     """Average spectrum in 1/3-octave bands (25 Hz .. 16 kHz), dB relative to the total."""
@@ -97,12 +110,13 @@ def compare(ref, cand, ref_audio, cand_audio):
     r3, c3 = third_octave_levels(ref_audio), third_octave_levels(cand_audio)
     diffs = [(f, c - r) for (f, r), (_, c) in zip(r3, c3) if r > -60 or c > -60]
     d["spectralDistanceDb"] = round(math.sqrt(sum(x * x for _, x in diffs) / max(len(diffs), 1)), 1)
-    # Perceptual-ish distance: bands weighted by compressed energy (so near-silent bands barely
-    # count) and differences capped at 24 dB.
+    # Perceptual-ish distance: bands weighted by compressed energy, bands more than 50 dB below
+    # the total in both sounds ignored (inaudible; lossy codecs drop them), diffs capped at 24 dB.
     rp = np.array([10 ** (v / 10) for _, v in r3])
     cp = np.array([10 ** (v / 10) for _, v in c3])
-    w = np.maximum(rp, cp) ** 0.3
-    w /= w.sum()
+    loudest = np.maximum(rp, cp)
+    w = np.where(loudest >= 1e-5, loudest**0.3, 0.0)
+    w /= max(w.sum(), FLOOR)
     delta = np.clip(np.array([c - r for (_, r), (_, c) in zip(r3, c3)]), -24, 24)
     d["weightedSpectralDistanceDb"] = round(math.sqrt(float((w * delta**2).sum())), 1)
     d["largestSpectralDifferences"] = [
@@ -194,7 +208,11 @@ def run(argv):
         save_spectrogram(ref_audio, png)
         return {"file": os.path.abspath(a.audio), "png": png, **ref}
 
-    cand_audio = load_audio(a.compare)[:, : ref_audio.shape[1]]
+    ref_audio = trim_to_onset(ref_audio)
+    cand_audio = trim_to_onset(load_audio(a.compare))
+    n = min(ref_audio.shape[1], cand_audio.shape[1])
+    ref_audio, cand_audio = ref_audio[:, :n], cand_audio[:, :n]
+    ref = analyze(ref_audio, SR)
     cand = analyze(cand_audio, SR)
     diff, r3, c3 = compare(ref, cand, ref_audio, cand_audio)
     png = os.path.join(out, "comparison.png")
