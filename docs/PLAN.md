@@ -225,7 +225,7 @@ The milestones below, in recommended order:
 | Milestone | Scope | Why |
 |---|---|---|
 | **A2. Fast audition** ✅ | Keep one Serum instance loaded in a long-lived helper process and inject each patch into it (~0.2 s per render instead of ~15–25 s). Optional live playback to the speakers so the user hears every edit. | Iteration speed is the main bottleneck for both Claude and the user |
-| **A3. Sound search** | Render every factory/user preset once (a few notes), store analysis features, and add `find_similar_presets(reference)` returning the closest presets as starting points | Starting from the nearest real preset beats building from Init |
+| **A3. Sound search** ✅ | Render every factory/user preset once (a few notes), store analysis features, and add `find_similar_presets(reference)` returning the closest presets as starting points | Starting from the nearest real preset beats building from Init |
 | **A4. Auto-match** | `auto_match` tool: Claude picks which params to explore and their ranges; the helper runs a fast optimizer (coordinate / CMA-ES search over the compare score) and reports the best settings | Turns the 25-second manual loop into hundreds of fast evaluations |
 | **A5. Richer analysis** | Brightness over time (filter-envelope detection), harmonic profile, noise vs. tone, LFO/wobble rate, multi-note and velocity response | Gives Claude better clues about *how* a sound was made |
 | **A6. Packaging** | One-command install (build + Python env + register with Claude Code and the Claude desktop app), versioned releases, docs and example prompts | Usable without the repo knowledge |
