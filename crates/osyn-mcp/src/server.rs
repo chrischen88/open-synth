@@ -290,6 +290,31 @@ pub struct CompareArgs {
 }
 
 #[derive(Deserialize, JsonSchema)]
+pub struct PlayArgs {
+    /// Notes "midi:start_s:length_s,..." (default one C3 note). Chords and phrases work too.
+    #[serde(default)]
+    pub notes: Option<String>,
+    #[serde(default)]
+    pub velocity: Option<u8>,
+    #[serde(default)]
+    pub duration: Option<f64>,
+    /// Macro positions "index:percent".
+    #[serde(default)]
+    pub macros: Option<String>,
+    /// Output device name (default: system output). See the error message for available names.
+    #[serde(default)]
+    pub device: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct PlayAudioArgs {
+    /// Absolute path to an audio file (e.g. the reference, or a candidateWav from compare).
+    pub path: String,
+    #[serde(default)]
+    pub device: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
 pub struct SlotArg {
     pub slot: usize,
 }
@@ -689,23 +714,11 @@ impl SynthServer {
         ok(json!({"lfo": a.lfo, "points": n}))
     }
 
-    #[tool(description = "Audition the current patch through the installed Serum 2 (offline, ~15 s). Returns loudness (LUFS, peak, RMS), spectral centroid, band levels, stereo width, an RMS envelope, Serum's own readouts of key knobs, and a spectrogram image.")]
+    #[tool(description = "Audition the current patch through the installed Serum 2 (offline; ~10 s for the first call while Serum loads, then ~0.5 s). Returns loudness (LUFS, peak, RMS), spectral centroid, band levels, stereo width, an RMS envelope, Serum's own readouts of key knobs, and a spectrogram image.")]
     async fn render(&self, Parameters(a): Parameters<RenderArgs>) -> Result<CallToolResult, String> {
         let bytes = self.with_patch(|p| p.preset().to_bytes()).map_err(|e| e.to_string())?;
-        let mut args = Vec::new();
-        if let Some(n) = a.notes {
-            args.push(("--notes", n));
-        }
-        if let Some(v) = a.velocity {
-            args.push(("--velocity", v.to_string()));
-        }
-        if let Some(d) = a.duration {
-            args.push(("--duration", d.to_string()));
-        }
-        if let Some(m) = a.macros {
-            args.push(("--macros", m));
-        }
-        content::render(bytes, &args).await
+        let opts = content::RenderOpts { notes: a.notes, velocity: a.velocity, duration: a.duration, macros: a.macros };
+        content::render(bytes, &opts).await
     }
 
     #[tool(description = "Analyse an audio file (e.g. a reference sound to recreate): loudness, pitch, brightness, band balance, stereo width, envelope, and a spectrogram image.")]
@@ -716,17 +729,23 @@ impl SynthServer {
     #[tool(description = "Render the current patch through Serum 2 and compare it with a reference sound. Returns per-aspect differences (pitch in semitones, brightness in octaves, band balance dB, loudness, stereo width, attack/decay, envelope correlation), the largest 1/3-octave spectral differences, a 0..100 similarity score, hints, and an image with both spectrograms and overlaid spectra. Iterate: adjust the patch, compare again.")]
     async fn compare_to_reference(&self, Parameters(a): Parameters<CompareArgs>) -> Result<CallToolResult, String> {
         let bytes = self.with_patch(|p| p.preset().to_bytes()).map_err(|e| e.to_string())?;
-        let mut args = Vec::new();
-        if let Some(n) = a.notes {
-            args.push(("--notes", n));
-        }
-        if let Some(v) = a.velocity {
-            args.push(("--velocity", v.to_string()));
-        }
-        if let Some(m) = a.macros {
-            args.push(("--macros", m));
-        }
-        content::compare(bytes, &a.reference, a.start, a.end, args).await
+        let opts = content::RenderOpts { notes: a.notes, velocity: a.velocity, duration: None, macros: a.macros };
+        content::compare(bytes, &a.reference, a.start, a.end, opts).await
+    }
+
+    #[tool(description = "Play the current patch on the user's speakers through Serum 2 (renders in ~0.5 s once Serum is warm, then plays). Use it so the user can hear changes.")]
+    async fn play(&self, Parameters(a): Parameters<PlayArgs>) -> ToolResult {
+        let bytes = self.with_patch(|p| p.preset().to_bytes()).map_err(|e| e.to_string())?;
+        let opts = content::RenderOpts { notes: a.notes, velocity: a.velocity, duration: a.duration, macros: a.macros };
+        let report = content::render_report(bytes, &opts).await?;
+        let wav = report.get("wav").and_then(Json::as_str).ok_or("render returned no wav")?;
+        let played = content::play_file(wav, a.device.as_deref()).await?;
+        ok(json!({"playing": played, "lufsIntegrated": report.get("lufsIntegrated"), "peakDbfs": report.get("peakDbfs")}))
+    }
+
+    #[tool(description = "Play an audio file on the user's speakers, e.g. the reference sound for an A/B with play.")]
+    async fn play_audio(&self, Parameters(a): Parameters<PlayAudioArgs>) -> ToolResult {
+        ok(content::play_file(&a.path, a.device.as_deref()).await?)
     }
 
     #[tool(description = "Undo the last change.")]

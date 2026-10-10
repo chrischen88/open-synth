@@ -93,7 +93,7 @@ def envelope_shape(env_db):
     return round(attack_i * 0.05, 2), decay
 
 
-def compare(ref, cand, ref_audio, cand_audio):
+def compare_analyses(ref, cand, ref_audio, cand_audio):
     d = {}
     if ref["lufsIntegrated"] is not None and cand["lufsIntegrated"] is not None:
         d["loudnessLu"] = round(cand["lufsIntegrated"] - ref["lufsIntegrated"], 2)
@@ -188,6 +188,33 @@ def save_comparison(ref_audio, cand_audio, r3, c3, path, sr=SR):
 
 
 # --------------------------------------------------------------------------- CLI
+def analyze_job(audio, out, compare=None, start=0.0, end=None):
+    """Analyse `audio`, or compare `compare` (candidate) against `audio` (reference)."""
+    if end is not None and end <= start:
+        raise InputError("end must be after start")
+    out = os.path.abspath(out)
+    os.makedirs(out, exist_ok=True)
+
+    ref_audio = load_audio(audio, start, end)
+    if not compare:
+        ref = analyze(ref_audio, SR)
+        png = os.path.join(out, "spectrogram.png")
+        save_spectrogram(ref_audio, png)
+        return {"file": os.path.abspath(audio), "png": png, **ref}
+
+    ref_audio = trim_to_onset(ref_audio)
+    cand_audio = trim_to_onset(load_audio(compare))
+    n = min(ref_audio.shape[1], cand_audio.shape[1])
+    ref_audio, cand_audio = ref_audio[:, :n], cand_audio[:, :n]
+    ref = analyze(ref_audio, SR)
+    cand = analyze(cand_audio, SR)
+    diff, r3, c3 = compare_analyses(ref, cand, ref_audio, cand_audio)
+    png = os.path.join(out, "comparison.png")
+    save_comparison(ref_audio, cand_audio, r3, c3, png)
+    strip = lambda r: {k: v for k, v in r.items() if k != "envelope"}  # noqa: E731
+    return {"png": png, "reference": strip(ref), "candidate": strip(cand), "diff": diff}
+
+
 def run(argv):
     ap = _Parser(prog="serum_host.analyze", description=__doc__)
     ap.add_argument("audio")
@@ -196,29 +223,7 @@ def run(argv):
     ap.add_argument("--start", type=float, default=0.0)
     ap.add_argument("--end", type=float, default=None)
     a = ap.parse_args(argv)
-    if a.end is not None and a.end <= a.start:
-        raise InputError("--end must be after --start")
-    out = os.path.abspath(a.out)
-    os.makedirs(out, exist_ok=True)
-
-    ref_audio = load_audio(a.audio, a.start, a.end)
-    ref = analyze(ref_audio, SR)
-    if not a.compare:
-        png = os.path.join(out, "spectrogram.png")
-        save_spectrogram(ref_audio, png)
-        return {"file": os.path.abspath(a.audio), "png": png, **ref}
-
-    ref_audio = trim_to_onset(ref_audio)
-    cand_audio = trim_to_onset(load_audio(a.compare))
-    n = min(ref_audio.shape[1], cand_audio.shape[1])
-    ref_audio, cand_audio = ref_audio[:, :n], cand_audio[:, :n]
-    ref = analyze(ref_audio, SR)
-    cand = analyze(cand_audio, SR)
-    diff, r3, c3 = compare(ref, cand, ref_audio, cand_audio)
-    png = os.path.join(out, "comparison.png")
-    save_comparison(ref_audio, cand_audio, r3, c3, png)
-    strip = lambda r: {k: v for k, v in r.items() if k != "envelope"}  # noqa: E731
-    return {"png": png, "reference": strip(ref), "candidate": strip(cand), "diff": diff}
+    return analyze_job(a.audio, a.out, a.compare, a.start, a.end)
 
 
 def main(argv=None):

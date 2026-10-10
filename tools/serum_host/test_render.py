@@ -81,7 +81,7 @@ def test_main_bad_input(tmp_path, capsys):
 
 def test_compare_identical_and_octave_apart():
     import numpy as np
-    from serum_host.analyze import compare, third_octave_levels
+    from serum_host.analyze import compare_analyses as compare, third_octave_levels
     from serum_host.render import SR, analyze
 
     t = np.arange(int(SR * 1.0)) / SR
@@ -102,7 +102,7 @@ def test_compare_identical_and_octave_apart():
 
 def test_onset_alignment_ignores_leading_silence():
     import numpy as np
-    from serum_host.analyze import compare, trim_to_onset
+    from serum_host.analyze import compare_analyses as compare, trim_to_onset
     from serum_host.render import SR, analyze
 
     t = np.arange(SR) / SR

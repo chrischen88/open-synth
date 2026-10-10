@@ -39,7 +39,9 @@ Other tools:
   band balance, width, envelope and spectrogram. `compare_to_reference` renders the patch and diffs it against the
   reference. It returns per-aspect differences, a 0–100 similarity score, hints, and an image with both
   spectrograms and their overlaid spectra.
-- **Auditioning:** `render` plays the patch through your installed Serum 2. It returns loudness, spectrum, an
+- **Auditioning:** `render` plays the patch through your installed Serum 2. `play` plays it on your speakers, and
+  `play_audio` plays any file (A/B with a reference). Serum stays loaded in a helper process, so after the first
+  call (~10 s) each render or comparison takes under a second. It returns loudness, spectrum, an
   envelope and a spectrogram image, and needs `tools/serum_host/setup.sh` to have been run once.
 
 Then ask for a sound, for example "make a detuned reese bass with an LFO on the filter and export it". Bare export

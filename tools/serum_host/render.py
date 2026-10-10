@@ -283,11 +283,17 @@ def save_spectrogram(audio, path, sr=SR):
 SERUM_DISPLAYS = ("filter_1_freq_hz", "filter_1_type", "a_level", "env_1_attack")
 
 
-def render_with_serum(preset, notes, velocity, duration, macros):
+def render_with_serum(preset, notes, velocity, duration, macros, serum=None):
+    """Render with a fresh Serum, or reuse `serum` (reset to its baseline first; renders are
+    bit-identical to a fresh instance, verified on reverb/delay-heavy presets)."""
     from . import state
     from .host import Serum
     t0 = time.time()
-    s = Serum()
+    if serum is None:
+        s = Serum()
+    else:
+        s = serum
+        s.reset()
     t_load = time.time() - t0
     s.inject_preset(preset)
     for idx, raw in macros:
@@ -317,32 +323,25 @@ class _Parser(argparse.ArgumentParser):
         raise InputError(message)
 
 
-def run(argv):
-    ap = _Parser(prog="serum_host.render", description=__doc__)
-    ap.add_argument("preset")
-    ap.add_argument("--out", required=True)
-    ap.add_argument("--notes", default=DEFAULT_NOTES)
-    ap.add_argument("--velocity", type=int, default=100)
-    ap.add_argument("--duration", type=float, default=None)
-    ap.add_argument("--macros", default="")
-    a = ap.parse_args(argv)
-    if not os.path.isfile(a.preset):
-        raise InputError(f"preset not found: {a.preset}")
-    if not 1 <= a.velocity <= 127:
+def render_job(preset, out, notes_spec=DEFAULT_NOTES, velocity=100, duration=None, macros_spec="", serum=None):
+    """Validate inputs, render `preset`, write render.wav + spectrogram.png into `out`, analyse."""
+    if not os.path.isfile(preset):
+        raise InputError(f"preset not found: {preset}")
+    if not 1 <= int(velocity) <= 127:
         raise InputError("velocity must be 1..127")
-    notes = parse_notes(a.notes)
-    macros = parse_macros(a.macros)
+    notes = parse_notes(notes_spec)
+    macros = parse_macros(macros_spec)
     end = max(s + l for _, s, l in notes)
-    duration = a.duration if a.duration is not None else max(MIN_DURATION, end + 0.5)
+    duration = duration if duration is not None else max(MIN_DURATION, end + 0.5)
     if not (math.isfinite(duration) and 0 < duration <= 60):
         raise InputError("duration must be in (0, 60]")
-    out = os.path.abspath(a.out)
+    out = os.path.abspath(out)
     try:
         os.makedirs(out, exist_ok=True)
     except OSError as e:
         raise InputError(f"cannot create out dir: {e}")
 
-    audio, info, timing = render_with_serum(os.path.abspath(a.preset), notes, a.velocity, duration, macros)
+    audio, info, timing = render_with_serum(os.path.abspath(preset), notes, int(velocity), duration, macros, serum)
     from .host import write_wav
     wav, png = os.path.join(out, "render.wav"), os.path.join(out, "spectrogram.png")
     write_wav(wav, audio)
@@ -352,6 +351,18 @@ def run(argv):
     res["serum"] = info
     res["timing"] = timing
     return res
+
+
+def run(argv):
+    ap = _Parser(prog="serum_host.render", description=__doc__)
+    ap.add_argument("preset")
+    ap.add_argument("--out", required=True)
+    ap.add_argument("--notes", default=DEFAULT_NOTES)
+    ap.add_argument("--velocity", type=int, default=100)
+    ap.add_argument("--duration", type=float, default=None)
+    ap.add_argument("--macros", default="")
+    a = ap.parse_args(argv)
+    return render_job(a.preset, a.out, a.notes, a.velocity, a.duration, a.macros)
 
 
 def main(argv=None):

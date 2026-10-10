@@ -4,6 +4,7 @@
 //! `claude mcp add open-synth -- /path/to/target/release/osyn-mcp`
 
 mod content;
+mod host;
 mod server;
 
 use rmcp::{ServiceExt, transport::stdio};

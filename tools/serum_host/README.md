@@ -79,3 +79,15 @@ files read correctly.
 In compare mode both sounds are aligned at their first onset, which absorbs MP3 encoder delay and late-starting
 clips. Bands more than 50 dB below a sound's total are ignored in the similarity score. As a guide, the same sound
 scores 100 as WAV, 99 as AAC and about 80–85 as MP3 (the encoder drops some upper-mid detail).
+
+## server.py (persistent helper)
+
+```
+python -m serum_host.server     # JSON lines on stdin/stdout; see the module docstring
+```
+Keeps one Serum instance loaded, so renders take ~0.5 s instead of ~15–25 s. Each render first resets
+the instance to its baseline state; the result is bit-identical to a fresh instance, including after
+reverb- or delay-heavy patches. Commands: `ping`, `status`, `render`, `analyze`, `play`, `devices`, `shutdown`.
+pedalboard requires plugin work on the main thread, so a reader thread queues requests and the main
+thread runs them. The MCP server (`crates/osyn-mcp/src/host.rs`) starts this helper on first use,
+restarts it after a crash or timeout, and logs its stderr to `$TMPDIR/open-synth/host.log`.
