@@ -35,6 +35,10 @@ Other tools:
 - **Samples:** `list_samples`, `set_sample` (sample, granular or spectral oscillator, from Serum's Samples library
   or an imported WAV) and `set_multisample` (SFZ instruments from Serum's Multisamples library).
 - **LFOs:** `set_lfo_shape` draws a shape.
+- **Recreating a sound:** `analyze_audio` analyzes a reference file (WAV, FLAC, AIFF or MP3): pitch, brightness,
+  band balance, width, envelope and spectrogram. `compare_to_reference` renders the patch and diffs it against the
+  reference. It returns per-aspect differences, a 0–100 similarity score, hints, and an image with both
+  spectrograms and their overlaid spectra.
 - **Auditioning:** `render` plays the patch through your installed Serum 2. It returns loudness, spectrum, an
   envelope and a spectrogram image, and needs `tools/serum_host/setup.sh` to have been run once.
 

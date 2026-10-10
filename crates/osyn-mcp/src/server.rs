@@ -40,7 +40,11 @@ Workflow: call describe_modules, then describe_params for the modules you need (
 enum values, and value ranges observed in Serum's factory presets - use those as the unit guide). \
 Use set_params / add_modulation / set_wavetable / set_lfo_shape, inspect with get_patch, \
 audition with render (plays the patch through the user's Serum 2 and returns analysis plus a \
-spectrogram), then export_preset. A param that is \
+spectrogram), then export_preset.
+
+Recreating a sound: analyze_audio the reference first (pitch, brightness, envelope, spectrogram), \
+build a starting patch, then loop compare_to_reference -> adjust the biggest difference -> compare \
+again. Fix pitch first, then tonal balance (oscillators/filter), then envelope, then width/FX. A param that is \
 absent from get_patch is at Serum's default. Use undo if a change was wrong.";
 
 #[derive(Clone)]
@@ -247,6 +251,40 @@ pub struct RenderArgs {
     #[serde(default)]
     pub duration: Option<f64>,
     /// Macro positions as "index:percent", index 0..7 = Macro 1..8, e.g. "0:100,1:25".
+    #[serde(default)]
+    pub macros: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct AnalyzeArgs {
+    /// Absolute path to an audio file (WAV, FLAC, AIFF, MP3).
+    pub path: String,
+    /// Only analyse from this time (s).
+    #[serde(default)]
+    pub start: Option<f64>,
+    /// Only analyse up to this time (s).
+    #[serde(default)]
+    pub end: Option<f64>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct CompareArgs {
+    /// Absolute path to the reference sound to match (WAV, FLAC, AIFF, MP3). Ideally one note,
+    /// dry, without other instruments.
+    pub reference: String,
+    /// Trim the reference: start time (s).
+    #[serde(default)]
+    pub start: Option<f64>,
+    /// Trim the reference: end time (s).
+    #[serde(default)]
+    pub end: Option<f64>,
+    /// Notes to render the patch with ("midi:start_s:length_s,..."). Default: one note at the
+    /// reference's detected pitch, lasting 75% of its length.
+    #[serde(default)]
+    pub notes: Option<String>,
+    #[serde(default)]
+    pub velocity: Option<u8>,
+    /// Macro positions "index:percent".
     #[serde(default)]
     pub macros: Option<String>,
 }
@@ -668,6 +706,27 @@ impl SynthServer {
             args.push(("--macros", m));
         }
         content::render(bytes, &args).await
+    }
+
+    #[tool(description = "Analyse an audio file (e.g. a reference sound to recreate): loudness, pitch, brightness, band balance, stereo width, envelope, and a spectrogram image.")]
+    async fn analyze_audio(&self, Parameters(a): Parameters<AnalyzeArgs>) -> Result<CallToolResult, String> {
+        content::analyze(&a.path, a.start, a.end).await
+    }
+
+    #[tool(description = "Render the current patch through Serum 2 and compare it with a reference sound. Returns per-aspect differences (pitch in semitones, brightness in octaves, band balance dB, loudness, stereo width, attack/decay, envelope correlation), the largest 1/3-octave spectral differences, a 0..100 similarity score, hints, and an image with both spectrograms and overlaid spectra. Iterate: adjust the patch, compare again.")]
+    async fn compare_to_reference(&self, Parameters(a): Parameters<CompareArgs>) -> Result<CallToolResult, String> {
+        let bytes = self.with_patch(|p| p.preset().to_bytes()).map_err(|e| e.to_string())?;
+        let mut args = Vec::new();
+        if let Some(n) = a.notes {
+            args.push(("--notes", n));
+        }
+        if let Some(v) = a.velocity {
+            args.push(("--velocity", v.to_string()));
+        }
+        if let Some(m) = a.macros {
+            args.push(("--macros", m));
+        }
+        content::compare(bytes, &a.reference, a.start, a.end, args).await
     }
 
     #[tool(description = "Undo the last change.")]

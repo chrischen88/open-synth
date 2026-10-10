@@ -135,7 +135,10 @@ def lufs_integrated(audio, sr=SR):
 
 
 def spectral_centroid_hz(audio, sr=SR, n_fft=2048, hop=512):
-    """Mean magnitude-weighted centroid over STFT frames whose RMS exceeds -60 dBFS."""
+    """Mean power-weighted centroid over STFT frames whose RMS exceeds -60 dBFS.
+
+    Power (not magnitude) weighting keeps a flat noise floor (16-bit files, recordings) from
+    dragging the centroid of quiet or bass-heavy sounds upward."""
     x = _mono(audio).astype(np.float64)
     if x.size < n_fft:
         x = np.pad(x, (0, n_fft - x.size))
@@ -146,10 +149,10 @@ def spectral_centroid_hz(audio, sr=SR, n_fft=2048, hop=512):
         fr = x[s:s + n_fft]
         if math.sqrt(float(np.mean(fr ** 2))) < 10 ** (SILENT_DBFS / 20):
             continue
-        mag = np.abs(np.fft.rfft(fr * win))
-        t = mag.sum()
+        power = np.abs(np.fft.rfft(fr * win)) ** 2
+        t = power.sum()
         if t > 0:
-            vals.append(float((freqs * mag).sum() / t))
+            vals.append(float((freqs * power).sum() / t))
     return float(np.mean(vals)) if vals else None
 
 

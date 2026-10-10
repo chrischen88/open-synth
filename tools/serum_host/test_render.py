@@ -77,3 +77,24 @@ def test_main_bad_input(tmp_path, capsys):
     p.write_bytes(b"x")
     with pytest.raises(r.InputError):
         r.run([str(p), "--out", str(tmp_path), "--notes", "bad"])
+
+
+def test_compare_identical_and_octave_apart():
+    import numpy as np
+    from serum_host.analyze import compare, third_octave_levels
+    from serum_host.render import SR, analyze
+
+    t = np.arange(int(SR * 1.0)) / SR
+    env = np.exp(-t * 3)
+
+    def tone(f):
+        x = (0.3 * env * (np.sin(2 * np.pi * f * t) + 0.3 * np.sin(4 * np.pi * f * t))).astype(np.float32)
+        return np.vstack([x, x])
+
+    a, b = tone(110), tone(55)
+    same, _, _ = compare(analyze(a), analyze(a), a, a)
+    assert same["similarity"] == 100 and same["pitchSemitones"] == 0
+    lower, _, _ = compare(analyze(a), analyze(b), a, b)
+    assert abs(lower["pitchSemitones"] + 12) < 0.3
+    assert lower["similarity"] < 60
+    assert len(third_octave_levels(a)) == 29

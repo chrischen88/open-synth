@@ -215,56 +215,140 @@ pub fn from_shapes(names: &[String], frames: usize) -> Result<Wavetable, String>
     generate::morph_shapes(&shapes, frames).map_err(|e| e.to_string())
 }
 
-/// Export `preset_bytes` to a temp file and render it through the installed Serum 2 using
-/// `tools/serum_host/render.py`. Returns the analysis JSON plus the spectrogram image.
-pub async fn render(preset_bytes: Vec<u8>, args: &[(&str, String)]) -> Result<CallToolResult, String> {
+fn helper_python() -> Result<(PathBuf, PathBuf), String> {
     let tools = tools_dir();
     let python = tools.join("serum_host/.venv/bin/python");
     if !python.exists() {
         return Err(format!(
-            "render needs the Serum host environment: run `{}` once",
+            "this tool needs the Serum host environment: run `{}` once",
             tools.join("serum_host/setup.sh").display()
         ));
     }
-    let stamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_millis()).unwrap_or(0);
-    let dir = std::env::temp_dir().join("open-synth").join(format!("render-{stamp}"));
-    std::fs::create_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
-    let preset = dir.join("patch.SerumPreset");
-    std::fs::write(&preset, preset_bytes).map_err(|e| e.to_string())?;
+    Ok((tools, python))
+}
 
+fn work_dir(kind: &str) -> Result<PathBuf, String> {
+    let stamp = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_nanos()).unwrap_or(0);
+    let dir = std::env::temp_dir().join("open-synth").join(format!("{kind}-{stamp}"));
+    std::fs::create_dir_all(&dir).map_err(|e| format!("{}: {e}", dir.display()))?;
+    Ok(dir)
+}
+
+/// Run `python -m serum_host.<module> <args>` and return its single JSON result.
+async fn run_helper(module: &str, args: &[std::ffi::OsString]) -> Result<Json, String> {
+    let (tools, python) = helper_python()?;
     let mut cmd = tokio::process::Command::new(&python);
-    cmd.current_dir(&tools).arg("-m").arg("serum_host.render").arg(&preset).arg("--out").arg(&dir);
-    for (flag, value) in args {
-        cmd.arg(flag).arg(value);
-    }
+    cmd.current_dir(&tools).arg("-m").arg(format!("serum_host.{module}")).args(args);
     cmd.kill_on_drop(true).stdin(std::process::Stdio::null());
     let output = tokio::time::timeout(RENDER_TIMEOUT, cmd.output())
         .await
-        .map_err(|_| "render timed out".to_string())?
-        .map_err(|e| format!("failed to start renderer: {e}"))?;
+        .map_err(|_| format!("{module} timed out"))?
+        .map_err(|e| format!("failed to start {module}: {e}"))?;
     let stdout = String::from_utf8_lossy(&output.stdout);
     let report: Json = stdout
         .lines()
         .rev()
         .find_map(|l| serde_json::from_str(l).ok())
-        .ok_or_else(|| format!("renderer produced no JSON (exit {:?}): {}", output.status.code(), tail(&output.stderr)))?;
-    if let Some(err) = report.get("error") {
-        return Err(format!("render failed: {err}"));
+        .ok_or_else(|| format!("{module} produced no JSON (exit {:?}): {}", output.status.code(), tail(&output.stderr)))?;
+    match report.get("error") {
+        Some(err) => Err(format!("{module} failed: {}", err.as_str().unwrap_or_default())),
+        None => Ok(report),
     }
+}
 
-    let mut summary = report.clone();
-    if let Some(env) = summary.get_mut("envelope").and_then(Json::as_array_mut) {
-        // Keep the envelope readable: every 4th 50 ms window.
-        *env = env.iter().step_by(4).cloned().collect();
+/// Tool result: the JSON (envelope thinned) as text plus the PNG at `png` as an image.
+fn with_image(mut report: Json) -> CallToolResult {
+    if let Some(a) = report.get_mut("envelope").and_then(Json::as_array_mut) {
+        *a = a.iter().step_by(4).cloned().collect(); // every 200 ms
     }
-    summary["note"] = json!("envelope = RMS dB every 200 ms; wav/png paths are on local disk");
-    let mut content = vec![ContentBlock::text(summary.to_string())];
-    if let Some(png) = report.get("png").and_then(Json::as_str)
-        && let Ok(bytes) = std::fs::read(png)
-    {
+    let png = report.get("png").and_then(Json::as_str).map(str::to_owned);
+    let mut content = vec![ContentBlock::text(report.to_string())];
+    if let Some(bytes) = png.and_then(|p| std::fs::read(p).ok()) {
         content.push(ContentBlock::image(base64::engine::general_purpose::STANDARD.encode(bytes), "image/png"));
     }
-    Ok(CallToolResult::success(content))
+    CallToolResult::success(content)
+}
+
+/// Render `preset_bytes` through the installed Serum 2. Returns the render report.
+pub async fn render_report(preset_bytes: Vec<u8>, args: &[(&str, String)]) -> Result<Json, String> {
+    let dir = work_dir("render")?;
+    let preset = dir.join("patch.SerumPreset");
+    std::fs::write(&preset, preset_bytes).map_err(|e| e.to_string())?;
+    let mut argv: Vec<std::ffi::OsString> = vec![preset.into(), "--out".into(), dir.into()];
+    for (flag, value) in args {
+        argv.push((*flag).into());
+        argv.push(value.into());
+    }
+    run_helper("render", &argv).await
+}
+
+pub async fn render(preset_bytes: Vec<u8>, args: &[(&str, String)]) -> Result<CallToolResult, String> {
+    let mut report = render_report(preset_bytes, args).await?;
+    report["note"] = json!("envelope = RMS dB every 200 ms; wav/png paths are on local disk");
+    Ok(with_image(report))
+}
+
+fn trim_args(start: Option<f64>, end: Option<f64>) -> Vec<std::ffi::OsString> {
+    let mut v = Vec::new();
+    if let Some(s) = start {
+        v.extend(["--start".into(), s.to_string().into()]);
+    }
+    if let Some(e) = end {
+        v.extend(["--end".into(), e.to_string().into()]);
+    }
+    v
+}
+
+pub async fn analyze_report(path: &str, start: Option<f64>, end: Option<f64>) -> Result<Json, String> {
+    let dir = work_dir("analyze")?;
+    let mut argv: Vec<std::ffi::OsString> = vec![path.into(), "--out".into(), dir.into()];
+    argv.extend(trim_args(start, end));
+    run_helper("analyze", &argv).await
+}
+
+pub async fn analyze(path: &str, start: Option<f64>, end: Option<f64>) -> Result<CallToolResult, String> {
+    Ok(with_image(analyze_report(path, start, end).await?))
+}
+
+/// Render the patch, then compare it with the reference. Without explicit notes, one note is
+/// played at the reference's detected pitch for most of its length.
+pub async fn compare(
+    preset_bytes: Vec<u8>,
+    reference: &str,
+    start: Option<f64>,
+    end: Option<f64>,
+    mut render_args: Vec<(&str, String)>,
+) -> Result<CallToolResult, String> {
+    let mut chosen = Json::Null;
+    if !render_args.iter().any(|(f, _)| *f == "--notes") {
+        let r = analyze_report(reference, start, end).await?;
+        let dur = r.get("durationS").and_then(Json::as_f64).unwrap_or(2.0).clamp(0.5, 30.0);
+        let note = r
+            .get("fundamentalHz")
+            .and_then(Json::as_f64)
+            .filter(|f| *f > 20.0)
+            .map_or(48, |f| (69.0 + 12.0 * (f / 440.0).log2()).round().clamp(0.0, 127.0) as i64);
+        let length = (dur * 0.75).max(0.1);
+        render_args.push(("--notes", format!("{note}:0:{length:.2}")));
+        if !render_args.iter().any(|(f, _)| *f == "--duration") {
+            render_args.push(("--duration", format!("{dur:.2}")));
+        }
+        chosen = json!({"midiNote": note, "lengthS": (length * 100.0).round() / 100.0, "from": "reference pitch"});
+    }
+    let render = render_report(preset_bytes, &render_args).await?;
+    let wav = render.get("wav").and_then(Json::as_str).ok_or("render returned no wav")?.to_owned();
+
+    let dir = work_dir("compare")?;
+    let mut argv: Vec<std::ffi::OsString> = vec![reference.into(), "--compare".into(), wav.into(), "--out".into(), dir.into()];
+    argv.extend(trim_args(start, end));
+    let mut report = run_helper("analyze", &argv).await?;
+    report["renderedWith"] = chosen;
+    report["serum"] = render.get("serum").cloned().unwrap_or(Json::Null);
+    report["note"] = json!(
+        "diff = candidate minus reference. similarity 0..100 (spectral distance + envelope shape). \
+         bandBalanceDb is level-independent tonal balance; image: reference, candidate, overlaid spectra"
+    );
+    Ok(with_image(report))
 }
 
 fn tail(bytes: &[u8]) -> String {

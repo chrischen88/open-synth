@@ -63,3 +63,15 @@ python -m serum_host.sweep spot     --units ../crates/osyn-params/data/serum2_un
 Transform types in `serum2_units.json`: `affine` (a+b·r), `power` (a+b·r^k), `exp` (a·b^r),
 `round` (round(a+b·r)), `floor` (min(hi, a+floor(n·r))), `toggle`, `stepped` (numeric steps `[lo,hi,value,display]`),
 `enum` (string tokens, same step layout; `law`/`n` when edges follow floor(n·r); token null = key omitted) and `table` (raw samples, nothing fit within 1e-4).
+
+## analyze.py
+
+```
+python -m serum_host.analyze <audio> --out <dir> [--start S] [--end S]
+python -m serum_host.analyze <reference> --compare <candidate> --out <dir> [--start S] [--end S]
+```
+Single mode returns render.py's analysis plus a spectrogram. Compare mode returns both analyses and a `diff`
+(candidate minus reference): pitch (semitones), brightness (octaves), level-independent band balance, loudness,
+stereo width, attack and decay, envelope correlation, the largest 1/3-octave differences, `similarity` (0–100) and
+`hints`. It also writes `comparison.png`. Brightness uses a power-weighted spectral centroid, so 16-bit and noisy
+files read correctly.
