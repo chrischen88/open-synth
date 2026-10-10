@@ -23,7 +23,7 @@ pub fn to_json(v: &Value) -> Json {
 /// (integers in JSON like `7` are stored as `7.0`).
 pub fn value_from_json(j: &Json) -> Option<Value> {
     Some(match j {
-        Json::Bool(b) => Value::Bool(*b),
+        Json::Bool(b) => Value::Float(if *b { 1.0 } else { 0.0 }), // Serum stores toggles as 0.0/1.0
         Json::Number(n) => Value::Float(n.as_f64()?),
         Json::String(s) => Value::Text(s.clone()),
         Json::Object(o) => Value::Map(o.iter().map(|(k, v)| Some((k.clone(), value_from_json(v)?))).collect::<Option<Map>>()?),

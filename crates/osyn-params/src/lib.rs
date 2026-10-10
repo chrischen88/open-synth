@@ -7,6 +7,8 @@
 //!   ordered source-name table in the Serum 2.1.5 binary (id = table index + 1, 0 = none) and
 //!   cross-checked against usage frequencies in the factory library.
 
+pub mod units;
+
 use std::collections::BTreeMap;
 use std::sync::OnceLock;
 

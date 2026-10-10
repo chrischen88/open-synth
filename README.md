@@ -10,7 +10,7 @@ Status: **Milestone A**, the patch model, MCP server and Serum 2 export. There i
 | Crate | Purpose |
 |---|---|
 | `osyn-serum` | `.SerumPreset` read/write. Re-encoding is byte-exact against Serum's factory library. |
-| `osyn-params` | Serum 2 parameter registry: modules, param ids, enums and mod sources (`data/serum2_schema.json`) |
+| `osyn-params` | Serum 2 parameter registry: modules, param ids, enums and mod sources (`data/serum2_schema.json`). Also knob ↔ stored value ↔ display conversions for 455 params (`data/serum2_units.json`), measured by hosting Serum. |
 | `osyn-patch` | Editable patch model over Serum's module tree. Atomic commands with undo/redo, mod slots and FX racks. |
 | `osyn-mcp` | MCP server (stdio) for designing presets with an AI agent |
 
@@ -20,6 +20,9 @@ Status: **Milestone A**, the patch model, MCP server and Serum 2 export. There i
 cargo build --release -p osyn-mcp
 claude mcp add open-synth -- "$PWD/target/release/osyn-mcp"
 ```
+
+Values can be given the way Serum displays them (`"800 Hz"`, `"5 ms"`, `"-6 dB"`, `"Acid Ladder"`), as a
+knob position (`{"knob": 0.5}`), or as the raw stored number. `get_patch` shows both.
 
 Then ask for a sound, for example "make a detuned reese bass with an LFO on the filter and export it". Bare export
 names are saved to Serum 2's `Presets/User/open-synth/` folder, so they appear in Serum's browser.
@@ -39,6 +42,8 @@ cargo test --workspace
 - `serum2_preset.py`: container read/write.
 - `serum2_schema.py`: observed-parameter dump.
 - `serum2_extract_schema.py`: builds `serum2_schema.json` from the plugin binary's strings and the preset library.
+- `serum_host/`: hosts the installed Serum 2 headlessly via pedalboard. It measures parameter mappings (`sweep.py`)
+  and checks exported presets in real Serum (`python -m serum_host.verify <preset>`, run from `tools/`).
 
 ## Legal
 

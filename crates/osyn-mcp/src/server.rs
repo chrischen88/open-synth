@@ -5,6 +5,7 @@
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};
 
+use osyn_params::units::{ParamUnits, Plain, units};
 use osyn_params::{MOD_SOURCES, mod_source_id, schema};
 use osyn_patch::{Command, Modulation, ParamPath, Patch, to_json, value_from_json};
 use osyn_serum::{Map, Preset, Value};
@@ -60,7 +61,9 @@ pub struct ModuleArg {
 pub struct ParamSet {
     /// `<module path>.<param>`, e.g. `VoiceFilter0.kParamFreq`.
     pub path: String,
-    /// Number, boolean, or enum string (e.g. `"LadderAcid"`), in Serum's units.
+    /// One of: a value as Serum displays it (`"800 Hz"`, `"50 ms"`, `"-6 dB"`, `"75%"`,
+    /// `"MG Low 12"`); an enum token (`"LadderAcid"`); `{"knob": 0..1}` (Serum's knob position);
+    /// or a raw stored number.
     pub value: Json,
 }
 
@@ -186,11 +189,21 @@ impl SynthServer {
             .iter()
             .map(|p| {
                 let mut o = json!({"name": p.name, "id": p.id, "automatable": p.automatable});
+                if let Some(u) = units().for_type(&arg.module, &p.name) {
+                    o["default"] = json!(u.display(u.default_knob));
+                    o["range"] = json!([u.display(0.0), u.display(1.0)]);
+                    let accepts: Vec<String> = u.units().iter().map(|x| format!("{x:?}")).collect();
+                    if !accepts.is_empty() {
+                        o["accepts"] = json!(accepts);
+                    }
+                }
                 if let Some(values) = s.enum_values(p) {
                     o["values"] = json!(values);
                 }
                 if let Some(obs) = &p.observed {
-                    if let (Some(min), Some(max)) = (obs.min, obs.max) {
+                    if let (Some(min), Some(max)) = (obs.min, obs.max)
+                        && o.get("range").is_none()
+                    {
                         o["observedRange"] = json!([min, max]);
                     }
                     if !obs.strings.is_empty() && p.enum_name.is_none() {
@@ -223,7 +236,15 @@ impl SynthServer {
                 p.non_default()
                     .into_iter()
                     .filter(|(path, _)| path.module.module_type() != "ModSlot") // shown under modulations
-                    .map(|(path, v)| (path.to_string(), to_json(&v)))
+                    .map(|(path, v)| {
+                        let key = path.to_string();
+                        let shown = units().get(&key).and_then(|u| shows(u, &v));
+                        let j = match shown {
+                            Some(s) => json!(format!("{s}  [{}]", to_json(&v))),
+                            None => to_json(&v),
+                        };
+                        (key, j)
+                    })
                     .collect();
             let mods: Vec<Json> = p.modulations().into_iter().map(|(slot, m)| modulation_json(slot, &m)).collect();
             ok(json!({
@@ -237,22 +258,38 @@ impl SynthServer {
 
     #[tool(description = "Set one or more params atomically (all or nothing). Values are validated against the schema: param names must exist and enum params must use a listed value.")]
     async fn set_params(&self, Parameters(args): Parameters<SetParamsArgs>) -> ToolResult {
-        let mut items = Vec::with_capacity(args.params.len());
+        let mut sets = Vec::with_capacity(args.params.len());
+        let mut resets = Vec::new();
+        let mut results = Vec::new();
         let mut warnings = Vec::new();
         for ps in &args.params {
             let path: ParamPath = ps.path.parse().map_err(|e: osyn_patch::Error| e.to_string())?;
-            let value = value_from_json(&ps.value).ok_or_else(|| format!("{}: value must not be null", ps.path))?;
+            let unit = units().get(&path.to_string());
+            let resolved = resolve_value(&path, unit, &ps.value)?;
+            let Some(value) = resolved else {
+                // Enum "Off" entries are stored by omitting the key.
+                results.push(json!({"path": ps.path, "value": null, "shows": "Off (default)"}));
+                resets.push(path);
+                continue;
+            };
             match validate(&path, &value) {
                 Ok(Some(w)) => warnings.push(w),
                 Ok(None) => {}
                 Err(e) if args.force => warnings.push(format!("forced: {e}")),
                 Err(e) => return Err(e),
             }
-            items.push((path, value));
+            results.push(json!({"path": ps.path, "value": to_json(&value), "shows": unit.and_then(|u| shows(u, &value))}));
+            sets.push((path, value));
         }
-        let n = items.len();
-        self.with_patch(|p| p.apply(Command::SetParams(items))).map_err(|e| e.to_string())?;
-        ok(json!({"set": n, "warnings": warnings}))
+        self.with_patch(|p| {
+            p.apply(Command::SetParams(sets))?;
+            if !resets.is_empty() {
+                p.apply(Command::ResetParams(resets))?;
+            }
+            Ok::<_, osyn_patch::Error>(())
+        })
+        .map_err(|e| e.to_string())?;
+        ok(json!({"set": results, "warnings": warnings}))
     }
 
     #[tool(description = "Reset params to Serum's default.")]
@@ -433,6 +470,47 @@ fn validate(path: &ParamPath, value: &Value) -> Result<Option<String>, String> {
         return Ok(Some(format!("{path}: {v} is outside the range seen in factory presets [{min}, {max}]")));
     }
     Ok(None)
+}
+
+/// Turn a tool-supplied value into the stored plain value. `Ok(None)` = omit the key.
+fn resolve_value(path: &ParamPath, unit: Option<&ParamUnits>, v: &Json) -> Result<Option<Value>, String> {
+    let from_plain = |p: Plain| match p {
+        Plain::Number(n) => Some(Value::Float(n)),
+        Plain::Token(t) => t.map(Value::Text),
+    };
+    match (v, unit) {
+        (Json::Object(o), _) if o.contains_key("knob") => {
+            let u = unit.ok_or_else(|| format!("{path}: knob positions are not mapped for this param; pass a stored value"))?;
+            let r = o["knob"].as_f64().filter(|r| (0.0..=1.0).contains(r)).ok_or_else(|| format!("{path}: knob must be 0..1"))?;
+            Ok(from_plain(u.knob_to_plain(r)))
+        }
+        (Json::Bool(b), _) => Ok(Some(Value::Float(if *b { 1.0 } else { 0.0 }))),
+        (Json::String(s), Some(u)) => {
+            if let Some(p) = u.enum_token(s) {
+                return Ok(from_plain(p));
+            }
+            if matches!(u.transform, osyn_params::units::Transform::Enum { .. }) {
+                return Ok(Some(Value::Text(s.clone()))); // let validate() report valid names
+            }
+            match osyn_params::units::parse_display(s) {
+                Some((n, osyn_params::units::Unit::Number)) if u.units().is_empty() => Ok(Some(Value::Float(n))),
+                Some(_) => Ok(from_plain(u.knob_to_plain(u.display_to_knob(s).map_err(|e| format!("{path}: {e}"))?))),
+                None => Err(format!("{path}: cannot interpret `{s}`")),
+            }
+        }
+        _ => value_from_json(v).map(Some).ok_or_else(|| format!("{path}: value must not be null")),
+    }
+}
+
+/// Display string for a stored value, when the param's units are known.
+fn shows(u: &ParamUnits, v: &Value) -> Option<String> {
+    let plain = match v {
+        Value::Float(f) => Plain::Number(*f),
+        Value::Int(i) => Plain::Number(*i as f64),
+        Value::Text(t) => Plain::Token(Some(t.clone())),
+        _ => return None,
+    };
+    u.plain_to_knob(&plain).map(|r| u.display(r))
 }
 
 fn resolve_source(v: &Json) -> Result<i64, String> {
