@@ -5,8 +5,9 @@
 Protocol: one JSON object per line in each direction.
     request:  {"id": 7, "cmd": "render", "args": {...}}
     response: {"id": 7, "ok": true, "result": {...}}   or   {"id": 7, "ok": false, "error": "..."}
-On start the server prints {"event": "started"}, then loads Serum on the main thread (pedalboard
-requires plugin load and processing there) and prints {"event": "ready", "loadS": ...}. A reader
+On start the server prints {"event": "started"}. Serum is loaded lazily on the main thread (pedalboard
+requires plugin load and processing there) by the first request that needs it, which then prints
+{"event": "ready", "loadS": ...}; analysis/search-only sessions never pay the ~10 s load. A reader
 thread answers ping/status/similar/index_status at once (no Serum needed); every other request
 runs in order on the main thread.
 
@@ -65,7 +66,8 @@ class Server:
             self.loaded.set()
 
     def need_serum(self):
-        self.loaded.wait()
+        if not self.loaded.is_set():
+            self.load()  # main thread: the only caller of commands that need Serum
         if self.serum is None:
             raise RuntimeError(f"Serum failed to load: {self.load_error}")
         return self.serum
@@ -174,7 +176,6 @@ def main():
         jobs.put(None)  # stdin closed
 
     threading.Thread(target=reader, daemon=True).start()
-    server.load()
     while True:
         line = jobs.get()
         if line is None or not server.handle(line):
