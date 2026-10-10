@@ -119,9 +119,18 @@ Implications for us:
 - The poly budget must count unison voices and grains together.
 - Morph frames should be regenerated from a stored morph type, not saved.
 
-## 2. Product
+## 2. Product (revised 2026-10-09)
 
-**open-synth is a standalone desktop synthesizer.** It has its own **Serum 2–level** engine (full feature parity is the target), a full sound-design UI and a
+**open-synth is an AI-assisted Serum 2 preset designer.** Claude, through MCP, builds, auditions and refines Serum 2
+presets, including recreating reference sounds. The user's installed Serum 2 is the sound engine: patches are
+rendered through it for auditioning and comparison, and the output is a `.SerumPreset`.
+
+Building our own Serum-class synth engine (formerly Milestones B–M, about 12–15 months) is **deferred**. It only
+pays off if the product must make sound without Serum. Sections 3–4 below describe that original standalone-synth
+design and are kept for reference.
+
+
+*(Original direction:)* open-synth as a standalone desktop synthesizer. It has its own **Serum 2–level** engine (full feature parity is the target), a full sound-design UI and a
 built-in **MCP server**, so AI agents (Claude Code, Claude Desktop, …) can build patches. Its main output is a
 **Serum 2 preset** (`.SerumPreset`) that loads in Serum. It is not a plugin, although the engine is kept host-agnostic
 so a CLAP/VST3 build stays possible later.
@@ -202,38 +211,26 @@ Key design rules:
   bass, supersaw and FM pluck.
 - **Safety:** binds to localhost only with a per-session token. File tools are limited to user-chosen folders.
 
-## 4b. Roadmap
+## 4b. Roadmap (revised: AI-assisted preset design)
 
-The engine and the MCP/export layer progress in parallel. Milestone A is useful before any DSP exists: Claude can
-already design Serum presets through MCP, and you audition them in Serum.
+**Milestone A (done):**
+- `.SerumPreset` I/O, byte-exact on the factory library.
+- Parameter schema and measured units for 455 knobs.
+- Patch model with undo.
+- MCP tools covering params, modulation, wavetables, samples, multisamples, LFO shapes, FX racks and export.
+- Rendering through the installed Serum, and reference analysis/comparison.
 
-| Milestone | Scope | Exit criteria |
+The milestones below, in recommended order:
+
+| Milestone | Scope | Why |
 |---|---|---|
-| **A. Patch + MCP + export** (≈2 wk) | Cargo workspace; `osyn-params` generated from the schema dump; `osyn-patch` with undo; `osyn-serum` (Rust port, byte-exact test vs. the factory library); `osyn-mcp` stdio with describe/get/set/mod/export/import; value-mapping table via automated Serum hosting | Claude, via MCP alone, builds a preset that loads and sounds as intended in Serum |
-| **B. App shell + core voice** (3 wk) | Tauri app, cpal/midir, MCP over HTTP; WT osc with mipmaps + `clm` import, sub, noise, ENV1, 1 SVF filter, poly/mono/glide; minimal UI (osc, filter, env panels, keyboard) | Play from MIDI keyboard; a basic WT patch sounds close to Serum on A/B render |
-| **C. Unison & warps** (3 wk) | 16-voice unison (5 detune modes, stacks, WT/warp spread); both warp slots with all 57 WT warp modes (sync, bend, PWM, asym, flip, remap 1–4, quantize, even/odd, FM/FMP/FMX/PD/AM/RM from osc/sub/noise/filter, 13 shapers); oversampling | A/B spectra within tolerance on reese/supersaw/FM tests |
-| **D. Modulation** (3 wk) | 4 envs, 10 LFOs (curve, S&H, chaos, path), 8 macros, 64-slot matrix with curves/aux/smoothing, velo/note/MPE; drag-to-modulate UI | Any param modulatable from UI and MCP |
-| **E. Filters** (6 wk) | Filter 1/2 + routing; all ~98 Serum 2 types in families: SVF/multi/morph, ladders (MG, Acid, EMS, Dirty), comb/flange/phaser (L/H/HL), formant, ring-mod, S&H, dist-comb, scream, EQ shelves, DJ mixer, diffusor, reverb, pole-zero drawable (`PZ_SVF`) | Every filter enum implemented; stable self-oscillation; A/B vs. Serum |
-| **F. FX** (6 wk) | 3 racks; all 14 modules with every mode (17 distortion modes, 4 reverb types, multiband/up-down comp, convolution with embedded IRs, Bode, Hyper/Dimension, utility); splitters L/H, L/M/H and M/S with nested chains; FX parameter modulation | Exported FX chains sound alike in Serum |
-| **G. Sample & multisample osc** (4 wk) | Sample osc (loop modes, crossfade, slicing auto/manual, scan, tempo-lock, fades), multisample (SFZ subset + FLAC, zones, embedded envelopes), sample → wavetable conversion; embedded audio in export | Factory multisample presets import → export losslessly |
-| **H. Granular osc** (4 wk) | Grain scheduler (density free/BPM/grains, length, max grains up to 256, jump start), 8 window shapes, per-grain randomization, X/Y, scan ±800%; grains counted in poly budget | A/B vs. Serum on granular presets |
-| **I. Spectral osc** (6 wk) | STFT resynthesis with phase lock and transient preservation; spectral filter mask; all ~33 spectral warps (shift, pitch-shift, comb, smear, spread, mirror, gate, phase twist, robotize, add (sub)harmonics, peak follow/octave/harm, Shepard, mask, vocode) | Every spectral warp enum implemented |
-| **J. Arp & clip player** (4 wk) | 12-pattern arp banks (15 shapes, pattern editor, transpose shapes, chance/repeats/retrig/velocity), 12-clip player with piano roll, play modes, KB span, recording, MIDI out; MCP tools to write clips and arps | Clip/arp data round-trips to Serum |
-| **K. Wavetable editor** (4 wk) | Draw tools, FFT bin editing (magnitude and phase), formula parser, process menus, morph types (crossfade, spectral ×3), audio/image import; MCP `set_wavetable` gains formula/FFT modes | Tables made in-app load in Serum |
-| **L. Performance & tuning** (3 wk) | MPE, Voice Control (1–8 step per-voice randomization), pitch quantizer/scales, `.tun` + MTS-ESP, voice-steal priorities, legato/porta curves, quality modes 1×/2×/4× | Full Global/VoicePanel module parity |
-| **M. UI depth** (parallel, ongoing) | WT 3-D view, LFO/curve/path editors, mod matrix view, FX rack UI, preset browser, MCP activity panel highlighting AI edits | Full hand sound design without MCP |
-
-**Parity checklist.** `docs/parity.md` is generated from the schema dump. Every module, param and enum value
-(filter type, warp mode, distortion mode, …) is a line item, and a milestone is done only when its items are
-implemented and pass A/B against Serum.
-
-**Sizing (Serum 2 level).** Milestones A–L add up to about **48 weeks of engine work. With integration, A/B tuning and UI, that is about 12–15 months full-time**,
-with UI work running alongside. Most of that is width (98 filters, 57+33 warps, 14 FX), so it parallelizes well across
-agents once the core architecture (A–D) is stable. Useful checkpoints along the way:
-- After A: Claude designs Serum presets via MCP, auditioned in Serum.
-- After D: a playable wavetable synth with modulation.
-- After F: Serum-1-plus class.
-- After L: Serum 2 parity.
+| **A2. Fast audition** | Keep one Serum instance loaded in a long-lived helper process and inject each patch into it (~0.2 s per render instead of ~15–25 s). Optional live playback to the speakers so the user hears every edit. | Iteration speed is the main bottleneck for both Claude and the user |
+| **A3. Sound search** | Render every factory/user preset once (a few notes), store analysis features, and add `find_similar_presets(reference)` returning the closest presets as starting points | Starting from the nearest real preset beats building from Init |
+| **A4. Auto-match** | `auto_match` tool: Claude picks which params to explore and their ranges; the helper runs a fast optimizer (coordinate / CMA-ES search over the compare score) and reports the best settings | Turns the 25-second manual loop into hundreds of fast evaluations |
+| **A5. Richer analysis** | Brightness over time (filter-envelope detection), harmonic profile, noise vs. tone, LFO/wobble rate, multi-note and velocity response | Gives Claude better clues about *how* a sound was made |
+| **A6. Packaging** | One-command install (build + Python env + register with Claude Code and the Claude desktop app), versioned releases, docs and example prompts | Usable without the repo knowledge |
+| **A7. Companion UI (optional)** | Small local web page: current patch, A/B play against the reference, spectrogram comparison, history of attempts | Comfort for the human side of the loop |
+| *Open items from A* | FX param units (needs GUI-bound measurement or audio-based calibration), XY path LFOs, envelope-mode loopback, mod curve editing | As needed |
 
 ## 5. Serum 2 export (requirement: exported presets must load in Serum 2)
 
@@ -289,7 +286,7 @@ same MIDI, and compare spectra. Rendering Serum needs a host: a small JUCE `Audi
 - Present Serum preset import/export as interoperability for files users own.
 - Don't use "Serum" in the product name or branding. Describing compatibility ("exports Serum 2 presets") is fine.
 
-## 8. Immediate next steps
+## 8. Immediate next steps (superseded by 4b; kept for history)
 1. Scaffold the cargo workspace and port `serum2_preset.py` to `osyn-serum`, with the byte-exact test over the
    factory library.
 2. Generate `osyn-params` and `docs/parity.md` from `docs/serum2-param-schema.txt` plus defaults from an Init preset.

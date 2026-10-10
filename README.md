@@ -1,9 +1,9 @@
 # open-synth
 
-A standalone, Serum 2–class synthesizer with a built-in MCP server. Its presets export as Serum 2
+An AI-assisted Serum 2 preset designer: an MCP server that lets Claude build, audition, compare and export Serum 2
 `.SerumPreset` files. See [`docs/PLAN.md`](docs/PLAN.md) for the architecture and roadmap.
 
-Status: **Milestone A**, the patch model, MCP server and Serum 2 export. There is no audio engine yet.
+Status: **Milestone A done**. Your installed Serum 2 is the sound engine (for rendering and comparison). The roadmap is in `docs/PLAN.md` §4b.
 
 ## Crates
 
