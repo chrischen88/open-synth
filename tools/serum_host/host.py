@@ -70,7 +70,8 @@ class Serum:
         for k in preset:
             merged.setdefault(k, preset[k])
         comp = state.pack(cm, merged)
-        ctrl = state.pack({**em, "presetName": pmeta.get("presetName", "")}, eo)
+        eo = {**eo, "presetName": pmeta.get("presetName", ""), "presetAuthor": pmeta.get("presetAuthor", "")}
+        ctrl = state.pack(em, eo)
         self.plugin.raw_state = state.build_raw_state(comp, ctrl)
         self.settle(0.3)
 

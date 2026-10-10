@@ -1,0 +1,9 @@
+[package]
+name = "osyn-wt"
+description = "Wavetables: Serum-compatible WAV (clm) I/O and generators"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror.workspace = true

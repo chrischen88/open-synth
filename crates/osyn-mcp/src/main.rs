@@ -3,6 +3,7 @@
 //! Register with Claude Code:
 //! `claude mcp add open-synth -- /path/to/target/release/osyn-mcp`
 
+mod content;
 mod server;
 
 use rmcp::{ServiceExt, transport::stdio};

@@ -12,6 +12,7 @@ Status: **Milestone A**, the patch model, MCP server and Serum 2 export. There i
 | `osyn-serum` | `.SerumPreset` read/write. Re-encoding is byte-exact against Serum's factory library. |
 | `osyn-params` | Serum 2 parameter registry: modules, param ids, enums and mod sources (`data/serum2_schema.json`). Also knob ↔ stored value ↔ display conversions for 455 params (`data/serum2_units.json`), measured by hosting Serum. |
 | `osyn-patch` | Editable patch model over Serum's module tree. Atomic commands with undo/redo, mod slots and FX racks. |
+| `osyn-wt` | Wavetables: Serum `clm` WAV read/write, band-limited shapes, additive spectra and formula tables |
 | `osyn-mcp` | MCP server (stdio) for designing presets with an AI agent |
 
 ## Use with Claude Code
@@ -23,6 +24,13 @@ claude mcp add open-synth -- "$PWD/target/release/osyn-mcp"
 
 Values can be given the way Serum displays them (`"800 Hz"`, `"5 ms"`, `"-6 dB"`, `"Acid Ladder"`), as a
 knob position (`{"knob": 0.5}`), or as the raw stored number. `get_patch` shows both.
+
+Other tools:
+- **Wavetables:** `list_wavetables`, and `set_wavetable`, which takes a Serum library table, an imported WAV,
+  morphing shapes, harmonic keyframes or a formula. Generated tables are embedded in the preset.
+- **LFOs:** `set_lfo_shape` draws a shape.
+- **Auditioning:** `render` plays the patch through your installed Serum 2. It returns loudness, spectrum, an
+  envelope and a spectrogram image, and needs `tools/serum_host/setup.sh` to have been run once.
 
 Then ask for a sound, for example "make a detuned reese bass with an LFO on the filter and export it". Bare export
 names are saved to Serum 2's `Presets/User/open-synth/` folder, so they appear in Serum's browser.

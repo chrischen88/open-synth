@@ -7,7 +7,11 @@ use std::sync::{Arc, Mutex};
 
 use osyn_params::units::{ParamUnits, Plain, units};
 use osyn_params::{MOD_SOURCES, mod_source_id, schema};
-use osyn_patch::{Command, Modulation, ParamPath, Patch, to_json, value_from_json};
+use osyn_patch::{Command, CurvePoint, Modulation, ParamPath, Patch, to_json, value_from_json};
+use osyn_wt::Morph;
+use rmcp::model::CallToolResult;
+
+use crate::content;
 use osyn_serum::{Map, Preset, Value};
 use rmcp::{
     ServerHandler,
@@ -34,7 +38,9 @@ Env0..3 = ENV 1..4 (ENV 1 drives amp); LFO0..9; Macro0..7.
 
 Workflow: call describe_modules, then describe_params for the modules you need (it shows ids, \
 enum values, and value ranges observed in Serum's factory presets - use those as the unit guide). \
-Use set_params / add_modulation, inspect with get_patch, then export_preset. A param that is \
+Use set_params / add_modulation / set_wavetable / set_lfo_shape, inspect with get_patch, \
+audition with render (plays the patch through the user's Serum 2 and returns analysis plus a \
+spectrogram), then export_preset. A param that is \
 absent from get_patch is at Serum's default. Use undo if a change was wrong.";
 
 #[derive(Clone)]
@@ -115,6 +121,100 @@ pub struct AddFxArgs {
 pub struct RemoveFxArgs {
     pub rack: usize,
     pub index: usize,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct ListTablesArgs {
+    /// Case-insensitive filter on the path, e.g. "saw" or "Analog/".
+    #[serde(default)]
+    pub query: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct SetWavetableArgs {
+    /// Oscillator: "A", "B" or "C".
+    pub osc: String,
+    /// A table from Serum's Tables folder (path from list_wavetables), e.g. "Analog/MB Saw.wav".
+    #[serde(default)]
+    pub file: Option<String>,
+    /// With `file`: embed the table in the preset instead of referencing it (portable; default false).
+    #[serde(default)]
+    pub embed: bool,
+    /// Absolute path to a WAV to import (embedded). Serum-style tables carry their cycle length;
+    /// otherwise pass `frame_size`.
+    #[serde(default)]
+    pub import: Option<String>,
+    /// Cycle length in samples for `import` when the WAV has no clm chunk.
+    #[serde(default)]
+    pub frame_size: Option<usize>,
+    /// Basic shapes to morph across the table, e.g. ["sine"] or ["sine","saw","square"].
+    /// Names: sine, saw, square, triangle, pulse:<duty 0..1>.
+    #[serde(default)]
+    pub shapes: Option<Vec<String>>,
+    /// Additive keyframes: each is harmonic amplitudes [h1, h2, h3, ...]; frames interpolate between them.
+    #[serde(default)]
+    pub harmonics: Option<Vec<Vec<f64>>>,
+    /// Formula per sample: x = phase -1..1, w = phase 0..1, y = table position 0..1, n = frame index.
+    /// Functions: sin cos tan tanh abs sqrt exp log floor ceil round sign frac min max pow clamp
+    /// saw square tri (period 1). Example: "sin(x*pi) * (1-y) + saw(w*(1+3*y)) * y".
+    #[serde(default)]
+    pub formula: Option<String>,
+    /// Number of frames to generate (1..256). Default: 1 for a single shape, else 64.
+    #[serde(default)]
+    pub frames: Option<usize>,
+    /// How Serum morphs between stored frames: none, crossfade, spectral (embedded tables only).
+    #[serde(default)]
+    pub morph: Option<String>,
+    /// Table name shown in Serum.
+    #[serde(default)]
+    pub name: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct LfoPointArg {
+    /// 0..1 across the LFO cycle; first point 0, last point 1, never decreasing.
+    pub x: f64,
+    /// 0 = bottom, 1 = top.
+    pub value: f64,
+    /// Segment bend from this point to the next: 0.5 = straight, toward 0 or 1 = curved.
+    #[serde(default = "half")]
+    pub curve: f64,
+}
+
+fn half() -> f64 {
+    0.5
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct SetLfoShapeArgs {
+    /// LFO number 1..10.
+    pub lfo: usize,
+    /// Either explicit points...
+    #[serde(default)]
+    pub points: Option<Vec<LfoPointArg>>,
+    /// ...or a preset shape: sine, triangle, saw_up, saw_down, square, ramp_up (one-shot rise), pulse.
+    #[serde(default)]
+    pub shape: Option<String>,
+    /// Shape name shown in Serum.
+    #[serde(default)]
+    pub name: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct RenderArgs {
+    /// Notes as "midi:start_s:length_s" comma list. Default "48:0:1.5" (one C3 note).
+    /// Chords: "48:0:1.5,52:0:1.5,55:0:1.5".
+    #[serde(default)]
+    pub notes: Option<String>,
+    /// Velocity 1..127 (default 100).
+    #[serde(default)]
+    pub velocity: Option<u8>,
+    /// Render length in seconds (default: last note end + 0.5, at least 2.5).
+    #[serde(default)]
+    pub duration: Option<f64>,
+    /// Macro positions as "index:percent", index 0..7 = Macro 1..8, e.g. "0:100,1:25".
+    #[serde(default)]
+    pub macros: Option<String>,
 }
 
 #[derive(Deserialize, JsonSchema)]
@@ -412,6 +512,88 @@ impl SynthServer {
         ok(json!({"removed": format!("FXRack{}/FX[{}]", args.rack, args.index)}))
     }
 
+    #[tool(description = "List wavetables in Serum's Tables folder (paths for set_wavetable `file`).")]
+    async fn list_wavetables(&self, Parameters(args): Parameters<ListTablesArgs>) -> ToolResult {
+        let tables = content::list_tables(args.query.as_deref())?;
+        let total = tables.len();
+        ok(json!({"total": total, "tables": tables.into_iter().take(200).collect::<Vec<_>>()}))
+    }
+
+    #[tool(description = "Load a wavetable into OSC A, B or C. Give exactly one source: `file` (Serum library table), `import` (any WAV), `shapes`, `harmonics` or `formula`. Generated and imported tables are embedded in the preset.")]
+    async fn set_wavetable(&self, Parameters(a): Parameters<SetWavetableArgs>) -> ToolResult {
+        let osc = match a.osc.trim().to_ascii_uppercase().as_str() {
+            "A" | "0" => 0,
+            "B" | "1" => 1,
+            "C" | "2" => 2,
+            other => return Err(format!("osc must be A, B or C, got `{other}`")),
+        };
+        let sources = [a.file.is_some(), a.import.is_some(), a.shapes.is_some(), a.harmonics.is_some(), a.formula.is_some()];
+        if sources.iter().filter(|s| **s).count() != 1 {
+            return Err("give exactly one of file, import, shapes, harmonics, formula".into());
+        }
+        let morph = a
+            .morph
+            .as_deref()
+            .map(|m| Morph::from_name(m).ok_or_else(|| format!("unknown morph `{m}` (none, crossfade, spectral)")))
+            .transpose()?;
+        let (table, frames) = if let Some(file) = &a.file {
+            content::table_from_library(file, a.embed, morph)?
+        } else {
+            let generated = if let Some(path) = &a.import {
+                content::import_wav(path, a.frame_size)?
+            } else if let Some(shapes) = &a.shapes {
+                content::from_shapes(shapes, a.frames.unwrap_or(if shapes.len() == 1 { 1 } else { 64 }))?
+            } else if let Some(keys) = &a.harmonics {
+                osyn_wt::generate::harmonics(keys, a.frames.unwrap_or(if keys.len() == 1 { 1 } else { 64 })).map_err(|e| e.to_string())?
+            } else {
+                let f = a.formula.as_deref().unwrap_or_default();
+                osyn_wt::generate::formula(f, a.frames.unwrap_or(64)).map_err(|e| e.to_string())?
+            };
+            let name = a.name.clone().unwrap_or_else(|| "open-synth".into());
+            content::embedded(generated, name, morph.unwrap_or_default())
+        };
+        let embedded = matches!(table, osyn_patch::WavetableSource::Embedded { .. });
+        self.with_patch(|p| p.apply(Command::SetWavetable { osc, table })).map_err(|e| e.to_string())?;
+        let osc_name = ["A", "B", "C"][osc];
+        ok(json!({"osc": osc_name, "frames": frames, "embedded": embedded,
+                  "hint": "kParamTablePos scans 1..256 across the table's frames"}))
+    }
+
+    #[tool(description = "Draw an LFO's shape from points or a named preset shape.")]
+    async fn set_lfo_shape(&self, Parameters(a): Parameters<SetLfoShapeArgs>) -> ToolResult {
+        if !(1..=10).contains(&a.lfo) {
+            return Err("lfo must be 1..10".into());
+        }
+        let points: Vec<CurvePoint> = match (&a.points, &a.shape) {
+            (Some(pts), None) => pts.iter().map(|p| CurvePoint { x: p.x, value: p.value, curve: p.curve }).collect(),
+            (None, Some(name)) => preset_lfo_shape(name)?,
+            _ => return Err("give either points or shape".into()),
+        };
+        let n = points.len();
+        let name = a.name.clone().or_else(|| a.shape.clone());
+        self.with_patch(|p| p.apply(Command::SetLfoShape { lfo: a.lfo - 1, points, name })).map_err(|e| e.to_string())?;
+        ok(json!({"lfo": a.lfo, "points": n}))
+    }
+
+    #[tool(description = "Audition the current patch through the installed Serum 2 (offline, ~15 s). Returns loudness (LUFS, peak, RMS), spectral centroid, band levels, stereo width, an RMS envelope, Serum's own readouts of key knobs, and a spectrogram image.")]
+    async fn render(&self, Parameters(a): Parameters<RenderArgs>) -> Result<CallToolResult, String> {
+        let bytes = self.with_patch(|p| p.preset().to_bytes()).map_err(|e| e.to_string())?;
+        let mut args = Vec::new();
+        if let Some(n) = a.notes {
+            args.push(("--notes", n));
+        }
+        if let Some(v) = a.velocity {
+            args.push(("--velocity", v.to_string()));
+        }
+        if let Some(d) = a.duration {
+            args.push(("--duration", d.to_string()));
+        }
+        if let Some(m) = a.macros {
+            args.push(("--macros", m));
+        }
+        content::render(bytes, &args).await
+    }
+
     #[tool(description = "Undo the last change.")]
     async fn undo(&self) -> ToolResult {
         ok(json!({"undone": self.with_patch(Patch::undo)}))
@@ -511,6 +693,21 @@ fn shows(u: &ParamUnits, v: &Value) -> Option<String> {
         _ => return None,
     };
     u.plain_to_knob(&plain).map(|r| u.display(r))
+}
+
+fn preset_lfo_shape(name: &str) -> Result<Vec<CurvePoint>, String> {
+    let pts: &[(f64, f64, f64)] = match name.to_ascii_lowercase().replace([' ', '-'], "_").as_str() {
+        "triangle" | "tri" => &[(0.0, 0.0, 0.5), (0.5, 1.0, 0.5), (1.0, 0.0, 0.5)],
+        // Two curved halves approximate a sine (curve bends each segment like Serum's sine preset).
+        "sine" | "sin" => &[(0.0, 0.5, 0.27), (0.25, 1.0, 0.73), (0.5, 0.5, 0.27), (0.75, 0.0, 0.73), (1.0, 0.5, 0.5)],
+        "saw_up" | "ramp" => &[(0.0, 0.0, 0.5), (1.0, 1.0, 0.5)],
+        "saw_down" => &[(0.0, 1.0, 0.5), (1.0, 0.0, 0.5)],
+        "square" => &[(0.0, 1.0, 0.5), (0.5, 1.0, 0.5), (0.5, 0.0, 0.5), (1.0, 0.0, 0.5)],
+        "pulse" => &[(0.0, 1.0, 0.5), (0.125, 1.0, 0.5), (0.125, 0.0, 0.5), (1.0, 0.0, 0.5)],
+        "ramp_up" => &[(0.0, 0.0, 0.5), (1.0, 1.0, 0.5)],
+        other => return Err(format!("unknown LFO shape `{other}` (sine, triangle, saw_up, saw_down, square, pulse)")),
+    };
+    Ok(pts.iter().map(|&(x, value, curve)| CurvePoint { x, value, curve }).collect())
 }
 
 fn resolve_source(v: &Json) -> Result<i64, String> {

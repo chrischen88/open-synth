@@ -3,8 +3,30 @@
 Host Serum 2 (VST3) headlessly with [pedalboard](https://github.com/spotify/pedalboard) to
 inspect its state and measure how host parameters map to stored values.
 
-Requirements: `pip install pedalboard cbor2 zstandard numpy mido` and Serum 2 installed
-(`SERUM_VST3` overrides `/Library/Audio/Plug-Ins/VST3/Serum2.vst3`). Run from `tools/`.
+Setup: `tools/serum_host/setup.sh` creates `tools/serum_host/.venv` (gitignored) from the pinned
+`requirements.txt` and prints the venv's python path. Idempotent. Requires Serum 2 installed
+(`SERUM_VST3` overrides `/Library/Audio/Plug-Ins/VST3/Serum2.vst3`). Run modules from `tools/`.
+
+## Render CLI
+
+```
+.venv/bin/python -m serum_host.render <preset.SerumPreset> --out <dir> \
+    [--notes "48:0:1.5,55:0:1.5"] [--velocity 100] [--duration 2.5] [--macros "0:50,1:20"]
+```
+
+* `--notes` comma list of `midi:start_s:length_s` (default `48:0:1.5`); `--macros` `index:percent`
+  (index 0..7 -> host `macro_1..8`, applied after preset injection). `--duration` defaults to
+  `max(2.5, last note end + 0.5)`.
+* Writes `<out>/render.wav` (16-bit stereo 44.1 kHz) and `<out>/spectrogram.png` (800x400, log frequency).
+* stdout is exactly one JSON object: `wav`, `png`, `durationS`, `peakDbfs`, `rmsDbfs`, `lufsIntegrated`
+  (BS.1770-4 K-weighting + gating, 400 ms blocks; null if below gate), `spectralCentroidHz`,
+  `fundamentalHz` (autocorrelation on the first note; null if unclear; can land an octave off for
+  detuned/sub-heavy patches), `stereoWidth` (side/mid RMS), `silent` (peak < -60 dBFS), `clipping`
+  (peak >= 0.999), `bands` (sub/low/lowmid/highmid/high RMS dB), `envelope` (RMS dB per 50 ms),
+  `serum` (`presetName` + display strings), `timing` (`loadS`, `renderS`). dB values floor at -120.
+* Errors: stdout `{"error": "..."}`; exit 1 = bad input, 2 = runtime failure or 90 s timeout. Logs go to stderr.
+* Plugin load is ~10 s; the render itself is ~0.2 s.
+* Tests (no Serum needed): `.venv/bin/python -m pytest serum_host/test_render.py` from `tools/`.
 
 | module     | purpose |
 |------------|---------|

@@ -13,8 +13,10 @@ path = "src/main.rs"
 osyn-serum = { path = "../osyn-serum" }
 osyn-patch = { path = "../osyn-patch" }
 osyn-params = { path = "../osyn-params" }
+osyn-wt = { path = "../osyn-wt" }
+base64 = "0.22"
 rmcp = { version = "3.5", features = ["server", "transport-io", "macros"] }
 schemars = "1"
 serde.workspace = true
 serde_json.workspace = true
-tokio = { version = "1", features = ["macros", "rt-multi-thread", "io-std", "sync"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "io-std", "sync", "process", "time"] }
