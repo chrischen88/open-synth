@@ -363,6 +363,47 @@ pub async fn compare(
     Ok(with_image(report))
 }
 
+/// Nearest presets in the user's library to a reference sound (needs the preset index).
+pub async fn find_similar(reference: &str, start: Option<f64>, end: Option<f64>, top: usize, tags: Option<&str>) -> Result<Json, String> {
+    host::request("similar", json!({"audio": reference, "start": start, "end": end, "top": top, "tags": tags})).await
+}
+
+pub async fn index_status() -> Result<Json, String> {
+    host::request("index_status", json!({})).await
+}
+
+static INDEX_BUILD: std::sync::Mutex<Option<std::process::Child>> = std::sync::Mutex::new(None);
+
+/// Start building the preset index in a separate background process (takes minutes).
+pub fn start_index_build(workers: usize) -> Result<Json, String> {
+    let mut slot = INDEX_BUILD.lock().unwrap_or_else(|e| e.into_inner());
+    if let Some(child) = slot.as_mut()
+        && child.try_wait().map_err(|e| e.to_string())?.is_none()
+    {
+        return Ok(json!({"status": "already running", "pid": child.id()}));
+    }
+    let tools = host::tools_dir();
+    let python = tools.join("serum_host/.venv/bin/python");
+    if !python.exists() {
+        return Err(format!("run `{}` once first", tools.join("serum_host/setup.sh").display()));
+    }
+    let log = std::env::temp_dir().join("open-synth").join("index-build.log");
+    std::fs::create_dir_all(log.parent().expect("has parent")).map_err(|e| e.to_string())?;
+    let out = std::fs::File::create(&log).map_err(|e| e.to_string())?;
+    let err = out.try_clone().map_err(|e| e.to_string())?;
+    let child = std::process::Command::new(&python)
+        .current_dir(&tools)
+        .args(["-m", "serum_host.index", "build", "--workers", &workers.to_string()])
+        .stdin(std::process::Stdio::null())
+        .stdout(out)
+        .stderr(err)
+        .spawn()
+        .map_err(|e| format!("failed to start index build: {e}"))?;
+    let pid = child.id();
+    *slot = Some(child);
+    Ok(json!({"status": "started", "pid": pid, "log": log, "note": "resumable; check progress with preset_index_status"}))
+}
+
 /// Play an audio file on the speakers (returns immediately).
 pub async fn play_file(path: &str, device: Option<&str>) -> Result<Json, String> {
     host::request("play", json!({"wav": path, "device": device})).await

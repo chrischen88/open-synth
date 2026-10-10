@@ -7,13 +7,17 @@ Protocol: one JSON object per line in each direction.
     response: {"id": 7, "ok": true, "result": {...}}   or   {"id": 7, "ok": false, "error": "..."}
 On start the server prints {"event": "started"}, then loads Serum on the main thread (pedalboard
 requires plugin load and processing there) and prints {"event": "ready", "loadS": ...}. A reader
-thread answers ping/status at once; every other request runs in order on the main thread.
+thread answers ping/status/similar/index_status at once (no Serum needed); every other request
+runs in order on the main thread.
 
 Commands:
     ping                                    -> {"pong": true, "serumLoaded": bool}
     status                                  -> load time, request counts
     render  {preset, out, notes?, velocity?, duration?, macros?}   (same result as render.py)
     analyze {audio, out, compare?, start?, end?}                   (same result as analyze.py)
+    similar {audio, start?, end?, top?, tags?, index?}             (same result as `index.py query`; index cached in
+                                                                    memory, reloaded when the file changes; no Serum needed)
+    index_status {index?}                   -> index build progress JSON, or {exists: false}
     play    {wav, device?}                  -> starts playback on the speakers, returns at once
     devices                                 -> output device names
     shutdown
@@ -83,6 +87,17 @@ class Server:
         from .analyze import analyze_job
         return analyze_job(a["audio"], a["out"], a.get("compare"), a.get("start") or 0.0, a.get("end"))
 
+    def cmd_similar(self, a):
+        from .index import query
+        tags = a.get("tags") or []
+        if isinstance(tags, str):
+            tags = [t for t in tags.split(",") if t.strip()]
+        return query(a["audio"], a.get("start") or 0.0, a.get("end"), int(a.get("top") or 10), tags, a.get("index"))
+
+    def cmd_index_status(self, a):
+        from .index import status
+        return status(a.get("index"))
+
     def cmd_devices(self, _):
         from pedalboard.io import AudioStream
         return {"outputs": list(AudioStream.output_device_names), "default": AudioStream.default_output_device_name}
@@ -134,7 +149,7 @@ class Server:
         return True
 
 
-QUICK = {"ping", "status"}
+QUICK = {"ping", "status", "similar", "index_status"}  # never need Serum
 
 
 def main():

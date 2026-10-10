@@ -43,7 +43,7 @@ audition with render (plays the patch through the user's Serum 2 and returns ana
 spectrogram), then export_preset.
 
 Recreating a sound: analyze_audio the reference first (pitch, brightness, envelope, spectrogram), \
-build a starting patch, then loop compare_to_reference -> adjust the biggest difference -> compare \
+try find_similar_presets and load_preset the closest match (or build a starting patch), then loop compare_to_reference -> adjust the biggest difference -> compare \
 again. Fix pitch first, then tonal balance (oscillators/filter), then envelope, then width/FX. A param that is \
 absent from get_patch is at Serum's default. Use undo if a change was wrong.";
 
@@ -312,6 +312,29 @@ pub struct PlayAudioArgs {
     pub path: String,
     #[serde(default)]
     pub device: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct SimilarArgs {
+    /// Absolute path to the reference sound (WAV, FLAC, AIFF, MP3).
+    pub reference: String,
+    #[serde(default)]
+    pub start: Option<f64>,
+    #[serde(default)]
+    pub end: Option<f64>,
+    /// Number of results (default 10, max 50).
+    #[serde(default)]
+    pub top: Option<usize>,
+    /// Only presets with all of these browser tags, comma separated (e.g. "Bass").
+    #[serde(default)]
+    pub tags: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct BuildIndexArgs {
+    /// Parallel Serum instances (default 4, max 8). Each uses ~1 CPU core and some memory.
+    #[serde(default)]
+    pub workers: Option<usize>,
 }
 
 #[derive(Deserialize, JsonSchema)]
@@ -746,6 +769,26 @@ impl SynthServer {
     #[tool(description = "Play an audio file on the user's speakers, e.g. the reference sound for an A/B with play.")]
     async fn play_audio(&self, Parameters(a): Parameters<PlayAudioArgs>) -> ToolResult {
         ok(content::play_file(&a.path, a.device.as_deref()).await?)
+    }
+
+    #[tool(description = "Find the presets in the user's Serum library that sound most like a reference (needs the preset index; see build_preset_index). Load the best match with load_preset (absolutePath) as a starting point, then refine with compare_to_reference.")]
+    async fn find_similar_presets(&self, Parameters(a): Parameters<SimilarArgs>) -> ToolResult {
+        let top = a.top.unwrap_or(10).clamp(1, 50);
+        match content::find_similar(&a.reference, a.start, a.end, top, a.tags.as_deref()).await {
+            Ok(r) => ok(r),
+            Err(e) if e.contains("index") => Err(format!("{e}. Build it first with build_preset_index (one-time, several minutes).")),
+            Err(e) => Err(e),
+        }
+    }
+
+    #[tool(description = "Build (or resume) the sound-search index of the user's Serum preset library in the background: renders every preset once. One-time, several minutes; returns immediately.")]
+    async fn build_preset_index(&self, Parameters(a): Parameters<BuildIndexArgs>) -> ToolResult {
+        ok(content::start_index_build(a.workers.unwrap_or(4).clamp(1, 8))?)
+    }
+
+    #[tool(description = "Progress of the preset index build (done/total, ETA) or whether an index exists.")]
+    async fn preset_index_status(&self) -> ToolResult {
+        ok(content::index_status().await?)
     }
 
     #[tool(description = "Undo the last change.")]

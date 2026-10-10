@@ -87,7 +87,41 @@ python -m serum_host.server     # JSON lines on stdin/stdout; see the module doc
 ```
 Keeps one Serum instance loaded, so renders take ~0.5 s instead of ~15–25 s. Each render first resets
 the instance to its baseline state; the result is bit-identical to a fresh instance, including after
-reverb- or delay-heavy patches. Commands: `ping`, `status`, `render`, `analyze`, `play`, `devices`, `shutdown`.
+reverb- or delay-heavy patches. Commands: `ping`, `status`, `render`, `analyze`, `similar`, `index_status`, `play`, `devices`, `shutdown`.
+`similar {audio, start?, end?, top?, tags?, index?}` (same JSON as `index query`, index cached in memory and reloaded when the file changes; no Serum needed) and `index_status {index?}` (progress JSON with `exists: true`, or `{exists: false}`).
 pedalboard requires plugin work on the main thread, so a reader thread queues requests and the main
 thread runs them. The MCP server (`crates/osyn-mcp/src/host.rs`) starts this helper on first use,
 restarts it after a crash or timeout, and logs its stderr to `$TMPDIR/open-synth/host.log`.
+
+## index.py (sound search)
+
+```
+python -m serum_host.index build [--library DIR] [--index PATH] [--workers 4] [--limit N]
+python -m serum_host.index query <audio> [--start S] [--end S] [--top 10] [--tags a,b] [--index PATH]
+```
+Index path: `--index`, else `$OSYN_INDEX`, else `~/Library/Application Support/open-synth/preset_index.json`.
+`build` renders every `.SerumPreset` under the library (default: the Serum 2 `Presets` folder, read-only) at MIDI
+36, 48 and 60 (one 1.0 s note, 2.0 s render, velocity 100) in N spawned worker processes, each with its own Serum on
+its own main thread (~1.7 s per preset per worker; the full 1,401-preset library took 25.6 min with 4 workers, 2.5 MB). Results are appended to `<index>.cache.jsonl` (resume = rerun the
+same command; failed presets are retried), progress goes to `<index>.progress.json`
+(`done, total, failed, startedAt, updatedAt, etaS`), and the index is replaced atomically. Unreadable presets are
+listed under `failed`; silent renders are kept with `silent: true` and never returned.
+
+Per render: 29-band level-normalised 1/3-octave spectrum, spectral centroid, 5 band levels relative to RMS, f0,
+spectral flatness (noisiness), stereo width, RMS/LUFS, 20-point envelope (100 ms RMS, dB re peak) and 8-slice
+brightness curve. Per preset: path (relative to the library), name, author, tags, `transposeSemitones`.
+
+`query` prints `{"reference": {...}, "results": [{path, absolutePath, name, author, tags, similarity (0..100), note,
+details: {pitchSemitones, brightnessOctaves, bandBalanceDb, envelopeCorrelation, flatnessDiff, widthDiff, ...}}]}`
+(details are candidate minus reference). `--tags` keeps presets having all listed tags (case-insensitive).
+
+How matching works: the reference is trimmed to its onset and cropped to 2 s. Every preset is scored at each of its
+three renders and the best is kept (`note`). Pitch independence: a render near the reference's pitch always exists, and
+the remaining gap is absorbed by also trying the candidate spectrum shifted by the residual pitch (power-domain
+interpolation, best of 0/25/50/75/100 % shift). Scoring all notes beat "pick the note with the closest measured f0"
+because the autocorrelation f0 is often an octave or two off on sub-heavy patches. Score = 100 * exp(-D/8) *
+(0.3 + 0.4 envelope correlation + 0.3 brightness-over-time agreement) * mild width and noisiness penalties, where D is
+the energy-weighted 1/3-octave distance of `analyze --compare` (diffs capped at 8 dB). Queries take ~50 ms in-process
+(numpy, index cached), ~0.4 s as a CLI.
+Caveats: the envelope assumes a roughly 1 s note, so a reference with a long sustain or a different release scores a
+lower envelope term; effects-only/arp presets that need MIDI clips come out silent; presets that hang or crash Serum (3 of 1,401 here, 120 s timeout each) and corrupt files are listed under `failed`. Tests: `python -m pytest serum_host/test_index.py` from `tools/`.
