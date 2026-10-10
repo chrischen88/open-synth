@@ -74,6 +74,10 @@ pub enum Command {
     RemoveFx { rack: usize, index: usize },
     /// Load a wavetable into main oscillator 0..=2 (OSC A..C).
     SetWavetable { osc: usize, table: WavetableSource },
+    /// Load audio into oscillator 0..=2 and switch it to the given sample-based engine.
+    SetSample { osc: usize, engine: SampleEngine, source: SampleSource, base_note: Option<i64> },
+    /// Load an SFZ multisample (from Serum's Multisamples folder) into oscillator 0..=2.
+    SetMultisample { osc: usize, sfz_relative: String, sfz_text: String, files: Vec<SampleFile> },
     /// Draw LFO `lfo` (0..=9)'s shape. `points` run from x = 0 to x = 1.
     SetLfoShape { lfo: usize, points: Vec<CurvePoint>, name: Option<String> },
     /// Replace the whole tree (import / load).
@@ -87,6 +91,48 @@ pub enum WavetableSource {
     /// Keyframes stored inside the preset (portable). `samples.len()` is a multiple of 2048;
     /// `morph` is Serum's `interpolateAfterLoad` (0 none, 1 crossfade, 2 spectral, ...).
     Embedded { samples: Vec<f32>, display_name: String, morph: i64 },
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum SampleEngine {
+    Sample,
+    Granular,
+    Spectral,
+}
+
+impl SampleEngine {
+    fn module(self) -> &'static str {
+        match self {
+            SampleEngine::Sample => "SampleOsc",
+            SampleEngine::Granular => "GranularOsc",
+            SampleEngine::Spectral => "SpectralOsc",
+        }
+    }
+
+    fn osc_type(self) -> &'static str {
+        match self {
+            SampleEngine::Sample => "kOsc_Sample",
+            SampleEngine::Granular => "kOsc_Granular",
+            SampleEngine::Spectral => "kOsc_Spectral",
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub enum SampleSource {
+    /// A file referenced relative to Serum's `Samples` folder.
+    File { relative_path: String, info: SampleFile },
+    /// Audio stored in the preset: one sample list per channel.
+    Embedded { channels: Vec<Vec<f32>>, sample_rate: i64, name: String, original_path: String },
+}
+
+/// Header facts Serum records for each referenced audio file.
+#[derive(Debug, Clone, PartialEq)]
+pub struct SampleFile {
+    pub path: String,
+    pub channels: i64,
+    pub length: i64,
+    pub sample_rate: i64,
 }
 
 /// One point of an LFO shape. `value` is 0 (bottom) ..= 1 (top); `curve` bends the segment that
@@ -274,6 +320,8 @@ fn apply_to(p: &mut Preset, cmd: Command) -> Result<Option<usize>, Error> {
         }
         Command::SetWavetable { osc, table } => set_wavetable(&mut p.data, osc, table)?,
         Command::SetLfoShape { lfo, points, name } => set_lfo_shape(&mut p.data, lfo, &points, name)?,
+        Command::SetSample { osc, engine, source, base_note } => set_sample(&mut p.data, osc, engine, source, base_note)?,
+        Command::SetMultisample { osc, sfz_relative, sfz_text, files } => set_multisample(&mut p.data, osc, sfz_relative, sfz_text, files)?,
         Command::Replace(preset) => *p = *preset,
     }
     Ok(None)
@@ -333,6 +381,88 @@ fn set_wavetable(root: &mut Map, osc: usize, table: WavetableSource) -> Result<(
     }
     sort_keys(wt);
     Ok(())
+}
+
+const SAMPLE_SOURCE_KEYS: [&str; 8] =
+    ["baseDetune", "baseNote", "embedded_audio", "numChannels", "numFrames", "samplePath", "samplePathRelative", "sampleRate"];
+const MULTISAMPLE_SOURCE_KEYS: [&str; 6] = ["defaultLoopMode", "embedded_audio", "embedded_sfz", "files", "sfzPath", "sfzPathRelative"];
+
+fn check_osc(osc: usize) -> Result<(), Error> {
+    if osc > 2 {
+        return Err(Error::Invalid(format!("main oscillators are 0..=2 (A..C), not {osc}")));
+    }
+    Ok(())
+}
+
+fn set_osc_type(root: &mut Map, osc: usize, token: &str) -> Result<(), Error> {
+    let path: ModulePath = format!("Oscillator{osc}").parse()?;
+    plain_params_mut(root, &path)?.insert("kParamType".into(), Value::Text(token.into()));
+    Ok(())
+}
+
+fn set_sample(root: &mut Map, osc: usize, engine: SampleEngine, source: SampleSource, base_note: Option<i64>) -> Result<(), Error> {
+    check_osc(osc)?;
+    let m = module_map(module_map(root, &format!("Oscillator{osc}"))?, &format!("{}{osc}", engine.module()))?;
+    for k in SAMPLE_SOURCE_KEYS {
+        m.shift_remove(k);
+    }
+    m.entry(PLAIN.to_owned()).or_insert_with(|| Value::Text(DEFAULT.into()));
+    match source {
+        SampleSource::File { relative_path, info } => {
+            m.insert("samplePathRelative".into(), Value::Text(relative_path));
+            m.insert("numChannels".into(), Value::Int(info.channels));
+            m.insert("numFrames".into(), Value::Int(info.length));
+            m.insert("sampleRate".into(), Value::Int(info.sample_rate));
+        }
+        SampleSource::Embedded { channels, sample_rate, name, original_path } => {
+            let len = channels.first().map_or(0, Vec::len);
+            if channels.is_empty() || len == 0 || channels.iter().any(|c| c.len() != len) {
+                return Err(Error::Invalid("embedded audio needs 1+ channels of equal, non-zero length".into()));
+            }
+            let n = channels.len() as i64;
+            let data = channels.into_iter().map(|c| Value::Array(c.into_iter().map(|s| Value::Float(s as f64)).collect())).collect();
+            let mut audio = Map::new();
+            audio.insert("data".into(), Value::Array(data));
+            audio.insert("sampleRate".into(), Value::Int(sample_rate));
+            audio.insert("table_name".into(), Value::Text(name));
+            m.insert("embedded_audio".into(), Value::Map(audio));
+            m.insert("numChannels".into(), Value::Int(n));
+            m.insert("numFrames".into(), Value::Int(len as i64));
+            m.insert("samplePath".into(), Value::Text(original_path));
+            m.insert("sampleRate".into(), Value::Int(sample_rate));
+        }
+    }
+    if let Some(note) = base_note {
+        m.insert("baseNote".into(), Value::Int(note));
+    }
+    sort_keys(m);
+    set_osc_type(root, osc, engine.osc_type())
+}
+
+fn set_multisample(root: &mut Map, osc: usize, sfz_relative: String, sfz_text: String, files: Vec<SampleFile>) -> Result<(), Error> {
+    check_osc(osc)?;
+    if files.is_empty() {
+        return Err(Error::Invalid("multisample has no sample files".into()));
+    }
+    let m = module_map(module_map(root, &format!("Oscillator{osc}"))?, &format!("MultiSampleOsc{osc}"))?;
+    for k in MULTISAMPLE_SOURCE_KEYS {
+        m.shift_remove(k);
+    }
+    m.entry(PLAIN.to_owned()).or_insert_with(|| Value::Text(DEFAULT.into()));
+    let mut file_map = Map::new();
+    for f in files {
+        let mut info = Map::new();
+        info.insert("numChannels".into(), Value::Int(f.channels));
+        info.insert("numFrames".into(), Value::Int(f.length));
+        info.insert("sampleRate".into(), Value::Int(f.sample_rate));
+        file_map.insert(f.path, Value::Map(info));
+    }
+    file_map.sort_keys();
+    m.insert("embedded_sfz".into(), Value::Text(sfz_text));
+    m.insert("files".into(), Value::Map(file_map));
+    m.insert("sfzPathRelative".into(), Value::Text(sfz_relative));
+    sort_keys(m);
+    set_osc_type(root, osc, "kOsc_MultiSample")
 }
 
 fn set_lfo_shape(root: &mut Map, lfo: usize, points: &[CurvePoint], name: Option<String>) -> Result<(), Error> {
@@ -679,6 +809,47 @@ mod tests {
         assert_eq!(lfo["curveDisplayName"], Value::Text("Tri".into()));
         let bad = [(0.0, 0.0), (0.7, 1.0), (0.5, 0.0)].map(|(x, value)| CurvePoint { x, value, curve: 0.5 });
         assert!(patch.apply(Command::SetLfoShape { lfo: 0, points: bad.to_vec(), name: None }).is_err());
+    }
+
+    #[test]
+    fn sample_and_multisample_set_type_and_replace_sources() {
+        let mut patch = Patch::default();
+        let info = SampleFile { path: String::new(), channels: 2, length: 1000, sample_rate: 44100 };
+        patch
+            .apply(Command::SetSample {
+                osc: 2,
+                engine: SampleEngine::Granular,
+                source: SampleSource::File { relative_path: "Factory/x.flac".into(), info },
+                base_note: Some(60),
+            })
+            .unwrap();
+        assert_eq!(patch.get(&pp("Oscillator2.kParamType")), Some(&Value::Text("kOsc_Granular".into())));
+        let g = patch.preset().data["Oscillator2"].as_map().unwrap()["GranularOsc2"].as_map().unwrap().clone();
+        assert_eq!(g["samplePathRelative"], Value::Text("Factory/x.flac".into()));
+        assert_eq!(g["baseNote"], Value::Int(60));
+
+        patch
+            .apply(Command::SetSample {
+                osc: 2,
+                engine: SampleEngine::Granular,
+                source: SampleSource::Embedded {
+                    channels: vec![vec![0.1, 0.2], vec![0.3, 0.4]],
+                    sample_rate: 48000,
+                    name: "grain".into(),
+                    original_path: "/tmp/grain.wav".into(),
+                },
+                base_note: None,
+            })
+            .unwrap();
+        let g = patch.preset().data["Oscillator2"].as_map().unwrap()["GranularOsc2"].as_map().unwrap();
+        assert!(!g.contains_key("samplePathRelative") && !g.contains_key("baseNote"));
+        assert_eq!(g["numFrames"], Value::Int(2));
+        let ragged = SampleSource::Embedded { channels: vec![vec![0.1], vec![]], sample_rate: 1, name: String::new(), original_path: String::new() };
+        assert!(patch.apply(Command::SetSample { osc: 0, engine: SampleEngine::Sample, source: ragged, base_note: None }).is_err());
+
+        let f = SampleFile { path: "Piano/C3.flac".into(), channels: 2, length: 5, sample_rate: 48000 };
+        patch.apply(Command::SetMultisample { osc: 0, sfz_relative: "Factory/P.sfz".into(), sfz_text: "<region> sample=Piano/C3.flac".into(), files: vec![f] }).unwrap();
+        assert_eq!(patch.get(&pp("Oscillator0.kParamType")), Some(&Value::Text("kOsc_MultiSample".into())));
     }
 
     #[test]

@@ -11,6 +11,12 @@ Stages (all take --cache, a JSON file used as checkpoint/resume store):
             stepped / enum / table transforms, display laws, side effects).
   validate  check every path against serum2_schema.json.
   spot      set a mid value via the host for N transforms and compare with the prediction.
+  fx        FX-module params.  The host's fx_*_param_N slots (in "Serum 2" and "Serum 2 FX" alike) are not
+            bound to FX modules headlessly, so no knob->display measurement is possible.  Instead inject
+            each FX type into FXRack0 and read FXRack0.FX[i].defaultPlainValues from the controller state,
+            then merge into serum2_units.json: `fxDefaults` plus one `source: "observed"` entry per
+            FXType x param (transform null, range from serum2_schema.json `observed`).  Existing
+            non-FX entries are left untouched; re-running replaces the FX entries.
 
 Usage (from tools/):
   python -m serum_host.sweep collect --cache /tmp/sweep.json [--only a_level,a_pan]
@@ -563,7 +569,7 @@ def spot(args):
     chosen, seen = [], set()
     for ty in ("power", "enum", "floor", "affine", "toggle", "round", "exp", "stepped"):
         for p in units["params"]:
-            if p["transform"]["type"] == ty and p["path"].split(".")[0] not in seen:
+            if p["transform"] and p["transform"]["type"] == ty and p["path"].split(".")[0] not in seen:
                 chosen.append(p)
                 seen.add(p["path"].split(".")[0])
                 break
@@ -589,6 +595,69 @@ def spot(args):
     print(f"spot-check {ok}/{len(chosen)} ok")
 
 
+FX_SKIP = ("FXSplit", "FXSplit3", "FXSplitMS", "FXRack")
+
+
+def _fx_types(schema):
+    return [(k, v["fxTypeId"]) for k, v in schema.items()
+            if k.startswith("FX") and v.get("fxTypeId") is not None and k not in FX_SKIP]
+
+
+def fx_defaults(types):
+    """Inject one FX of each type into FXRack0 and read the controller's defaultPlainValues."""
+    from .host import Serum
+    from . import state
+    s = Serum()
+    cm, co, em, eo = state.decode_raw_state(s.plugin.raw_state)
+    co["FXRack0"]["FX"] = [{t: {"plainParams": {}}, "type": i} for t, i in types]
+    s.reset(state.build_raw_state(state.pack(cm, co), state.pack(em, eo)))
+    ctrl = s.controller_state()["FXRack0"]["FX"]
+    out = {}
+    for (t, _), item in zip(types, ctrl):
+        out[t] = dict(sorted(item["defaultPlainValues"].items()))
+    return out
+
+
+def fx(args):
+    schema = json.load(open(args.schema))["modules"]
+    types = _fx_types(schema)
+    if args.defaults_json and os.path.exists(args.defaults_json):
+        defaults = json.load(open(args.defaults_json))
+    else:
+        defaults = fx_defaults(types)
+        if args.defaults_json:
+            json.dump(defaults, open(args.defaults_json, "w"))
+    units = json.load(open(args.units))
+    units["params"] = [p for p in units["params"] if "fxType" not in p]
+    new, missing = [], []
+    for t, _ in types:
+        for prm in schema[t]["params"]:
+            nm = prm["name"]
+            if nm not in defaults[t]:
+                missing.append(f"{t}.{nm}")
+                continue
+            obs = prm.get("observed", {})
+            ent = {"host": None, "path": f"FXRack0/FX[0]/{t}.{nm}", "fxType": t, "source": "observed",
+                   "defaultRaw": None, "defaultPlain": defaults[t][nm], "transform": None,
+                   "display": {"unit": "", "samples": []}, "sideEffects": [], "samples": []}
+            if "min" in obs:
+                ent["observedRange"] = [obs["min"], obs["max"]]
+            if "strings" in obs:
+                ent["observedStrings"] = obs["strings"]
+            if prm.get("enum"):
+                ent["enum"] = prm["enum"]
+            new.append(ent)
+    units["params"] += new
+    units["fxDefaults"] = defaults
+    units["unmapped"] = [u for u in units["unmapped"] if not u.get("fxType")]
+    if missing:
+        units["unmapped"] += [{"fxType": m.split(".")[0], "path": m, "reason": "no defaultPlainValues entry in controller state"}
+                              for m in missing]
+    json.dump(units, open(args.units, "w"), indent=1, ensure_ascii=False)
+    from collections import Counter
+    print(Counter(p["fxType"] for p in new), "missing", missing)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -610,8 +679,12 @@ def main(argv=None):
     sp_.add_argument("--units", required=True)
     sp_.add_argument("--n", type=int, default=5)
     sp_.add_argument("--r", type=float, default=0.37)
+    x = sub.add_parser("fx")
+    x.add_argument("--units", required=True, help="serum2_units.json to update in place")
+    x.add_argument("--schema", required=True)
+    x.add_argument("--defaults-json", help="cache of the controller defaultPlainValues dump (reused if present)")
     a = ap.parse_args(argv)
-    {"collect": collect, "fit": fit, "validate": validate, "spot": spot}[a.cmd](a)
+    {"collect": collect, "fit": fit, "validate": validate, "spot": spot, "fx": fx}[a.cmd](a)
 
 
 if __name__ == "__main__":

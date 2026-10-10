@@ -16,7 +16,9 @@ use serde_json::Value as Json;
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
 struct RawFile {
-    params: Vec<RawParam>,
+    params: Vec<Json>,
+    #[serde(default)]
+    fx_defaults: HashMap<String, HashMap<String, Json>>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -319,6 +321,9 @@ fn infer_laws(p: &RawParam) -> Vec<(Unit, Law)> {
 }
 
 pub struct UnitTable {
+    /// Serum's default plain values for FX module params (FX knobs are not host-measurable,
+    /// so they have defaults but no knob/display laws). Enum defaults are ordinals.
+    fx_defaults: HashMap<String, HashMap<String, Json>>,
     by_path: HashMap<String, ParamUnits>,
     /// (module type, param) -> a representative path, for per-type descriptions.
     by_type: HashMap<(String, String), String>,
@@ -332,6 +337,10 @@ impl UnitTable {
     /// Units of `param` on any instance of `module_type` (instances share laws).
     pub fn for_type(&self, module_type: &str, param: &str) -> Option<&ParamUnits> {
         self.by_type.get(&(module_type.to_owned(), param.to_owned())).and_then(|p| self.by_path.get(p))
+    }
+
+    pub fn fx_default(&self, fx_type: &str, param: &str) -> Option<&Json> {
+        self.fx_defaults.get(fx_type)?.get(param)
     }
 
     pub fn len(&self) -> usize {
@@ -350,9 +359,12 @@ pub fn units() -> &'static UnitTable {
     UNITS.get_or_init(|| {
         let raw: RawFile =
             serde_json::from_str(include_str!("../data/serum2_units.json")).expect("embedded serum2_units.json is valid");
+        // Entries without a measured transform (FX params) only contribute defaults.
         let by_path: HashMap<String, ParamUnits> = raw
             .params
             .into_iter()
+            .filter(|p| p.get("transform").is_some_and(|t| !t.is_null()))
+            .map(|p| serde_json::from_value::<RawParam>(p).expect("units entry with transform is well-formed"))
             .map(|p| {
                 let laws = infer_laws(&p);
                 let units = ParamUnits {
@@ -377,7 +389,7 @@ pub fn units() -> &'static UnitTable {
                 by_type.entry((ty, param.to_owned())).or_insert_with(|| path.clone());
             }
         }
-        UnitTable { by_path, by_type }
+        UnitTable { fx_defaults: raw.fx_defaults, by_path, by_type }
     })
 }
 
@@ -458,6 +470,13 @@ mod tests {
         assert_eq!(attack.display(attack.default_knob), "1.0 ms");
         let pos = units().get("Oscillator0/WTOsc0.kParamTablePos").unwrap();
         assert_eq!(pos.display(0.0), "1"); // shown as stored value, not a frame number
+    }
+
+    #[test]
+    fn fx_defaults_load_without_laws() {
+        assert!(units().fx_default("FXReverb", "kParamWet").is_some());
+        assert!(units().for_type("FXReverb", "kParamWet").is_none());
+        assert_eq!(units().len(), 455);
     }
 
     #[test]

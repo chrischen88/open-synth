@@ -171,6 +171,40 @@ pub struct SetWavetableArgs {
 }
 
 #[derive(Deserialize, JsonSchema)]
+pub struct ListSamplesArgs {
+    /// "samples" (for sample/granular/spectral oscillators) or "multisamples" (SFZ instruments).
+    pub kind: String,
+    /// Case-insensitive filter on the path, e.g. "piano" or "Factory/Bass".
+    #[serde(default)]
+    pub query: Option<String>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct SetSampleArgs {
+    /// Oscillator: "A", "B" or "C".
+    pub osc: String,
+    /// Engine: "sample", "granular" or "spectral". The oscillator is switched to it.
+    pub engine: String,
+    /// A file from Serum's Samples folder (path from list_samples), referenced by path.
+    #[serde(default)]
+    pub file: Option<String>,
+    /// Absolute path to a WAV to embed in the preset (portable, up to 120 s).
+    #[serde(default)]
+    pub import: Option<String>,
+    /// MIDI note of the sample's pitch (root key), e.g. 60 for C4.
+    #[serde(default)]
+    pub base_note: Option<i64>,
+}
+
+#[derive(Deserialize, JsonSchema)]
+pub struct SetMultisampleArgs {
+    /// Oscillator: "A", "B" or "C".
+    pub osc: String,
+    /// An .sfz from Serum's Multisamples folder (path from list_samples kind=multisamples).
+    pub file: String,
+}
+
+#[derive(Deserialize, JsonSchema)]
 pub struct LfoPointArg {
     /// 0..1 across the LFO cycle; first point 0, last point 1, never decreasing.
     pub x: f64,
@@ -296,6 +330,10 @@ impl SynthServer {
                     if !accepts.is_empty() {
                         o["accepts"] = json!(accepts);
                     }
+                } else if let Some(d) = units().fx_default(&arg.module, &p.name) {
+                    // FX defaults are plain values; enum defaults are ordinals into the value list.
+                    let named = s.enum_values(p).zip(d.as_f64()).and_then(|(vals, i)| vals.get(i as usize).cloned());
+                    o["default"] = named.map_or_else(|| d.clone(), Json::String);
                 }
                 if let Some(values) = s.enum_values(p) {
                     o["values"] = json!(values);
@@ -338,7 +376,7 @@ impl SynthServer {
                     .filter(|(path, _)| path.module.module_type() != "ModSlot") // shown under modulations
                     .map(|(path, v)| {
                         let key = path.to_string();
-                        let shown = units().get(&key).and_then(|u| shows(u, &v));
+                        let shown = unit_for(&path).and_then(|u| shows(u, &v));
                         let j = match shown {
                             Some(s) => json!(format!("{s}  [{}]", to_json(&v))),
                             None => to_json(&v),
@@ -364,7 +402,7 @@ impl SynthServer {
         let mut warnings = Vec::new();
         for ps in &args.params {
             let path: ParamPath = ps.path.parse().map_err(|e: osyn_patch::Error| e.to_string())?;
-            let unit = units().get(&path.to_string());
+            let unit = unit_for(&path);
             let resolved = resolve_value(&path, unit, &ps.value)?;
             let Some(value) = resolved else {
                 // Enum "Off" entries are stored by omitting the key.
@@ -521,12 +559,7 @@ impl SynthServer {
 
     #[tool(description = "Load a wavetable into OSC A, B or C. Give exactly one source: `file` (Serum library table), `import` (any WAV), `shapes`, `harmonics` or `formula`. Generated and imported tables are embedded in the preset.")]
     async fn set_wavetable(&self, Parameters(a): Parameters<SetWavetableArgs>) -> ToolResult {
-        let osc = match a.osc.trim().to_ascii_uppercase().as_str() {
-            "A" | "0" => 0,
-            "B" | "1" => 1,
-            "C" | "2" => 2,
-            other => return Err(format!("osc must be A, B or C, got `{other}`")),
-        };
+        let osc = parse_osc(&a.osc)?;
         let sources = [a.file.is_some(), a.import.is_some(), a.shapes.is_some(), a.harmonics.is_some(), a.formula.is_some()];
         if sources.iter().filter(|s| **s).count() != 1 {
             return Err("give exactly one of file, import, shapes, harmonics, formula".into());
@@ -557,6 +590,49 @@ impl SynthServer {
         let osc_name = ["A", "B", "C"][osc];
         ok(json!({"osc": osc_name, "frames": frames, "embedded": embedded,
                   "hint": "kParamTablePos scans 1..256 across the table's frames"}))
+    }
+
+    #[tool(description = "List audio in Serum's Samples folder (kind=samples) or SFZ instruments in its Multisamples folder (kind=multisamples).")]
+    async fn list_samples(&self, Parameters(a): Parameters<ListSamplesArgs>) -> ToolResult {
+        let (kind, exts): (&str, &[&str]) = match a.kind.as_str() {
+            "samples" => ("samples", &["wav", "flac", "aif", "aiff"]),
+            "multisamples" => ("multisamples", &["sfz"]),
+            other => return Err(format!("kind must be samples or multisamples, got `{other}`")),
+        };
+        let files = content::list_files(&content::content_dir(kind), exts, a.query.as_deref())?;
+        let total = files.len();
+        ok(json!({"total": total, "files": files.into_iter().take(200).collect::<Vec<_>>()}))
+    }
+
+    #[tool(description = "Load audio into OSC A, B or C as a sample, granular or spectral oscillator (switches the oscillator type). Use `file` for Serum's Samples library or `import` for any WAV (embedded).")]
+    async fn set_sample(&self, Parameters(a): Parameters<SetSampleArgs>) -> ToolResult {
+        let osc = parse_osc(&a.osc)?;
+        let engine = match a.engine.to_ascii_lowercase().as_str() {
+            "sample" => osyn_patch::SampleEngine::Sample,
+            "granular" => osyn_patch::SampleEngine::Granular,
+            "spectral" => osyn_patch::SampleEngine::Spectral,
+            other => return Err(format!("engine must be sample, granular or spectral, got `{other}`")),
+        };
+        if a.base_note.is_some_and(|n| !(0..=127).contains(&n)) {
+            return Err("base_note must be a MIDI note 0..127".into());
+        }
+        let source = content::sample_source(a.file.as_deref(), a.import.as_deref())?;
+        let (embedded, frames, channels) = match &source {
+            osyn_patch::SampleSource::File { info, .. } => (false, info.length, info.channels),
+            osyn_patch::SampleSource::Embedded { channels, .. } => (true, channels[0].len() as i64, channels.len() as i64),
+        };
+        self.with_patch(|p| p.apply(Command::SetSample { osc, engine, source, base_note: a.base_note })).map_err(|e| e.to_string())?;
+        ok(json!({"osc": OSC_NAMES[osc], "engine": a.engine, "embedded": embedded, "frames": frames, "channels": channels}))
+    }
+
+    #[tool(description = "Load an SFZ multisample instrument from Serum's Multisamples folder into OSC A, B or C (switches the oscillator to Multisample).")]
+    async fn set_multisample(&self, Parameters(a): Parameters<SetMultisampleArgs>) -> ToolResult {
+        let osc = parse_osc(&a.osc)?;
+        let (text, files) = content::multisample(&a.file)?;
+        let n = files.len();
+        self.with_patch(|p| p.apply(Command::SetMultisample { osc, sfz_relative: a.file.clone(), sfz_text: text, files }))
+            .map_err(|e| e.to_string())?;
+        ok(json!({"osc": OSC_NAMES[osc], "sfz": a.file, "samples": n}))
     }
 
     #[tool(description = "Draw an LFO's shape from points or a named preset shape.")]
@@ -684,6 +760,12 @@ fn resolve_value(path: &ParamPath, unit: Option<&ParamUnits>, v: &Json) -> Resul
     }
 }
 
+/// Units for a param: exact address first, else any instance of the same module type
+/// (FX modules move around racks; instances of a module type share their laws).
+fn unit_for(path: &ParamPath) -> Option<&'static ParamUnits> {
+    units().get(&path.to_string()).or_else(|| units().for_type(path.module.module_type(), &path.param))
+}
+
 /// Display string for a stored value, when the param's units are known.
 fn shows(u: &ParamUnits, v: &Value) -> Option<String> {
     let plain = match v {
@@ -693,6 +775,17 @@ fn shows(u: &ParamUnits, v: &Value) -> Option<String> {
         _ => return None,
     };
     u.plain_to_knob(&plain).map(|r| u.display(r))
+}
+
+const OSC_NAMES: [&str; 3] = ["A", "B", "C"];
+
+fn parse_osc(s: &str) -> Result<usize, String> {
+    match s.trim().to_ascii_uppercase().as_str() {
+        "A" | "0" => Ok(0),
+        "B" | "1" => Ok(1),
+        "C" | "2" => Ok(2),
+        other => Err(format!("osc must be A, B or C, got `{other}`")),
+    }
 }
 
 fn preset_lfo_shape(name: &str) -> Result<Vec<CurvePoint>, String> {

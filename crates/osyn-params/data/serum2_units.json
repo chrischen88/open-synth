@@ -47257,6 +47257,3467 @@
      63.0
     ]
    ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamEnable",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamWet",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    96.49122953414917
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamBeatSync",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamShift",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -100.0,
+    93.56725215911865
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamRange",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 22.360679774997898,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.1,
+    4999.999999999998
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamLevelOut",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.743199348449707
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamDelayTime",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0005,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0005260420256713086,
+    1.7535988968822402
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamFeedback",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.8771929889917374,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamDelayBalance",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -100.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamSwapAB",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamOutputMix",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -100.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamOutputWidth",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    99.41520690917969
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamBlur",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.1718226596713066,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamRetrig",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXBode.kParamMonoInput",
+   "fxType": "FXBode",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamEnable",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamWet",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 50.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamBeatSync",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamRate",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.078125,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    4.530309265293168
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamDelay",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 5.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    18.000000888934053
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamDelay2",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.04941691534257303,
+    19.17534566587875
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamDepth",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 26.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    25.245323150890364
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamFeedback",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 9.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    76.39811038970947
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamFilt",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1000.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    50.0,
+    20000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamLevelOut",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.37014803290367126,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamFiltMode",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXChorus.kParamSwing",
+   "fxType": "FXChorus",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamEnable",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamWet",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    98.61955046653748
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamThresh",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatio",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 3.9999880000359997,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1000000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamAttack",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 90.09100000135601,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.10000000149011612,
+    1000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRelease",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 90.09100000135601,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.10000000149011612,
+    1000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamMakeup",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0000317010875774,
+    31.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamMultiband",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamThreshUD0",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    200.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamThreshUD1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    200.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamThreshUD2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    200.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamLevelOut",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamXoverLow",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 128.29653151726316,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    20.0,
+    5000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamXoverHi",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 2500.0000004118756,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    300.0,
+    13757.735910780777
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamGain0",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -24.0,
+    24.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamGain1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -24.0,
+    17.25
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamGain2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -24.0,
+    24.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatioBelow",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.00390625,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatio0",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.9667791128158569
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatio1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.9818181991577148
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatio2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.9858750104904175
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatioBelow0",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.9772727489471436
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatioBelow1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.9745051860809326
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamRatioBelow2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.999161958694458
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamDeadband0",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.19047619047619047,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    7.000000074505806,
+    7.000000074505806
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamDeadband1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.4095238095238095,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    11.600000113248825,
+    11.600000113248825
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamDeadband2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.10952380952380951,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    5.3000000193715096,
+    5.3000000193715096
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamBypassDown1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamBypassDown2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamBypassDown3",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamBypassUp1",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamBypassUp2",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamBypassUp3",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamLimiterLatencyComp",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXComp.kParamCompensatedWetDry",
+   "fxType": "FXComp",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamEnable",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamWet",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 20.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamMinPhase",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamLevelOut",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.02383432909846306,
+    0.8138518929481506
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamSize",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    10.0,
+    1000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamAttack",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    2.8751432033024185e-07,
+    1.414168025531029
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamDecay",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 40.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    40.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamIpTrim",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": -18.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -34.0,
+    6.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamTone",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -100.0,
+    84.21052694320679
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamPredelay",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    5.737323274335093e-09,
+    0.38458826209436475
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamPredelayBeatSync",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXConv.kParamDamping",
+   "fxType": "FXConv",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    10.167214274406433,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamEnable",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamWet",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 30.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamFreq",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 848.5281374238571,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    40.0,
+    18000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamBW",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 6.75,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.75,
+    8.25
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamBeatSync",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamLink",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamTimeL",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0772939453125,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.001,
+    0.49360002644031276
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamTimeR",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0772939453125,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.001,
+    0.501
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamMode",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    2.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamFeedback",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 40.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamOffsetL",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.5,
+    1.5
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamOffsetR",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.5,
+    1.5
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamLevelOut",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.8824561238288879
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDelay.kParamHQ",
+   "fxType": "FXDelay",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamEnable",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamWet",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    99.56140518188477
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamDrive",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 25.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamLPHP",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.12959367595613003,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamMode",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedStrings": [
+    "kAsym",
+    "kDiode1",
+    "kDiode2",
+    "kDownsample",
+    "kHardClip",
+    "kLinFold",
+    "kOverdrive",
+    "kRectify",
+    "kSinFold",
+    "kSineShaper",
+    "kSoftClip",
+    "kSoftSat",
+    "kStompBox",
+    "kTapeSat",
+    "kXShaper",
+    "kXShaperAsym",
+    "kZeroSquare"
+   ],
+   "enum": "DistortionMode"
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamFreq",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 425.0119847269321,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamBW",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.95,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.075,
+    7.575
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamPrePost",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    2.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamLevelOut",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamNumStages",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    2.0,
+    16.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXDistortion.kParamKeyTrack",
+   "fxType": "FXDistortion",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamEnable",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamFreq1",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 209.616962917974,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    21.53320125,
+    20000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamFreq2",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 2040.5359441367445,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    21.53320125,
+    20000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamReso1",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 60.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamReso2",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 60.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamGain1",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -24.0,
+    24.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamGain2",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -24.0,
+    24.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamType1",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    2.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamType2",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    2.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXEQ.kParamLevelOut",
+   "fxType": "FXEQ",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamEnable",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamWet",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    99.80126023292542
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamType",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedStrings": [
+    "ADD_BASS",
+    "Allpasses",
+    "B12",
+    "B24",
+    "BEQ12",
+    "BN12",
+    "BP12",
+    "BandReject",
+    "Comb2",
+    "CombHL6N",
+    "CombHL6P",
+    "CombL6N",
+    "CombL6P",
+    "CombN",
+    "CombP",
+    "Combs",
+    "DJMixer",
+    "Diffuser",
+    "DirtyMg",
+    "DistComb1BP",
+    "DistComb1LP",
+    "Exp",
+    "ExpBPF",
+    "FlangeH6P",
+    "FlangeHL6N",
+    "FlangeHL6P",
+    "FlangeL6N",
+    "FlangeL6P",
+    "FlangeN",
+    "FlangeP",
+    "FormantONE",
+    "FormantTWB",
+    "FormantTWO",
+    "H12",
+    "H18",
+    "H24",
+    "H6",
+    "HEQ12",
+    "HEQ6",
+    "HN12",
+    "HP12",
+    "K35",
+    "L12",
+    "L18",
+    "L24",
+    "L6",
+    "LB12",
+    "LBH24",
+    "LEQ6",
+    "LH12",
+    "LN12",
+    "LNH24",
+    "LPH12",
+    "LPH24",
+    "LadderAcid",
+    "LadderEMS",
+    "LadderMg",
+    "MgL12",
+    "MgL18",
+    "MgL24",
+    "N12",
+    "N24",
+    "NN12",
+    "P12",
+    "PN12",
+    "PP12",
+    "PZ_SVF",
+    "Phase12N",
+    "Phase12P",
+    "Phase24P",
+    "Phase36N",
+    "Phase36P",
+    "Phase48H6P",
+    "Phase48HL6N",
+    "Phase48HL6P",
+    "Phase48N",
+    "Phase48P",
+    "RM",
+    "RMT",
+    "Reverb1",
+    "SNH1",
+    "Scream",
+    "Scream3BP",
+    "Scream3LP",
+    "Wsp",
+    "ZDF_A"
+   ],
+   "enum": "FilterType"
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamFreq",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 425.0119847269321,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamReso",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.7605719845741987,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamDrive",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.16173245385289192,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamVar",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    2.9999999329447746,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamStereo",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 50.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    75.43859481811523
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamLevelOut",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamX",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0066006602719426155,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamY",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.03030303120613098,
+    0.4121212065219879
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamKeyTrack",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFilter.kParamPad",
+   "fxType": "FXFilter",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamEnable",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamWet",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    91.92982316017151
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamBeatSync",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamRate",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.078125,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    20.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamDepth",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    99.96541142463684
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamFeedback",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 50.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    91.51761531829834
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamWidth",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 180.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    360.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamLevelOut",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.3976608216762543,
+    0.9824561476707458
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXFlanger.kParamSwing",
+   "fxType": "FXFlanger",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamEnable",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamWet",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 50.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamRate",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 40.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamDetune",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 25.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamUnison",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 4.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    7.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamRetrig",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamLevelOut",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.16228070855140686,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamDimESize",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 50.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamDimEWet",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.862645149230957e-07,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXHyperD.kParamDimELevelOut",
+   "fxType": "FXHyperD",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.29618969559669495,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamEnable",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamWet",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    82.61488080024719
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamBeatSync",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamRate",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.078125,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    20.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamDepth",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 50.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamDepth2",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamFreq",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 600.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    20.0,
+    18000.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamFeedback",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 80.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamWidth",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 180.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    360.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamLevelOut",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.3033854067325592,
+    0.7623224854469299
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXPhaser.kParamNumPoles",
+   "fxType": "FXPhaser",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 4.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    18.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamEnable",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamWet",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 20.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamSize",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 35.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamDelay",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 30.624999999999996,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    250.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamFreq",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    4.476125165820122,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamFeedback",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 25.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamFreqB",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 35.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamWidth",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 20.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamFreqC",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 70.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamMode",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 70.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamLevelOut",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamVintageScale",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 70.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamVintageScaleB",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 70.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamPreDelay",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    5.343299215100872e-13,
+    2.5
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamPreDelayBeatSync",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXReverb.kParamType",
+   "fxType": "FXReverb",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedStrings": [
+    "kAbyss",
+    "kHall",
+    "kSpace",
+    "kVintage"
+   ],
+   "enum": "ReverbType"
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamEnable",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": []
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamWet",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    89.8245632648468
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamLevelOut",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.5,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamWidth",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 100.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    0.0,
+    800.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamBalance",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    -100.0,
+    100.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamLFMono",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamLFXover",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 90.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    20.25,
+    400.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamHPF",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 1.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.3351743724075973,
+    400.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamLPF",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 20000.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    50.0,
+    19924.255979922462
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamPolarityL",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "host": null,
+   "path": "FXRack0/FX[0]/FXUtils.kParamPolarityR",
+   "fxType": "FXUtils",
+   "source": "observed",
+   "defaultRaw": null,
+   "defaultPlain": 0.0,
+   "transform": null,
+   "display": {
+    "unit": "",
+    "samples": []
+   },
+   "sideEffects": [],
+   "samples": [],
+   "observedRange": [
+    1.0,
+    1.0
+   ]
   }
  ],
  "unmapped": [
@@ -47604,5 +51065,213 @@
    "host": "fx_bus_2_param_16",
    "reason": "FX slot param: generic unbound host slot; with FX modules loaded in the rack, setting it changes neither FXRack state nor display (needs GUI binding)"
   }
- ]
+ ],
+ "fxDefaults": {
+  "FXBode": {
+   "kParamBeatSync": 0.0,
+   "kParamBlur": 0.0,
+   "kParamDelayBalance": 0.0,
+   "kParamDelayTime": 0.0005,
+   "kParamEnable": 1.0,
+   "kParamFeedback": 0.0,
+   "kParamLevelOut": 0.5,
+   "kParamMonoInput": 0.0,
+   "kParamOutputMix": 0.0,
+   "kParamOutputWidth": 100.0,
+   "kParamRange": 22.360679774997898,
+   "kParamRetrig": 0.0,
+   "kParamShift": 0.0,
+   "kParamSwapAB": 0.0,
+   "kParamWet": 100.0
+  },
+  "FXChorus": {
+   "kParamBeatSync": 0.0,
+   "kParamDelay": 5.0,
+   "kParamDelay2": 0.0,
+   "kParamDepth": 26.0,
+   "kParamEnable": 1.0,
+   "kParamFeedback": 9.5,
+   "kParamFilt": 1000.0,
+   "kParamFiltMode": 0.0,
+   "kParamLevelOut": 0.5,
+   "kParamRate": 0.078125,
+   "kParamSwing": 0.0,
+   "kParamWet": 50.0
+  },
+  "FXComp": {
+   "kParamAttack": 90.09100000135601,
+   "kParamBypassDown1": 0.0,
+   "kParamBypassDown2": 0.0,
+   "kParamBypassDown3": 0.0,
+   "kParamBypassUp1": 0.0,
+   "kParamBypassUp2": 0.0,
+   "kParamBypassUp3": 0.0,
+   "kParamCompensatedWetDry": 1.0,
+   "kParamDeadband0": 0.19047619047619047,
+   "kParamDeadband1": 0.4095238095238095,
+   "kParamDeadband2": 0.10952380952380951,
+   "kParamEnable": 1.0,
+   "kParamGain0": 0.0,
+   "kParamGain1": 0.0,
+   "kParamGain2": 0.0,
+   "kParamLevelOut": 0.5,
+   "kParamLimiterLatencyComp": 0.0,
+   "kParamMakeup": 1.0,
+   "kParamMultiband": 0.0,
+   "kParamRatio": 3.9999880000359997,
+   "kParamRatio0": 1.0,
+   "kParamRatio1": 1.0,
+   "kParamRatio2": 1.0,
+   "kParamRatioBelow": 0.0,
+   "kParamRatioBelow0": 1.0,
+   "kParamRatioBelow1": 1.0,
+   "kParamRatioBelow2": 1.0,
+   "kParamRelease": 90.09100000135601,
+   "kParamThresh": 0.5,
+   "kParamThreshUD0": 100.0,
+   "kParamThreshUD1": 100.0,
+   "kParamThreshUD2": 100.0,
+   "kParamWet": 100.0,
+   "kParamXoverHi": 2500.0000004118756,
+   "kParamXoverLow": 128.29653151726316
+  },
+  "FXConv": {
+   "kParamAttack": 0.0,
+   "kParamDamping": 0.0,
+   "kParamDecay": 40.0,
+   "kParamEnable": 1.0,
+   "kParamIpTrim": -18.0,
+   "kParamLevelOut": 0.5,
+   "kParamMinPhase": 0.0,
+   "kParamPredelay": 0.0,
+   "kParamPredelayBeatSync": 0.0,
+   "kParamSize": 100.0,
+   "kParamTone": 0.0,
+   "kParamWet": 20.0
+  },
+  "FXDelay": {
+   "kParamBW": 6.75,
+   "kParamBeatSync": 1.0,
+   "kParamEnable": 1.0,
+   "kParamFeedback": 40.0,
+   "kParamFreq": 848.5281374238571,
+   "kParamHQ": 1.0,
+   "kParamLevelOut": 0.5,
+   "kParamLink": 0.0,
+   "kParamMode": 0.0,
+   "kParamOffsetL": 1.0,
+   "kParamOffsetR": 1.0,
+   "kParamTimeL": 0.0772939453125,
+   "kParamTimeR": 0.0772939453125,
+   "kParamWet": 30.0
+  },
+  "FXDistortion": {
+   "kParamBW": 1.95,
+   "kParamDrive": 25.0,
+   "kParamEnable": 1.0,
+   "kParamFreq": 425.0119847269321,
+   "kParamKeyTrack": 0.0,
+   "kParamLPHP": 0.0,
+   "kParamLevelOut": 0.5,
+   "kParamMode": 0.0,
+   "kParamNumStages": 1.0,
+   "kParamPrePost": 0.0,
+   "kParamWet": 100.0
+  },
+  "FXEQ": {
+   "kParamEnable": 1.0,
+   "kParamFreq1": 209.616962917974,
+   "kParamFreq2": 2040.5359441367445,
+   "kParamGain1": 0.0,
+   "kParamGain2": 0.0,
+   "kParamLevelOut": 0.5,
+   "kParamReso1": 60.0,
+   "kParamReso2": 60.0,
+   "kParamType1": 0.0,
+   "kParamType2": 0.0
+  },
+  "FXFilter": {
+   "kParamDrive": 0.0,
+   "kParamEnable": 1.0,
+   "kParamFreq": 425.0119847269321,
+   "kParamKeyTrack": 0.0,
+   "kParamLevelOut": 0.5,
+   "kParamPad": 0.0,
+   "kParamReso": 0.0,
+   "kParamStereo": 50.0,
+   "kParamType": 0.0,
+   "kParamVar": 0.0,
+   "kParamWet": 100.0,
+   "kParamX": 0.0,
+   "kParamY": 0.0
+  },
+  "FXFlanger": {
+   "kParamBeatSync": 0.0,
+   "kParamDepth": 100.0,
+   "kParamEnable": 1.0,
+   "kParamFeedback": 50.0,
+   "kParamLevelOut": 0.5,
+   "kParamRate": 0.078125,
+   "kParamSwing": 0.0,
+   "kParamWet": 100.0,
+   "kParamWidth": 180.0
+  },
+  "FXHyperD": {
+   "kParamDetune": 25.0,
+   "kParamDimELevelOut": 0.5,
+   "kParamDimESize": 50.0,
+   "kParamDimEWet": 0.0,
+   "kParamEnable": 1.0,
+   "kParamLevelOut": 0.5,
+   "kParamRate": 40.0,
+   "kParamRetrig": 0.0,
+   "kParamUnison": 4.0,
+   "kParamWet": 50.0
+  },
+  "FXPhaser": {
+   "kParamBeatSync": 0.0,
+   "kParamDepth": 50.0,
+   "kParamDepth2": 0.5,
+   "kParamEnable": 1.0,
+   "kParamFeedback": 80.0,
+   "kParamFreq": 600.0,
+   "kParamLevelOut": 0.5,
+   "kParamNumPoles": 4.0,
+   "kParamRate": 0.078125,
+   "kParamSwing": 0.0,
+   "kParamWet": 100.0,
+   "kParamWidth": 180.0
+  },
+  "FXReverb": {
+   "kParamDelay": 30.624999999999996,
+   "kParamEnable": 1.0,
+   "kParamFeedback": 25.0,
+   "kParamFreq": 0.0,
+   "kParamFreqB": 35.0,
+   "kParamFreqC": 70.0,
+   "kParamLevelOut": 0.5,
+   "kParamMode": 70.0,
+   "kParamPreDelay": 0.0,
+   "kParamPreDelayBeatSync": 0.0,
+   "kParamSize": 35.0,
+   "kParamType": 0.0,
+   "kParamVintageScale": 70.0,
+   "kParamVintageScaleB": 70.0,
+   "kParamWet": 20.0,
+   "kParamWidth": 20.0
+  },
+  "FXUtils": {
+   "kParamBalance": 0.0,
+   "kParamEnable": 1.0,
+   "kParamHPF": 1.0,
+   "kParamLFMono": 0.0,
+   "kParamLFXover": 90.0,
+   "kParamLPF": 20000.0,
+   "kParamLevelOut": 0.5,
+   "kParamPolarityL": 0.0,
+   "kParamPolarityR": 0.0,
+   "kParamWet": 100.0,
+   "kParamWidth": 100.0
+  }
+ }
 }

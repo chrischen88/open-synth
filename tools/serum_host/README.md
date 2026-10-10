@@ -42,8 +42,14 @@ Things worth knowing:
 * The state stores only non-default values; a missing key is the default.
 * Some params are slow to settle (e.g. turning an oscillator off takes ~10 s).
 * Host `fx_main_param_N` / `fx_bus_N_param_N` are generic slots that are not bound to the FX
-  modules without the GUI; they are skipped. FX default plain values are visible in the
+  modules without the GUI; they are skipped. This holds for the "Serum 2 FX" plugin in the same bundle
+  too (identical 2621 params, same generic slots; effect plugin needs audio input to `settle`), even with
+  FX loaded in all three racks. FX default plain values are visible in the
   controller state (`FXRackN.FX[i].defaultPlainValues`).
+* Because no knob->display measurement exists for FX params, `sweep fx` records only
+  `fxDefaults` (controller defaults per FX type) and `"source": "observed"` entries
+  (`FXRack0/FX[0]/<FXType>.<param>`, `transform: null`, `observedRange` from the schema). Run `fx` after
+  `fit` (`fit` rewrites the file without FX entries): `python -m serum_host.sweep fx --units ... --schema ...`.
 
 ```
 python -m serum_host.sweep collect  --cache /tmp/sweep.json          # resumable; ~10 min split over 6 processes (--shard k/6, one cache each; fit takes comma-separated caches)

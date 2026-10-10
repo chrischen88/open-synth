@@ -22,12 +22,18 @@ cargo build --release -p osyn-mcp
 claude mcp add open-synth -- "$PWD/target/release/osyn-mcp"
 ```
 
+FX params take Serum's stored values. `describe_params` shows Serum's real defaults for them, and the ranges seen in
+factory presets: Serum only binds FX knobs to host automation through its GUI, so they cannot be measured
+headlessly.
+
 Values can be given the way Serum displays them (`"800 Hz"`, `"5 ms"`, `"-6 dB"`, `"Acid Ladder"`), as a
 knob position (`{"knob": 0.5}`), or as the raw stored number. `get_patch` shows both.
 
 Other tools:
 - **Wavetables:** `list_wavetables`, and `set_wavetable`, which takes a Serum library table, an imported WAV,
   morphing shapes, harmonic keyframes or a formula. Generated tables are embedded in the preset.
+- **Samples:** `list_samples`, `set_sample` (sample, granular or spectral oscillator, from Serum's Samples library
+  or an imported WAV) and `set_multisample` (SFZ instruments from Serum's Multisamples library).
 - **LFOs:** `set_lfo_shape` draws a shape.
 - **Auditioning:** `render` plays the patch through your installed Serum 2. It returns loudness, spectrum, an
   envelope and a spectrogram image, and needs `tools/serum_host/setup.sh` to have been run once.
